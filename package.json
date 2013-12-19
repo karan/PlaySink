@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"description": "Omegele for music listeners",
 	"dependencies": {},
-	"contributors":
+	"contributors": [
 	{
 		"name": "Sean Aryana",
 		"email": "seanaryana@gmail.com"
@@ -11,5 +11,5 @@
 	{
 		"name": "Karan Goel",
 		"email": "karan@goel.im"
-	}
+	}]
 }
