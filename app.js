@@ -8,7 +8,7 @@ app.set('view engine', 'jade');
 app.engine('jade', require('jade').__express)
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 
 // Homepage render
@@ -16,6 +16,11 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.post('/', function(req, res) {
+	var username = req.body.username;
+	var password = req.body.password;
+	log(username + ' ' + password);
+});
+
 app.listen(port);
 log('Listening on port ' + port);
-log(app.get('view engine'));

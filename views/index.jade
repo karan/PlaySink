@@ -3,5 +3,16 @@ html
 	head
 		title PlaySink
 	body
-		h1 PlaySink
-		p Pretty fucking awesome!
+		div#menu
+			form(method='post')
+				span#home PlaySink
+				input(type='submit' value='Sign In')
+				input(type='password' name='password' size='10' placeholder='password')
+				input(type='text' name='username' size='10' placeholder='username')
+		div#content
+			h1 Welcome to PlaySink
+			div#descr We are a service that allows user to connect to one another and play music according to your intersts.
+		style
+			input { float: right; }
+			#home { float: left; }
+			#menu { overflow: hidden; background-color: gray; padding: 5px; }
