@@ -2,7 +2,13 @@
 	"name": "PlaySink",
 	"version": "0.0.0",
 	"description": "Omegele for music listeners",
-	"dependencies": {},
+	"dependencies": {
+		"express" : "latest",
+		"mongo" : "latest",
+		"angular" : "latest",
+		"socket.io" : "latest",
+		"jade" : "latest"
+	},
 	"contributors": [
 	{
 		"name": "Sean Aryana",
