@@ -13,9 +13,11 @@ I have added a basic directory layout that needs to be fixed in the future when 
 After downloading mongodb you need to connect to the database and start it (I think). This can be done by using the commmand in terminal "sudo mongod --dbpath ~/{get to playsing}/PlaySink/data" and it should start listening. In another tab you can start a mongo shell. There are tutorials online that I have only glazed over (probabaly why I can't get it to work haven't done one all the way through just thought I could pick things off). Just to see if the data is there you can do the following commands.
 
 use PlaySink
+
 db.usercollection.find().pretty()
 
 Insert data
+
 db.usercollection.insert({"username": name, "password": pass, "email": email}) // it uses JSON which is awesome make sure you enter it in all the same way
 
 But if you look at the source code I'm using monk to connect to DB because from what I read should make it easier. Then when you conect to the homepage it should print all the users but get the error that can't find DB or whatever.
