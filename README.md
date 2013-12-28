@@ -15,7 +15,7 @@ I have added a basic directory layout that needs to be fixed in the future when 
 
 ### What doesn't quite work
 
-![Image](../blob/master/docs-internal/img/dashboard.png?raw=true)
+![Image](../master/docs-internal/img/dashboard.png?raw=true)
 
 #### The server
 
