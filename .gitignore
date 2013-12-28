@@ -12,4 +12,6 @@ logs
 results
 build
 
+.DS_Store
+
 node_modules
