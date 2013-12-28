@@ -3,7 +3,7 @@ var app = express();
 var port = 1234;
 var log = console.log;
 
-// Connects to database
+// Connects to database (not working)
 var mongo = require('mongodb');
 var db = require('monk')('localhost/PlaySink');
 
@@ -19,6 +19,8 @@ app.use(express.static(__dirname + '/public'));
 // Homepage render
 app.get('/', function(req, res) {
 	res.render('index');
+
+	// Trying to print all users in DB
 	var c = db.usercollection.find();
 	while (c.hasNext) {
 		printjson(c.next());
@@ -30,6 +32,8 @@ app.get('/', function(req, res) {
 app.post('/', function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
+
+	// Prints username and password, page waits for response there is none.
 	log(username + ' ' + password);
 });
 

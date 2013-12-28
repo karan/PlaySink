@@ -1,2 +1,35 @@
 PlaySink
 ====
+
+Required downloads are NodeJS and MongoDB. Do an "sudo npm install" downloads the dependencies (angular, express, jade, mongodb, monk).
+
+###What has been done
+
+I have added a basic directory layout that needs to be fixed in the future when we decide what we need. I did the basic setup with express so it stars the server properly listening on port 1234. It can be accesd from "http://localhost:1234/". Added just a basic page so we can get the login to work becuase that seems like a resonable goal.
+
+###What doesn't quite work
+
+####The server...
+After downloading mongodb you need to connect to the database and start it (I think). This can be done by using the commmand in terminal "sudo mongod --dbpath ~/{get to playsing}/PlaySink/data" and it should start listening. In another tab you can start a mongo shell. There are tutorials online that I have only glazed over (probabaly why I can't get it to work haven't done one all the way through just thought I could pick things off). Just to see if the data is there you can do the following commands.
+
+use PlaySink
+db.usercollection.find().pretty()
+
+Insert data
+db.usercollection.insert({"username": name, "password": pass, "email": email}) // it uses JSON which is awesome make sure you enter it in all the same way
+
+But if you look at the source code I'm using monk to connect to DB because from what I read should make it easier. Then when you conect to the homepage it should print all the users but get the error that can't find DB or whatever.
+
+###What need to be done
+I think a resonable short term goal is to try to get a logging in system. Using the database to store the email and what not. We should consider logging in with facebook/twitter/google because we need to make the log in as easy as absolutely possible since that is the one thing that will detract users.
+
+### Links that have helped
+Sites:
+express/mongo/jade
+http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+
+mean:
+http://mean.io/
+
+Seems legit
+http://howtonode.org/express-mongodb
