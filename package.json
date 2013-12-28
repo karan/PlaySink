@@ -4,10 +4,10 @@
 	"description": "Omegele for music listeners",
 	"dependencies": {
 		"express" : "latest",
-		"mongo" : "latest",
+		"mongodb" : "latest",
 		"angular" : "latest",
-		"socket.io" : "latest",
-		"jade" : "latest"
+		"jade" : "latest",
+		"monk" : "latest"
 	},
 	"contributors": [
 	{
