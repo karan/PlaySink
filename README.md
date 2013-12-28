@@ -1,13 +1,21 @@
 PlaySink
 ====
 
-Required downloads are NodeJS and MongoDB. Do an "sudo npm install" downloads the dependencies (angular, express, jade, mongodb, monk). Angular is used for data injections in the page. Has not been implemented yet since we haven't gotten to a place that acutal requires this. It makes the MVC design much better from my understanding. Express is the framework that handles routes and making the server. So far this has made the code more readable. Jade gets compiled into html it will help the future so we can reuse pages and what not and apparently jade and angular work well with each other. Mongodb is the database we are using that uses JSON as the data being stored. I'm not entirely sure that this is what we should be using but we can do a lot with it and it is supposed to be fairly easy. Monk I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
+Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads the dependencies (**angular, express, jade, mongodb, monk**). 
+
+- Angular is used for data injections in the page. Has not been implemented yet since we haven't gotten to a place that acutal requires this. It makes the MVC design much better from my understanding. 
+- Express is the framework that handles routes and making the server. So far this has made the code more readable. 
+- Jade gets compiled into html it will help the future so we can reuse pages and what not and apparently jade and angular work well with each other. 
+- Mongodb is the database we are using that uses JSON as the data being stored. I'm not entirely sure that this is what we should be using but we can do a lot with it and it is supposed to be fairly easy. 
+- Monk I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
 
 ###What has been done
 
 I have added a basic directory layout that needs to be fixed in the future when we decide what we need. I did the basic setup with express so it stars the server properly listening on port 1234. After starting the server "node app.js" it can be accesd from "http://localhost:1234/". Added just a basic page so we can get the login to work becuase that seems like a resonable goal.
 
 ###What doesn't quite work
+
+![Image](https://raw.github.com/karan/PlaySink/master/docs-internal/img/dashboard.png)
 
 ####The server...
 After downloading mongodb you need to connect to the database and start it (I think). This can be done by using the commmand in terminal "sudo mongod --dbpath ~/{get to playsing}/PlaySink/data" and it should start listening. In another tab you can start a mongo shell. There are tutorials online that I have only glazed over (probabaly why I can't get it to work haven't done one all the way through just thought I could pick things off). Just to see if the data is there you can do the following commands.
