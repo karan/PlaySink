@@ -1,6 +1,7 @@
 var path = require('path');
 var http = require('http')
 
+var passport = require('passport');
 var express = require('express');
 var routes = require('./routes'); // import all routes
 
@@ -22,8 +23,6 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
-  app.use('public/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
-  app.use('public/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
 });
 
 // development only

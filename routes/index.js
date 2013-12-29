@@ -39,6 +39,7 @@ exports.adduser = function(db) {
 		// get the form values from "name" attribute
 		var username = req.body.username;
 		var email = req.body.useremail;
+		var password = req.body.userpassword;
 
 		// set out collection from database
 		var collection = db.get('users');
@@ -46,10 +47,11 @@ exports.adduser = function(db) {
 		// submit to db
 		collection.insert({
 			'username': username,
+			'password': password,
 			'email': email
 		}, function(err, doc) {
 			if (err) {
-				// if it ailed
+				// if it failed
 				res.send('Problem adding to DB');
 			} else {
 				// success, so redirect to userlist
