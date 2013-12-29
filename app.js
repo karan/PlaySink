@@ -1,3 +1,6 @@
+//TODO Use passport to authenticate
+//TODO Use passport-facebook to authenticate
+
 /*===== require dependencies =====*/
 var path = require('path');
 var http = require('http')
@@ -53,14 +56,14 @@ app.use(function(req, res, next){
 	// the status option, or res.statusCode = 404
 	// are equivalent, however with the option we
 	// get the "status" local available as well
-	res.render('/errors/404', {url: req.url});
+	res.render('errors/404', {url: req.url});
 });
 
 app.use(function(err, req, res, next){
 	// we may use properties of the error object
 	// here and next(err) appropriately, or if
 	// we possibly recovered from the error, simply next().
-  res.render('/errors/500')
+  res.render('errors/500')
 });
 /*===== Error Handlers =====*/
 

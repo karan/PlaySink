@@ -1,3 +1,6 @@
+//TODO: Validate email
+//TODO: Validate username, password
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs'); // http://codahale.com/how-to-safely-store-a-password/

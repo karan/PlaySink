@@ -30,18 +30,25 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 	|   |-- javascripts
 	|   |-- stylesheets 
 	|-- routes        /* The URL routes                    */
+	|-- tests         /* Should hold all unit tests        */
 	|-- views         /* The templates for the 'views'     */
+	|   |-- errors
+	|   |-- includes
+	|   |-- layouts
+	|   |-- users
 
 ## TODO
 
-- [ ] Make a simple dashboard that usee sees after login
+Maintain a macro TODO list on top of each file.
+
+- [x] Make a simple dashboard that usee sees after login
+- [ ] User sign-up input validation
 - [ ] Simple user/pwd authentication using passport
 - [ ] Facebook authentication using passport-facebook
 - [ ] Make the login/signup link into a modal window (jquery)
-
-### What has been done
-
-I have added a basic directory layout that needs to be fixed in the future when we decide what we need. I did the basic setup with express so it starts the server properly listening on port 8888. After starting the server `node app.js` it can be accessed from `http://localhost:8888/`. Added just a basic page so we can get the login to work becuase that seems like a resonable goal.
+- [ ] Logging capabilities, maybe just save in a txt file, lookup node logging modules
+- [ ] Setup admin capabilities
+- [ ] Make a simple admin area for all stats using logging
 
 ### What doesn't quite work
 
@@ -49,7 +56,7 @@ I have added a basic directory layout that needs to be fixed in the future when 
 
 #### The server
 
-After downloading mongodb you need to connect to the database and start it (I think). This can be done by using the commmand in terminal `mongod --dbpath ~/path/to/PlaySink/data` and it should start listening. In another tab you can start a mongo shell. There are tutorials online that I have only glazed over (probabaly why I can't get it to work haven't done one all the way through just thought I could pick things off). Just to see if the data is there you can do the following commands.
+After downloading mongodb you need to connect to the database and start it. This can be done by using the commmand in terminal `mongod --dbpath ~/path/to/PlaySink/data` and it should start listening. In another tab you can start a `mongo` shell. Just to see if the data is there you can do the following commands.
 
     use playsinkdb  // database to use
 
@@ -57,10 +64,6 @@ After downloading mongodb you need to connect to the database and start it (I th
 
     db.usercollection.insert({"username": name, "password": pass, "email": email}) // it uses JSON which is awesome make sure you enter it in all the same way
 
-
-### What need to be done
-
-I think a resonable short term goal is to try to get a logging in system. Using the database to store the email and what not. We should consider logging in with facebook/twitter because we need to make the log in as easy as absolutely possible since that is the one thing that will detract users.
 
 ### Links that have helped
 
