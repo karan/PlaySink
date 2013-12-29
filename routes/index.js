@@ -31,7 +31,6 @@ exports.signup = function(req, res) {
 
 /*
 	POST new user to db
-	View: none
 */
 exports.adduser = function(req, res) {
 	// get the form values from "name" attribute
@@ -70,7 +69,6 @@ exports.signin = function(req, res) {
 
 /*
 	Actually logs in the user
-	view: /users/login
 */
 exports.login = function(req, res) {
 	// get the form fields
@@ -108,8 +106,16 @@ exports.login = function(req, res) {
 }
 
 /*
+	Logout the user and redirect to homepage.
+*/
+exports.logout = function(req, res) {
+	req.logout();
+	res.redirect('/');
+}
+
+/*
 	The dashboard aka main app.
 */
 exports.dashboard = function(req, res) {
-	res.render('dashboard');
+	res.render('dashboard', {user: req.user});
 }

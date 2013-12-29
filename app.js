@@ -9,6 +9,7 @@ var flash = require('connect-flash');
 var routes = require('./routes');
 var db = require('./models/db'); // Database connection
 var express = require('express');
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 /*===== require dependencies =====*/
@@ -29,8 +30,27 @@ app.configure(function(){
 	app.use(express.cookieParser('keyboard cat'));
 	app.use(express.session({ cookie: { maxAge: 60000 }}));
 	app.use(flash());
+	app.use(passport.initialize());
+	app.use(passport.session());
 	app.use(app.router);
 });
+
+
+// This lets authentication know how it should store
+// and grab users from a request to pass to a mapping
+// function.
+passport.serializeUser(function (user, done) {
+	done(null, user._id);
+});
+
+passport.deserializeUser(function (id, done) {
+	Users.findOne({
+		_id: db.bson.ObjectID(id)
+	}, function (err, user) {
+		done(err, user);
+	});
+});
+
 
 // development only
 if ('development' == app.get('env')) {
@@ -42,10 +62,12 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/userlist', routes.userlist);
 
-app.get('/signup', routes.signup);
+//app.get('/signup', routes.signup);
 app.post('/signup', routes.adduser);
 
-app.get('/signin', routes.signin);
+app.get('/logout', routes.logout);
+
+//app.get('/signin', routes.signin);
 app.post('/signin', routes.login)
 
 app.get('/dashboard', routes.dashboard);

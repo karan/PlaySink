@@ -3,20 +3,29 @@ extends layouts/default
 block content
 	h1= title
 	p Welcome to #{title}
-	h2.
-		Options
-	ul
-		li
-			a(href="/userlist") User List
-		if user !== null
-			li
-				a(href="/dashboard") Dashboard
-			li
-				a(href="/profile") Profile
-			li
-				a(href="/logout") Logout
-		else
-			li
-				a(href="/signup") Sign Up
-			li
-				a(href="signin") Sign In
+
+	// Use jquery to create modal forms here
+	#signupform
+		h1 Sign Up
+
+		if messages && messages.length
+			for message in messages
+				p #{message}
+
+		form#formAddUser(name="adduser", method="post", action="/signup")
+			input#inputUserName(type="text", placeholder="username", name="username")
+			input#inputPassword(type="password", placeholder="password", name="userpassword")
+			input#inputUserEmail(type="text", placeholder="email", name="useremail")
+			button#btnSubmit(type="submit") Sign Up
+
+	#loginform
+		h1 Login
+
+		if messages && messages.length
+			for message in messages
+				p #{message}
+
+		form#formSignIn(name="signin", method="post", action="/signin")
+			input#inputUserName(type="text", placeholder="username", name="username")
+			input#inputPassword(type="password", placeholder="password", name="userpassword")
+			button#btnSubmit(type="submit") Login

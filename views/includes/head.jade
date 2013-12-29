@@ -21,6 +21,21 @@ head
 	meta(property='fb:admins', content='APP_ADMIN')
 
 	link(rel='stylesheet', href='/stylesheets/style.css')
+	script(src='/javascripts/jquery-2.0.3.js')
+	script(src='/javascripts/custom.js')
 
 	//if lt IE 9
 		script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+
+body
+	header
+		ul
+		// if else block goes here
+		li
+			a(href="/userlist") User List
+		li
+			a(href="/dashboard") Dashboard
+		li
+			a(href="/profile") Profile
+		li
+			a(href="/logout") Logout
