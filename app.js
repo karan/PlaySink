@@ -11,7 +11,6 @@ var db = require('./models/db'); // Database connection
 var express = require('express');
 
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 /*===== require dependencies =====*/
 
 var app = express(); // create an express app
@@ -26,7 +25,6 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.static(path.join(__dirname, 'public')));
-
 	app.use(express.cookieParser('keyboard cat'));
 	app.use(express.session({ cookie: { maxAge: 60000 }}));
 	app.use(flash());
@@ -51,6 +49,11 @@ passport.deserializeUser(function (id, done) {
 	});
 });
 
+// checks if the user is authenticated or not
+function isAuthenticated(req, res, next) {
+	if (req.isAuthenticated()) { return next(); }
+	res.redirect('/');
+};
 
 // development only
 if ('development' == app.get('env')) {
@@ -68,7 +71,11 @@ app.post('/signup', routes.adduser);
 app.get('/logout', routes.logout);
 
 //app.get('/signin', routes.signin);
-app.post('/signin', routes.login)
+//app.post('/signin', routes.login)
+
+app.post('/signin',
+	passport.authenticate('local', {successRedirect: '/dashboard', failureRedirect: '/', failureFlash: true })
+);
 
 app.get('/dashboard', routes.dashboard);
 /*===== URL Routers =====*/

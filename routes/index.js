@@ -117,5 +117,7 @@ exports.logout = function(req, res) {
 	The dashboard aka main app.
 */
 exports.dashboard = function(req, res) {
-	res.render('dashboard', {user: req.user});
+	user = req.user;
+	console.log(user);
+	res.render('dashboard', {user: user});
 }

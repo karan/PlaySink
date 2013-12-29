@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs'); // http://codahale.com/how-to-safely-store-a-password/
 var validate = require('mongoose-validator').validate;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var SALT_WORK_FACTOR = 10;
 
@@ -91,6 +93,7 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
 };
 
 
+/*
 // gets authenticated user, error otherwise
 // http://devsmash.com/blog/implementing-max-login-attempts-with-mongoose
 userSchema.statics.getAuthenticated = function(username, password, callback) {
@@ -115,6 +118,32 @@ userSchema.statics.getAuthenticated = function(username, password, callback) {
 			return callback(null, null, reasons.PASSWORD_INCORRECT);
 		});
 	});
-};
+};*/
+
+passport.use(new LocalStrategy(
+	function(username, password, callback) {
+		this.findOne({username: username}, function(err, user) {
+			if (err) return callback(err);
+
+			// make sure the user exists
+			if (!user) {
+				return callback(null, false, {message: reasons.NOT_FOUND});
+			}
+
+			// test for a matching password
+			user.comparePassword(password, function(err, isMatch) {
+				if (err) return callback(err);
+
+				// check if password was a match
+				if (isMatch) {
+					return callback(null, user);
+				}
+
+				// password incorrect
+				return callback(null, false, {message: reasons.PASSWORD_INCORRECT});
+			}); // end comparePassword
+		}); // end findOne
+	}
+));
 
 module.exports = mongoose.model('User', userSchema);
