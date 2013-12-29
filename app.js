@@ -6,9 +6,7 @@ var express = require('express');
 var routes = require('./routes'); // import all routes
 
 // Database connection
-var mongo = require('mongodb');
-var monk = require('monk'); // we use monk to interact with db
-var db = monk('localhost:27017/playsinkdb'); // default port for mongo, db name
+var db = require('./models/db');
 
 var app = express(); // create an express app
 
@@ -31,9 +29,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/userlist', routes.userlist(db)); // pass db to userlist route
+app.get('/userlist', routes.userlist); // pass db to userlist route
 app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser(db)); // POST to db
+app.post('/adduser', routes.adduser); // POST to db
 
 
 /*===== Error Handlers =====*/

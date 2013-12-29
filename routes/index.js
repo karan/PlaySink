@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+var User = require('../models/User');
+
 /*
 	Homepage router.
 	View: index
