@@ -11,20 +11,21 @@ exports.index = function(req, res){
 
 /*
 	Will show a list of all users
-	View: userlist
+	View: /users/userlist
 */
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
-		res.render('userlist', {'userlist': docs});
+		res.render('users/userlist', {'userlist': docs});
 	});
 }
 
 /*
 	Handles sign up page.
-	View: signup
+	View: /users/signup
 */
 exports.signup = function(req, res) {
-	res.render('signup', {title: 'Sign Up'});
+	console.log(req.flash('error'));
+	res.render('users/signup', {message: req.flash('error')});
 }
 
 /*
@@ -43,11 +44,9 @@ exports.adduser = function(req, res) {
 	// Check if username exists
 	User.findOne({'username': username}, function(err, user) {
 		if (user) {
-			console.log('user exists');
-			//req.flash('error', 'Username exists');
-			res.redirect('signup');
+			req.flash('error', 'Username already exists');
+			res.redirect('users/signup');
 		} else {
-			console.log('user does NOT exists');
 			var user = new User({
 				'username': username,
 				'password': password,
@@ -57,11 +56,11 @@ exports.adduser = function(req, res) {
 				if (err) {
 					// if it failed
 					console.log('something went wrong..');
-					res.redirect('/signup');
+					res.redirect('users/signup');
 				} else {
 					// success, so redirect to dashboard
-					res.location('dashboard'); // don't want address bar to say adduser anymore
-					res.redirect('dashboard');
+					res.location('/dashboard'); // don't want address bar to say adduser anymore
+					res.redirect('/dashboard');
 				}
 			});
 		}
@@ -70,20 +69,23 @@ exports.adduser = function(req, res) {
 
 /*
 	Displays the signin page
-	View: signin
+	View: /users/signin
 */
 exports.signin = function(req, res) {
-	res.render('signin', {title: 'Sign In'});
+	res.render('users/signin', {title: 'Sign In'});
 }
 
 /*
 	Actually logs in the user
-	view: login
+	view: /users/login
 */
 exports.login = function(req, res) {
 	res.render('login');
 }
 
+/*
+	The dashboard aka main app.
+*/
 exports.dashboard = function(req, res) {
 	res.render('dashboard');
 }

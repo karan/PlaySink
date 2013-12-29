@@ -21,12 +21,12 @@ app.configure(function(){
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	app.use(app.router);
 	app.use(express.static(path.join(__dirname, 'public')));
 
 	app.use(express.cookieParser('keyboard cat'));
 	app.use(express.session({ cookie: { maxAge: 60000 }}));
 	app.use(flash());
+	app.use(app.router);
 });
 
 // development only
@@ -53,14 +53,14 @@ app.use(function(req, res, next){
 	// the status option, or res.statusCode = 404
 	// are equivalent, however with the option we
 	// get the "status" local available as well
-	res.render('404', {url: req.url});
+	res.render('/errors/404', {url: req.url});
 });
 
 app.use(function(err, req, res, next){
 	// we may use properties of the error object
 	// here and next(err) appropriately, or if
 	// we possibly recovered from the error, simply next().
-  res.render('500')
+  res.render('/errors/500')
 });
 /*===== Error Handlers =====*/
 

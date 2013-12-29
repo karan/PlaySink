@@ -1,10 +1,10 @@
-extends layout
+extends ../layouts/default
 
 block content
-	h1= title
+	h1 Sign Up
 
-	if messages
-		p= messages
+	if message && message.length
+		strong #{message}
 
 	form#formAddUser(name="adduser", method="post", action="/signup")
 		input#inputUserName(type="text", placeholder="username", name="username")
