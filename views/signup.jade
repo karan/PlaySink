@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+
+	if messages
+		p= messages
+
+	form#formAddUser(name="adduser", method="post", action="/signup")
+		input#inputUserName(type="text", placeholder="username", name="username")
+		input#inputPassword(type="password", placeholder="password", name="userpassword")
+		input#inputUserEmail(type="text", placeholder="email", name="useremail")
+		button#btnSubmit(type="submit") Sign Up

@@ -1,25 +1,32 @@
+/*===== require dependencies =====*/
 var path = require('path');
 var http = require('http')
 
+var flash = require('connect-flash');
+var routes = require('./routes');
+var db = require('./models/db'); // Database connection
 var express = require('express');
-var routes = require('./routes'); // import all routes
-
-// Database connection
-var db = require('./models/db');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+/*===== require dependencies =====*/
 
 var app = express(); // create an express app
 
 // configure environments
 app.configure(function(){
-  app.set('port', process.env.PORT || 8888);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
+	app.set('port', process.env.PORT || 8888);
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
+	app.use(express.favicon());
+	app.use(express.logger('dev'));
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use(app.router);
+	app.use(express.static(path.join(__dirname, 'public')));
+
+	app.use(express.cookieParser('keyboard cat'));
+	app.use(express.session({ cookie: { maxAge: 60000 }}));
+	app.use(flash());
 });
 
 // development only
@@ -27,24 +34,32 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
+
+/*===== URL Routers =====*/
 app.get('/', routes.index);
 app.get('/userlist', routes.userlist);
-app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser);
 
+app.get('/signup', routes.signup);
+app.post('/signup', routes.adduser);
+
+app.get('/signin', routes.signin);
+app.post('/signin', routes.login)
+
+app.get('/dashboard', routes.dashboard);
+/*===== URL Routers =====*/
 
 /*===== Error Handlers =====*/
 app.use(function(req, res, next){
-  // the status option, or res.statusCode = 404
-  // are equivalent, however with the option we
-  // get the "status" local available as well
-  res.render('404', {url: req.url});
+	// the status option, or res.statusCode = 404
+	// are equivalent, however with the option we
+	// get the "status" local available as well
+	res.render('404', {url: req.url});
 });
 
 app.use(function(err, req, res, next){
-  // we may use properties of the error object
-  // here and next(err) appropriately, or if
-  // we possibly recovered from the error, simply next().
+	// we may use properties of the error object
+	// here and next(err) appropriately, or if
+	// we possibly recovered from the error, simply next().
   res.render('500')
 });
 /*===== Error Handlers =====*/

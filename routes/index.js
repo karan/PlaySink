@@ -21,10 +21,10 @@ exports.userlist = function(req, res) {
 
 /*
 	Handles sign up page.
-	View: newuser
+	View: signup
 */
-exports.newuser = function(req, res) {
-	res.render('newuser', {title: 'Sign Up'});
+exports.signup = function(req, res) {
+	res.render('signup', {title: 'Sign Up'});
 }
 
 /*
@@ -38,19 +38,52 @@ exports.adduser = function(req, res) {
 	var email = req.body.useremail;
 	var password = req.body.userpassword;
 
-	User.create({
-		'username': username,
-		'password': password,
-		'email': email
-	}, function(err, user) {
-		if (err) {
-			// if it failed
-			res.send('Problem adding to DB');
+	//TODO: Validate email
+	//TODO: Flash messages
+	// Check if username exists
+	User.findOne({'username': username}, function(err, user) {
+		if (user) {
+			console.log('user exists');
+			//req.flash('error', 'Username exists');
+			res.redirect('signup');
 		} else {
-			console.log(user);
-			// success, so redirect to userlist
-			res.location('userlist'); // don't want address bar to say adduser anymore
-			res.redirect('userlist');
+			console.log('user does NOT exists');
+			var user = new User({
+				'username': username,
+				'password': password,
+				'email': email
+			});
+			user.save(function(err) {
+				if (err) {
+					// if it failed
+					console.log('something went wrong..');
+					res.redirect('/signup');
+				} else {
+					// success, so redirect to dashboard
+					res.location('dashboard'); // don't want address bar to say adduser anymore
+					res.redirect('dashboard');
+				}
+			});
 		}
-	})
+	});
+}
+
+/*
+	Displays the signin page
+	View: signin
+*/
+exports.signin = function(req, res) {
+	res.render('signin', {title: 'Sign In'});
+}
+
+/*
+	Actually logs in the user
+	view: login
+*/
+exports.login = function(req, res) {
+	res.render('login');
+}
+
+exports.dashboard = function(req, res) {
+	res.render('dashboard');
 }
