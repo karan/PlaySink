@@ -37,6 +37,7 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 - [ ] Make a simple dashboard that usee sees after login
 - [ ] Simple user/pwd authentication using passport
 - [ ] Facebook authentication using passport-facebook
+- [ ] Make the login/signup link into a modal window (jquery)
 
 ### What has been done
 
