@@ -7,7 +7,7 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 - Express is the framework that handles routes and making the server. So far this has made the code more readable. 
 - Jade gets compiled into html it will help the future so we can reuse pages and what not and apparently jade and angular work well with each other. 
 - Mongodb is the database we are using that uses JSON as the data being stored. I'm not entirely sure that this is what we should be using but we can do a lot with it and it is supposed to be fairly easy. 
-- Monk I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
+- Monk (**Switch to mongoose**) I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
 
     - Install node
     - Install express (`npm install -g express`)
