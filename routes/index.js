@@ -26,7 +26,7 @@ exports.userlist = function(req, res) {
 	View: /users/signup
 */
 exports.signup = function(req, res) {
-	res.render('users/signup', {title: 'Sign Up', message: req.flash('error')});
+	res.render('users/signup', {title: 'Sign Up', messages: req.flash('error')});
 }
 
 /*
@@ -40,28 +40,23 @@ exports.adduser = function(req, res) {
 	var email = req.body.useremail;
 	var password = req.body.userpassword;
 
-	// Check if username exists
-	User.findOne({'username': username}, function(err, user) {
-		if (user) {
-			req.flash('error', 'Username already exists');
+	var user = new User({
+		'username': username,
+		'password': password,
+		'email': email
+	});
+	user.save(function(err) {
+		if (err) {
+			console.log(err);
+			for (var field in err.errors) {
+				var error = err.errors[field].message;
+				req.flash('error', error);
+			}
 			res.redirect('/signup');
 		} else {
-			var user = new User({
-				'username': username,
-				'password': password,
-				'email': email
-			});
-			user.save(function(err) {
-				if (err) {
-					// if it failed
-					req.flash('error', 'Something went wrong!');
-					res.redirect('/signup');
-				} else {
-					// success, so redirect to dashboard
-					res.location('/dashboard'); // don't want address bar to say adduser anymore
-					res.redirect('/dashboard');
-				}
-			});
+			// success, so redirect to dashboard
+			res.location('/dashboard'); // don't want address bar to say adduser anymore
+			res.redirect('/dashboard');
 		}
 	});
 }

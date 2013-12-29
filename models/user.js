@@ -4,26 +4,67 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs'); // http://codahale.com/how-to-safely-store-a-password/
+var validate = require('mongoose-validator').validate;
 
 var SALT_WORK_FACTOR = 10;
 var MAX_LOGIN_ATTEMPTS = 5;
 var LOCK_TIME = 60 * 60 * 1000; // 1 hour
 
+
+var nameValidator = [validate({message: "Username should be between 4 and 30 characters."}, 'len', 4, 30), validate('isAlphanumeric')];
+var emailValidator = [validate({message: "Enter a valid email address."}, 'isEmail')];
+var passwordValidator = [validate({message: "Password should be at least 8 characters."}, 'len', 8, 64)];
+
 var userSchema = new Schema({
-	created_at: {type: Date, default: Date.now},
-	username: {type: String, required: true, unique: true, max: 20},
-	email: {type: String, required: true, unique: true},
-	password: {type: String, required: true, max: 32},
+	created_at: {
+		type: Date, 
+		default: Date.now
+	},
+	username: {
+		type: String, 
+		required: '{PATH} is required!', 
+		unique: true,
+		validate: nameValidator
+	},
+	email: {
+		type: String, 
+		required: '{PATH} is required!', 
+		unique: true,
+		validate: emailValidator
+	},
+	password: {
+		type: String, 
+		required: '{PATH} is required!',
+		validate: passwordValidator
+	},
 	// to lock account after some number of failed attempts
-	loginAttemps: {type: Number, required: true, default: 0}, 
-	lockUntil: {type: Number}
+	loginAttemps: {
+		type: Number, 
+		default: 0
+	}, 
+	lockUntil: {
+		type: Number
+	}
 });
 
-// checks are returns if the user is locked or not
-userSchema.virtual('isLocked').get(function() {
-	// check for a future lockUntil timestamp
-	return !!(this.lockUntil && this.lockUntil > Date.now());
-});
+
+// the below 3 validations only apply if you are signing up traditionally
+userSchema.path('username').validate(function(value, respond) {
+	mongoose.model('User', userSchema).findOne({username: value}, function(err, user) {
+		if(err) throw err;
+		if(user) return respond(false);
+		respond(true);
+	});
+}, 'That username is taken.');
+
+userSchema.path('email').validate(function(value, respond) {
+	mongoose.model('User', userSchema).findOne({email: value}, function(err, user) {
+		if(err) throw err;
+		if(user) return respond(false);
+		respond(true);
+	});
+}, 'That email is associated with another account.');
+
 
 // Always hash a password before saving it to db
 // Mongoose middleware is not invoked on update() operations, 
@@ -48,13 +89,21 @@ userSchema.pre('save', function(next) {
 	});
 });
 
-// verify passwords
+// compare two passwords for a match
 userSchema.methods.comparePassword = function(candidatePassword, callback) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if (err) return callback(err);
 		callback(null, isMatch);
 	});
 };
+
+
+
+// checks and returns if the user is locked or not
+userSchema.virtual('isLocked').get(function() {
+	// check for a future lockUntil timestamp
+	return !!(this.lockUntil && this.lockUntil > Date.now());
+});
 
 // reasons for a failed login
 userSchema.statics.failedLogin = {
@@ -63,7 +112,7 @@ userSchema.statics.failedLogin = {
 	MAX_ATTEMPTS: 2 // max attemps already reached
 };
 
-// increments login attemps
+// increments login attempts
 userSchema.methods.incLoginAttemps = function(callback) {
 	// if we have a previous lock that has expired, start at 1
 	if (this.lockUntil && this.lockUntil < Date.now()) {
@@ -109,7 +158,7 @@ userSchema.statics.getAuthenticated = function(username, password, callback) {
 			// check if password was a match
 			if (isMatch) {
 				// if there's no lock or failed attempts, return user
-				if (!user.loginAttemps && !user.lockUntil) return call(null, user);
+				if (!user.loginAttemps && !user.lockUntil) return callback(null, user);
 
 				// reset attemps and lock ingo
 				var updates = {

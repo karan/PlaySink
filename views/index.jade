@@ -8,7 +8,15 @@ block content
 	ul
 		li
 			a(href="/userlist") User List
-		li
-			a(href="/signup") Sign Up
-		li
-			a(href="signin") Sign In
+		if user !== null
+			li
+				a(href="/dashboard") Dashboard
+			li
+				a(href="/profile") Profile
+			li
+				a(href="/logout") Logout
+		else
+			li
+				a(href="/signup") Sign Up
+			li
+				a(href="signin") Sign In

@@ -3,8 +3,9 @@ extends ../layouts/default
 block content
 	h1 Sign Up
 
-	if message && message.length
-		strong #{message}
+	if messages && messages.length
+		for message in messages
+			p #{message}
 
 	form#formAddUser(name="adduser", method="post", action="/signup")
 		input#inputUserName(type="text", placeholder="username", name="username")
