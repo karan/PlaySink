@@ -34,8 +34,8 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 
 ## TODO
 
+- [ ] Make a simple dashboard that usee sees after login
 - [ ] Simple user/pwd authentication using passport
-- [ ] Make a simple dashboard that use sees after login
 - [ ] Facebook authentication using passport-facebook
 
 ### What has been done
