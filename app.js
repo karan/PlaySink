@@ -1,7 +1,6 @@
 var path = require('path');
 var http = require('http')
 
-var passport = require('passport');
 var express = require('express');
 var routes = require('./routes'); // import all routes
 
@@ -10,7 +9,7 @@ var db = require('./models/db');
 
 var app = express(); // create an express app
 
-// all environments
+// configure environments
 app.configure(function(){
   app.set('port', process.env.PORT || 8888);
   app.set('views', __dirname + '/views');
@@ -29,9 +28,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/userlist', routes.userlist); // pass db to userlist route
+app.get('/userlist', routes.userlist);
 app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser); // POST to db
+app.post('/adduser', routes.adduser);
 
 
 /*===== Error Handlers =====*/

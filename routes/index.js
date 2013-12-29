@@ -13,15 +13,10 @@ exports.index = function(req, res){
 	Will show a list of all users
 	View: userlist
 */
-exports.userlist = function(db) {
-	return function(req, res) {
-		var collection = db.get('users');
-		collection.find({}, {}, function(e, docs) { // docs stores the result of find
-			res.render('userlist', {
-				'userlist': docs
-			});
-		});
-	}
+exports.userlist = function(req, res) {
+	User.find(function(err, docs) { // docs stores the result of find
+		res.render('userlist', {'userlist': docs});
+	});
 }
 
 /*
@@ -36,31 +31,26 @@ exports.newuser = function(req, res) {
 	POST new user to db
 	View: none
 */
-exports.adduser = function(db) {
-	return function(req, res) {
+exports.adduser = function(req, res) {
 
-		// get the form values from "name" attribute
-		var username = req.body.username;
-		var email = req.body.useremail;
-		var password = req.body.userpassword;
+	// get the form values from "name" attribute
+	var username = req.body.username;
+	var email = req.body.useremail;
+	var password = req.body.userpassword;
 
-		// set out collection from database
-		var collection = db.get('users');
-
-		// submit to db
-		collection.insert({
-			'username': username,
-			'password': password,
-			'email': email
-		}, function(err, doc) {
-			if (err) {
-				// if it failed
-				res.send('Problem adding to DB');
-			} else {
-				// success, so redirect to userlist
-				res.location('userlist'); // don't want address bar to say adduser anymore
-				res.redirect('userlist');
-			}
-		});
-	}
+	User.create({
+		'username': username,
+		'password': password,
+		'email': email
+	}, function(err, user) {
+		if (err) {
+			// if it failed
+			res.send('Problem adding to DB');
+		} else {
+			console.log(user);
+			// success, so redirect to userlist
+			res.location('userlist'); // don't want address bar to say adduser anymore
+			res.redirect('userlist');
+		}
+	})
 }

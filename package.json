@@ -8,7 +8,6 @@
 		"angular" : "latest",
 		"jade" : "latest",
 		"mongoose" : "latest",
-		"passport" : "latest"
 	},
 	"contributors": [
 	{
