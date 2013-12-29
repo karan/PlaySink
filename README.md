@@ -9,6 +9,16 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 - Mongodb is the database we are using that uses JSON as the data being stored. I'm not entirely sure that this is what we should be using but we can do a lot with it and it is supposed to be fairly easy. 
 - Monk I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
 
+### Code structure
+
+	|-- app.js        /* The application code itself          */
+	|-- public        /* Publicly accessible resources        */
+	|   |-- img
+	|   `-- js
+	|   `-- css 
+	`-- views         /* The templates for the 'views'        */
+
+
 ### What has been done
 
 I have added a basic directory layout that needs to be fixed in the future when we decide what we need. I did the basic setup with express so it starts the server properly listening on port 8888. After starting the server `node app.js` it can be accessed from `http://localhost:8888/`. Added just a basic page so we can get the login to work becuase that seems like a resonable goal.

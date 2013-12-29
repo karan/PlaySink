@@ -1,20 +1,5 @@
-doctype html
-html(lang="en")
-	head
-		title PlaySink
-	body
-		div#menu
-				span#home PlaySink
-				div#form
-					form(method='post')
-						input(type='text' name='username' size='10' placeholder='username')
-						input(type='password' name='password' size='10' placeholder='password')
-						input(type='submit' value='Sign In')
-		div#content
-			h1 Welcome to PlaySink
-			div#descr We are a service that allows user to connect to one another and play music according to your intersts.
-		style.
-			h1 { text-align: center; }
-			#form { float: right; display: inline-block; }
-			#home { float: left; }
-			#menu { overflow: hidden; background-color: gray; padding: 5px; }
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}

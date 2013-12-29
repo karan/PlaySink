@@ -12,6 +12,7 @@ logs
 results
 build
 
+data/
 .DS_Store
 
 node_modules

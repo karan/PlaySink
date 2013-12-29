@@ -1,41 +1,41 @@
 var express = require('express');
-var app = express();
-var port = 1234;
-var log = console.log;
+var routes = require('./routes'); // import all routes
+var user = require('./routes/user'); // the user route
+var http = require('http');
+var path = require('path');
 
-// Connects to database (not working)
+// Database connection
 var mongo = require('mongodb');
-var db = require('monk')('localhost/PlaySink');
+var monk = require('monk'); // we use monk to interact with db
+var db = monk('localhost:27017/nodetest1'); // default port for mongo, db name
 
-// All enviroments ?need to figure out what this shit does
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.engine('jade', require('jade').__express)
-app.use(express.bodyParser());
-app.use(express.cookieParser());
-app.use(express.static(__dirname + '/public'));
+var app = express(); // create an express app
 
+// all environments
+app.set('port', process.env.PORT || 8888);
+app.set('views', path.join(__dirname, 'views')); // views folder
+app.set('view engine', 'jade'); // using jade
+app.use(express.favicon()); // favicon, can be changed
+app.use(express.logger('dev')); // dev mode
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.methodOverride());
+app.use(express.cookieParser('your secret here'));
+app.use(express.session());
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public'))); // makes dirs look top-level
 
-// Homepage render
-app.get('/', function(req, res) {
-	res.render('index');
+// development only
+if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}
 
-	// Trying to print all users in DB
-	var c = db.usercollection.find();
-	while (c.hasNext) {
-		printjson(c.next());
-	}
-	log('hello');
+app.get('/', routes.index);
+app.get('/users', user.list);
+app.get('/userlist', routes.userlist(db)); // pass db to userlist route
+app.get('/newuser', routes.newuser);
+app.post('/adduser', routes.adduser(db));
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
-
-// User attempts to login checks the details
-app.post('/', function(req, res) {
-	var username = req.body.username;
-	var password = req.body.password;
-
-	// Prints username and password, page waits for response there is none.
-	log(username + ' ' + password);
-});
-
-app.listen(port);
-log('Listening on port ' + port);
