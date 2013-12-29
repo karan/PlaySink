@@ -9,14 +9,25 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 - Mongodb is the database we are using that uses JSON as the data being stored. I'm not entirely sure that this is what we should be using but we can do a lot with it and it is supposed to be fairly easy. 
 - Monk I'm not really sure what it does but it is supposed to make the initialization of the database much easier. I haven't gotten it to work cause I didn't read the tutorials really well.
 
+    - Install node
+    - Install express (`npm install -g express`)
+    - Create express project (`express --sessions nodetest1`)
+    - Edit dependencies
+    - `npm install`
+    - Install mongodb system-wide
+    - Navigate to `data/` and run `mongod --dbpath /path/to/data_folder` to start the db server
+    - Then `node app.js` start the app.
+
 ### Code structure
 
-	|-- app.js        /* The application code itself          */
-	|-- public        /* Publicly accessible resources        */
-	|   |-- img
-	|   `-- js
-	|   `-- css 
-	`-- views         /* The templates for the 'views'        */
+	|-- app.js        /* The application code itself       */
+	|-- data          /* MongoDB database files            */
+	|-- public        /* Publicly accessible resources     */
+	|   |-- images
+	|   |-- javascripts
+	|   |-- stylesheets 
+	|-- routes        /* The URL routes                    */
+	|-- views         /* The templates for the 'views'     */
 
 
 ### What has been done
@@ -31,11 +42,9 @@ I have added a basic directory layout that needs to be fixed in the future when 
 
 After downloading mongodb you need to connect to the database and start it (I think). This can be done by using the commmand in terminal `sudo mongod --dbpath ~/{get to playsink}/PlaySink/data` and it should start listening. In another tab you can start a mongo shell. There are tutorials online that I have only glazed over (probabaly why I can't get it to work haven't done one all the way through just thought I could pick things off). Just to see if the data is there you can do the following commands.
 
-    use PlaySink
+    use PlaySink  // database to use
 
     db.usercollection.find().pretty()
-
-    Insert data
 
     db.usercollection.insert({"username": name, "password": pass, "email": email}) // it uses JSON which is awesome make sure you enter it in all the same way
 
