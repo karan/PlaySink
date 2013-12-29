@@ -13,6 +13,7 @@ results
 build
 
 data/
+data/*
 .DS_Store
 
 node_modules
