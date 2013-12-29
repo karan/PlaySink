@@ -7,7 +7,7 @@
 		"mongodb" : "latest",
 		"angular" : "latest",
 		"jade" : "latest",
-		"monk" : "latest"
+		"mongoose" : "latest"
 	},
 	"contributors": [
 	{

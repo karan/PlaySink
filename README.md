@@ -1,7 +1,7 @@
 PlaySink
 ====
 
-Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads the dependencies (**angular, express, jade, mongodb, monk**). 
+Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads the dependencies (**angular, express, jade, mongodb, mongoose**). 
 
 - Angular is used for data injections in the page. Has not been implemented yet since we haven't gotten to a place that acutal requires this. It makes the MVC design much better from my understanding. 
 - Express is the framework that handles routes and making the server. So far this has made the code more readable. 

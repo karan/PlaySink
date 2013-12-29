@@ -1,13 +1,13 @@
+var path = require('path');
+var http = require('http')
+
 var express = require('express');
 var routes = require('./routes'); // import all routes
-var user = require('./routes/user'); // the user route
-var http = require('http');
-var path = require('path');
 
 // Database connection
 var mongo = require('mongodb');
 var monk = require('monk'); // we use monk to interact with db
-var db = monk('localhost:27017/nodetest1'); // default port for mongo, db name
+var db = monk('localhost:27017/playsinkdb'); // default port for mongo, db name
 
 var app = express(); // create an express app
 
@@ -27,15 +27,14 @@ app.use(express.static(path.join(__dirname, 'public'))); // makes dirs look top-
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/userlist', routes.userlist(db)); // pass db to userlist route
 app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser(db));
+app.post('/adduser', routes.adduser(db)); // POST to db
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+	console.log('Express server listening on port ' + app.get('port'));
 });

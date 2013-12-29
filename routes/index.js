@@ -3,7 +3,7 @@
 	View: index
  */
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'PlaySink' });
 };
 
 /*
@@ -12,7 +12,7 @@ exports.index = function(req, res){
 */
 exports.userlist = function(db) {
 	return function(req, res) {
-		var collection = db.get('usercollection');
+		var collection = db.get('users');
 		collection.find({}, {}, function(e, docs) { // docs stores the result of find
 			res.render('userlist', {
 				'userlist': docs
@@ -41,7 +41,7 @@ exports.adduser = function(db) {
 		var email = req.body.useremail;
 
 		// set out collection from database
-		var collection = db.get('usercollection');
+		var collection = db.get('users');
 
 		// submit to db
 		collection.insert({
