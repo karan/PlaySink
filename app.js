@@ -1,5 +1,3 @@
-//TODO Use passport-facebook to authenticate
-
 /*
 	Module dependencies
 */

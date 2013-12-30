@@ -43,25 +43,48 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 
 Maintain a macro TODO list on top of each file. Some major tasks to get us started:
 
-- [x] Make a simple dashboard that usee sees after login
-- [ ] User sign-up input validation
-- [x] Simple user/pwd authentication using passport
-- [ ] Facebook authentication using passport-facebook
-- [ ] Make the login/signup link into a modal window (jquery)
-- [ ] Logging capabilities, maybe just save in a txt file, lookup node logging modules
-- [ ] Setup admin capabilities
-- [ ] Make a simple admin area for all stats using logging
+### Authentication
 
-### Current workflow
+- [x] Make a simple dashboard that usee sees after login
+- [x] User sign-up input validation
+- [x] Simple user/pwd authentication using passport
+- [x] Redirect authenticated users to dashboard
+- [ ] Facebook authentication using passport-facebook
+- [ ] Setup forgot password reset capability
+- [ ] Make sure all signup/sign in flash messages are shown
+
+### Dashboard
+
+![Image](../master/docs-internal/img/dashboard.png?raw=true)
+
+- [ ] Make a simple prototype in jade (and css) for what we want (see image below)
+
+### User Account
+
+- [ ] Allow fields for favorite genre/artists
+- [ ] Allow user to modify profile
+
+### Admin
+
+- [ ] Logging capabilities, maybe just save in a txt file, lookup node logging modules
+- [ ] Setup admin user level
+- [ ] Make a simple admin area for some stats using logging
+- [ ] Add admin capability to manage user accounts
+
+### Frontend
+
+- [ ] Give some color to flash messages
+- [ ] Make the login/signup link into a modal window (jquery)
+- [ ] User sign-up input validation
+
+## Current workflow
 
 - Show homepage with a header
 - Users can signup or signin
 - If they try to access dashboard without signing in, they are redirected to signin page
 - Upon registering, user is taken to the dashboard
+- An authenticated user accessing homepage, signup or signin page is redirected to dashboard.
 
-### Dashboard
-
-![Image](../master/docs-internal/img/dashboard.png?raw=true)
 
 ### The server
 
@@ -76,12 +99,8 @@ After downloading mongodb you need to connect to the database and start it. This
 
 ### Links that have helped
 
-Sites:
-express/mongo/jade
-http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
-
-mean:
-http://mean.io/
-
-Seems legit
-http://howtonode.org/express-mongodb
+- http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+- http://mean.io/
+- https://github.com/linnovate/mean
+- https://github.com/madhums/node-express-mongoose-demo
+- http://howtonode.org/express-mongodb
