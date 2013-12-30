@@ -7,8 +7,8 @@ var http = require('http')
 var flash = require('connect-flash');
 var routes = require('./routes');
 var db = require('./models/db'); // Database connection
-var express = require('express');
 
+var express = require('express');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 

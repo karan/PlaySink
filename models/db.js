@@ -30,4 +30,4 @@ process.on('SIGINT', function() {
 });
 
 // bring in all models
-require('./../models/User')
+require('../models/User');
