@@ -1,6 +1,35 @@
 doctype html
 html
 	include ../includes/head
+
 	body
-		block content
-		include ../includes/foot
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.container
+				div.navbar-header
+					a(href='/').navbar-brand #{appName}
+				div.collapse.navbar-collapse
+					if user
+						ul.nav.navbar-nav.navbar-right
+							// logged in users see this
+							li
+								a(href="/dashboard") Dashboard
+							li
+								a(href="/userlist") User List
+							li
+								a(href="/profile") Profile
+							li
+								a(href="/logout") Logout
+					else
+						ul.nav.navbar-nav.navbar-right
+							li
+								a(href="/signup") Sign Up
+							form.navbar-form.navbar-right(name="signin", method="post", action="/signin")
+								div.form-group
+									input.form-control(type="text", placeholder="username", name="username")
+								div.form-group
+									input.form-control(type="password", placeholder="password", name="userpassword")
+								button.btn.btn-success
+									btnSubmit(type="submit") Login
+		div.container
+			block content
+	include ../includes/foot
