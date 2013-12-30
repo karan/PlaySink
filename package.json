@@ -12,7 +12,7 @@
 		"passport-local" : "latest",
 		"bcryptjs" : "latest",
 		"connect-flash" : "latest",
-		"mongoose-validator" : "latest",
+		"mongoose-validator" : "latest"
 	},
 	"contributors": [
 	{
