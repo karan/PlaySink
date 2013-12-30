@@ -78,7 +78,7 @@ app.get('/signin', routes.signin); // the signin page
 app.post('/signin', // signup page send a POST request here
 		passport.authenticate('local', {successRedirect: '/dashboard', 
 										failureRedirect: '/signin', 
-										failureFlash: true}));
+										failureFlash: 'Invalid username or password.'}));
 
 app.get('/dashboard', auth.requiresLogin, routes.dashboard); // where all the fun happens
 app.get('/logout', routes.logout);

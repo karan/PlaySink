@@ -83,7 +83,7 @@ exports.signin = function(req, res) {
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
-   	res.render('users/signin', {appName: Constants.APP_NAME, title: 'Sign In', messages: req.flash('error')});
+	res.render('users/signin', {appName: Constants.APP_NAME, title: 'Sign In', messages: req.flash('error')});
 }
 
 /*
