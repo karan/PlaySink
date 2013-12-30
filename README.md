@@ -23,6 +23,8 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 ### Code structure
 
 	|-- app.js        /* The application code itself       */
+	|-- config        /* Application settings              */
+	|   |-- middlewares
 	|-- data          /* MongoDB database files            */
 	|-- models        /* Models (classes) for everything   */
 	|-- public        /* Publicly accessible resources     */
@@ -39,22 +41,22 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 
 ## TODO
 
-Maintain a macro TODO list on top of each file.
+Maintain a macro TODO list on top of each file. Some major tasks to get us started:
 
 - [x] Make a simple dashboard that usee sees after login
 - [ ] User sign-up input validation
-- [ ] Simple user/pwd authentication using passport
+- [x] Simple user/pwd authentication using passport
 - [ ] Facebook authentication using passport-facebook
 - [ ] Make the login/signup link into a modal window (jquery)
 - [ ] Logging capabilities, maybe just save in a txt file, lookup node logging modules
 - [ ] Setup admin capabilities
 - [ ] Make a simple admin area for all stats using logging
 
-### What doesn't quite work
+### Dashboard
 
 ![Image](../master/docs-internal/img/dashboard.png?raw=true)
 
-#### The server
+### The server
 
 After downloading mongodb you need to connect to the database and start it. This can be done by using the commmand in terminal `mongod --dbpath ~/path/to/PlaySink/data` and it should start listening. In another tab you can start a `mongo` shell. Just to see if the data is there you can do the following commands.
 

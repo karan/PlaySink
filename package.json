@@ -8,7 +8,11 @@
 		"angular" : "latest",
 		"jade" : "latest",
 		"mongoose" : "latest",
-		"passport" : "latest"
+		"passport" : "latest",
+		"passport-local" : "latest",
+		"bcryptjs" : "latest",
+		"connect-flash" : "latest",
+		"mongoose-validator" : "latest",
 	},
 	"contributors": [
 	{
