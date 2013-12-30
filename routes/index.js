@@ -64,45 +64,13 @@ exports.adduser = function(req, res) {
 	View: /users/signin
 */
 exports.signin = function(req, res) {
-	res.render('users/signin', {title: 'Sign In', messages: req.flash('error')});
-}
-
-/*
-	Actually logs in the user
-*/
-exports.login = function(req, res) {
-	// get the form fields
-	var username = req.body.username;
-	var password = req.body.userpassword;
-
-	// try to get the user
-	User.getAuthenticated(username, password, function(err, user, reason) {
-		if (err) throw err;
-
-		// login successful, redirect to dashboard
-		if (user) {
-			console.log(user.username + ' logged in.');
-			res.location('/dashboard');
-			res.redirect('/dashboard');
-		} else {
-			var reasons = User.failedLogin;
-			console.log(reason);
-			console.log(reasons);
-			switch (reason) {
-				// In production, do not tell user the reason for failed signin
-				case 0:
-					req.flash('error', 'Incorrect username.');
-					break;
-				case 1:
-					req.flash('error', 'Incorrect password.');
-					break;
-				default:
-					req.flash('error', 'Something went wrong.');
-					break;
-			}
-			res.redirect('/signin');
-		}
-	});
+	if(req.isAuthenticated()) {
+    	console.log('user logged in', req.user);
+    	next();
+	} else {
+   		console.log('user not logged in');
+   		res.render('users/signin', {title: 'Sign In', messages: req.flash('error')});
+	}
 }
 
 /*
@@ -118,6 +86,5 @@ exports.logout = function(req, res) {
 */
 exports.dashboard = function(req, res) {
 	user = req.user;
-	console.log(user);
 	res.render('dashboard', {user: user});
 }

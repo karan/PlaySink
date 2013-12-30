@@ -1,4 +1,3 @@
-//TODO Use passport to authenticate
 //TODO Use passport-facebook to authenticate
 
 /*===== require dependencies =====*/
@@ -11,6 +10,9 @@ var db = require('./models/db'); // Database connection
 var express = require('express');
 
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var auth = require('./config/middlewares/authorization');
 /*===== require dependencies =====*/
 
 var app = express(); // create an express app
@@ -33,51 +35,26 @@ app.configure(function(){
 	app.use(app.router);
 });
 
-
-// This lets authentication know how it should store
-// and grab users from a request to pass to a mapping
-// function.
-passport.serializeUser(function (user, done) {
-	done(null, user._id);
-});
-
-passport.deserializeUser(function (id, done) {
-	Users.findOne({
-		_id: db.bson.ObjectID(id)
-	}, function (err, user) {
-		done(err, user);
-	});
-});
-
-// checks if the user is authenticated or not
-function isAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) { return next(); }
-	res.redirect('/');
-};
-
 // development only
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-
 /*===== URL Routers =====*/
 app.get('/', routes.index);
 app.get('/userlist', routes.userlist);
 
-//app.get('/signup', routes.signup);
+app.get('/signup', routes.signup);
 app.post('/signup', routes.adduser);
 
-app.get('/logout', routes.logout);
-
-//app.get('/signin', routes.signin);
-//app.post('/signin', routes.login)
-
-app.post('/signin',
-	passport.authenticate('local', {successRedirect: '/dashboard', failureRedirect: '/', failureFlash: true })
+app.get('/signin', routes.signin);
+app.post('/signin', passport.authenticate('local', {successRedirect: '/dashboard', 
+	failureRedirect: '/signin', 
+	failureFlash: true})
 );
 
-app.get('/dashboard', routes.dashboard);
+app.get('/logout', routes.logout);
+app.get('/dashboard', auth.requiresLogin, routes.dashboard);
 /*===== URL Routers =====*/
 
 /*===== Error Handlers =====*/
@@ -96,6 +73,7 @@ app.use(function(err, req, res, next){
 });
 /*===== Error Handlers =====*/
 
+require('./config/pass.js')(passport, LocalStrategy);
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
