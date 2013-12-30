@@ -1,14 +1,22 @@
 //TODO Flash message for failed signin
 
+/*
+	All our routes.
+*/
+
 var mongoose = require('mongoose');
 var User = require('./../models/User');
+var Constants = require('./../config/Constants');
 
 /*
 	Homepage router.
 	View: index
  */
 exports.index = function(req, res){
-	res.render('index', {title: 'Home'});
+	// is a user is already logged in, take him to dashboard
+	if (req.isAuthenticated()) res.redirect('dashboard');
+	// otherwise, render the page
+	res.render('index', {appName: Constants.APP_NAME, title: 'Home'});
 };
 
 /*
@@ -17,7 +25,7 @@ exports.index = function(req, res){
 */
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
-		res.render('users/userlist', {title: 'User List', 'userlist': docs});
+		res.render('users/userlist', {appName: Constants.APP_NAME, title: 'User List', 'userlist': docs});
 	});
 }
 
@@ -26,7 +34,10 @@ exports.userlist = function(req, res) {
 	View: /users/signup
 */
 exports.signup = function(req, res) {
-	res.render('users/signup', {title: 'Sign Up', messages: req.flash('error')});
+	// is a user is already logged in, take him to dashboard
+	if (req.isAuthenticated()) res.redirect('dashboard');
+	// otherwise, render the page
+	res.render('users/signup', {appName: Constants.APP_NAME, title: 'Sign Up', messages: req.flash('error')});
 }
 
 /*
@@ -71,20 +82,17 @@ exports.adduser = function(req, res) {
 	View: /users/signin
 */
 exports.signin = function(req, res) {
-	if(req.isAuthenticated()) {
-		console.log('user logged in', req.user);
-		next();
-	} else {
-   		console.log('user not logged in');
-   		res.render('users/signin', {title: 'Sign In', messages: req.flash('error')});
-	}
+	// is a user is already logged in, take him to dashboard
+	if (req.isAuthenticated()) res.redirect('dashboard');
+	// otherwise, render the page
+   	res.render('users/signin', {appName: Constants.APP_NAME, title: 'Sign In', messages: req.flash('error')});
 }
 
 /*
 	Logout the user and redirect to homepage.
 */
 exports.logout = function(req, res) {
-	req.logout();
+	if (req.isAuthenticated()) req.logout();
 	res.redirect('/');
 }
 
@@ -93,5 +101,5 @@ exports.logout = function(req, res) {
 */
 exports.dashboard = function(req, res) {
 	user = req.user;
-	res.render('dashboard', {user: user});
+	res.render('dashboard', {appName: Constants.APP_NAME, user: user});
 }

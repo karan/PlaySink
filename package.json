@@ -11,8 +11,7 @@
 		"passport" : "latest",
 		"passport-local" : "latest",
 		"bcryptjs" : "latest",
-		"connect-flash" : "latest",
-		"mongoose-validator" : "latest"
+		"connect-flash" : "latest"
 	},
 	"contributors": [
 	{

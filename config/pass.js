@@ -1,17 +1,26 @@
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
-var LocalStrategy = require('passport-local').Strategy;
+/*
+	This is a wrapper for all code used for user authentication.
+*/
+
+// bring in the schema for user
+var User = require('mongoose').model('User');
 
 module.exports = function (passport, LocalStrategy) {
 
-	// This lets authentication know how it should store
-	// and grab users from a request to pass to a mapping
-	// function.
+	/*
+ 		user ID is serialized to the session. When subsequent requests are 
+ 		received, this ID is used to find the user, which will be restored 
+ 		to req.user.
+	*/
 	passport.serializeUser(function (user, done) {
 		console.log('serializing: ' + user);
 		done(null, user._id);
 	});
 
+	/*
+		intended to return the user profile based on the id that was serialized 
+		to the session.
+	*/
 	passport.deserializeUser(function(id, done) {
 		console.log('deserializing: ' + id);
 		User.findOne({ _id: id }, function (err, user) {
@@ -20,7 +29,7 @@ module.exports = function (passport, LocalStrategy) {
 	});
 
 
-	// Local username/password login
+	// logic for local username/password login
 	passport.use(new LocalStrategy({
 		usernameField: 'username',
 		passwordField: 'userpassword'
@@ -29,17 +38,17 @@ module.exports = function (passport, LocalStrategy) {
 			User.findOne({username: username}, function(err, user) {
 				if (err) return callback(err);
 
-				// make sure the user exists
 				if (!user) {
+					// the username doesn't exist
 					return callback(null, false, {message: 'Username not found'});
 				}
 
-				// test for a matching password
+				// user exists, check for password match
 				user.comparePassword(password, function(err, isMatch) {
 					if (err) return callback(err);
 
-					// check if password was a match
 					if (isMatch) {
+						// correct password
 						return callback(null, user);
 					}
 
