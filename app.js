@@ -49,9 +49,8 @@ app.post('/signup', routes.adduser);
 
 app.get('/signin', routes.signin);
 app.post('/signin', passport.authenticate('local', {successRedirect: '/dashboard', 
-	failureRedirect: '/signin', 
-	failureFlash: true})
-);
+													failureRedirect: '/signin', 
+													failureFlash: true}));
 
 app.get('/logout', routes.logout);
 app.get('/dashboard', auth.requiresLogin, routes.dashboard);

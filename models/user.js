@@ -85,38 +85,4 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
 	});
 };
 
-
-// reasons for a failed login
-var reasons = userSchema.statics.failedLogin = {
-	NOT_FOUND: 0,
-	PASSWORD_INCORRECT: 1,
-};
-
-/*
-// gets authenticated user, error otherwise
-// http://devsmash.com/blog/implementing-max-login-attempts-with-mongoose
-userSchema.statics.getAuthenticated = function(username, password, callback) {
-	this.findOne({username: username}, function(err, user) {
-		if (err) return callback(err);
-
-		// make sure the user exists
-		if (!user) {
-			return callback(null, null, reasons.NOT_FOUND);
-		}
-
-		// test for a matching password
-		user.comparePassword(password, function(err, isMatch) {
-			if (err) return callback(err);
-
-			// check if password was a match
-			if (isMatch) {
-				return callback(null, user);
-			}
-
-			// password incorrect
-			return callback(null, null, reasons.PASSWORD_INCORRECT);
-		});
-	});
-};*/
-
 module.exports = mongoose.model('User', userSchema);

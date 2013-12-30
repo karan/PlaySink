@@ -1,4 +1,4 @@
-//TODO Flash message doesn't show
+//TODO Flash message for failed signin
 
 var mongoose = require('mongoose');
 var User = require('../models/User');
@@ -43,6 +43,7 @@ exports.adduser = function(req, res) {
 		'password': password,
 		'email': email
 	});
+
 	user.save(function(err) {
 		if (err) {
 			console.log(err);
@@ -52,9 +53,15 @@ exports.adduser = function(req, res) {
 			}
 			res.redirect('/signup');
 		} else {
-			// success, so redirect to dashboard
-			res.location('/dashboard'); // don't want address bar to say adduser anymore
-			res.redirect('/dashboard');
+			req.logIn(user, function (err) {
+				if (!err) {
+					// success, so redirect to dashboard
+					res.location('/dashboard'); // don't want address bar to say adduser anymore
+					res.redirect('/dashboard');
+				} else {
+					req.flash('error', 'Registration successful. Sign In.');
+				}
+			});
 		}
 	});
 }
@@ -65,8 +72,8 @@ exports.adduser = function(req, res) {
 */
 exports.signin = function(req, res) {
 	if(req.isAuthenticated()) {
-    	console.log('user logged in', req.user);
-    	next();
+		console.log('user logged in', req.user);
+		next();
 	} else {
    		console.log('user not logged in');
    		res.render('users/signin', {title: 'Sign In', messages: req.flash('error')});

@@ -4,8 +4,6 @@ var User = mongoose.model('User');
 
 module.exports = function (passport, LocalStrategy) {
 
-	var reasons = User.failedLogin;
-
 	// This lets authentication know how it should store
 	// and grab users from a request to pass to a mapping
 	// function.
@@ -33,7 +31,7 @@ module.exports = function (passport, LocalStrategy) {
 
 				// make sure the user exists
 				if (!user) {
-					return callback(null, false, {message: reasons.NOT_FOUND});
+					return callback(null, false, {message: 'Username not found'});
 				}
 
 				// test for a matching password
@@ -42,12 +40,11 @@ module.exports = function (passport, LocalStrategy) {
 
 					// check if password was a match
 					if (isMatch) {
-						console.log('found user, and returned')
 						return callback(null, user);
 					}
 
 					// password incorrect
-					return callback(null, false, {message: reasons.PASSWORD_INCORRECT});
+					return callback(null, false, {message: 'Password not found'});
 				});
 			});
 		}

@@ -1,11 +1,7 @@
 extends layouts/default
 
 block content
-	if user != null
-		h1 Welcome to Dashboard, #{user.username}
-	else
-		h1 Welcome to Dashboard, Guest
-
+	h1 Welcome to Dashboard, #{user.username}
 	ul
 		li
 			a(href="/profile") Profile
