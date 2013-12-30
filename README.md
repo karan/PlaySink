@@ -52,6 +52,13 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [ ] Setup admin capabilities
 - [ ] Make a simple admin area for all stats using logging
 
+### Current workflow
+
+- Show homepage with a header
+- Users can signup or signin
+- If they try to access dashboard without signing in, they are redirected to signin page
+- Upon registering, user is taken to the dashboard
+
 ### Dashboard
 
 ![Image](../master/docs-internal/img/dashboard.png?raw=true)
