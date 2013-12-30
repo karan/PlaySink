@@ -1,7 +1,7 @@
 //TODO Flash message for failed signin
 
 var mongoose = require('mongoose');
-var User = require('../models/User');
+var User = require('./../models/User');
 
 /*
 	Homepage router.

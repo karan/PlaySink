@@ -3,7 +3,6 @@
 var mongoose = require('mongoose');
 
 var dbURI = 'mongodb://localhost/playsinkdb';
-
 mongoose.connect(dbURI);
 
 // when connected with db
@@ -30,4 +29,4 @@ process.on('SIGINT', function() {
 });
 
 // bring in all models
-require('../models/User');
+require('./../models/User');

@@ -24,7 +24,7 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
+	app.use(express.bodyParser()); // allowd to read values in a submitted form
 	app.use(express.methodOverride());
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(express.cookieParser('keyboard cat'));
