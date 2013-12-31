@@ -1,15 +1,23 @@
-extends ../layouts/default
+extends ../layouts/signup-signin
 
 //TODO add a lot of validation here
 
 block content
-	h1= title
+	div.signup-container
+		form.form-signup(name="signin", method="post", action="/signin")
+			h2.form-signin-heading Sign In
 
-	if messages && messages.length
-		for message in messages
-			p #{message}
+			if messages && messages.length
+				for message in messages
+						div.alert.alert-danger.alert-dismissable
+							button.close(data-dismiss="alert", aria-hidden="true")&times;
+							span #{message}
 
-	form#formSignIn(name="signin", method="post", action="/signin")
-		input#inputUserName(type="text", placeholder="username", name="username")
-		input#inputPassword(type="password", placeholder="password", name="userpassword")
-		button#btnSubmit(type="submit") Login
+			input.form-control(type="text", placeholder="username", name="username", required=true, autofocus=true)
+			input.form-control(type="password", placeholder="password", name="userpassword", required=true)
+			div.control-group.pull-right
+				div.controls.controls-row
+					label.checkbox Remember me
+						input(type="checkbox", value="remember-me")
+						button.btn-link Forgot Password?
+			button.btn.btn-lg.btn-success.btn-block(type="submit") Login

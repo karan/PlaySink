@@ -1,3 +1,5 @@
+// layout for homepage with simple form in navbar
+
 doctype html
 html
 	include ../includes/head
@@ -25,11 +27,15 @@ html
 								a(href="/signup") Sign Up
 							form.navbar-form.navbar-right(name="signin", method="post", action="/signin")
 								div.form-group
-									input.form-control(type="text", placeholder="username", name="username")
+									input.form-control(type="text", placeholder="Username", name="username", required=true, autofocus=true)
 								div.form-group
-									input.form-control(type="password", placeholder="password", name="userpassword")
-								button.btn.btn-success
+									input.form-control(type="password", placeholder="Password", name="userpassword", required=true)
+								div.form-group.col-sm-offset-2.col-sm-10
+									div.controls.controls-row
+										label.checkbox Remember me
+											input(type="checkbox", value="remember-me")
+											button.btn-link Forgot Password?
+								button.btn.btn-primary
 									btnSubmit(type="submit") Login
-		div.container
-			block content
+		block content
 	include ../includes/foot

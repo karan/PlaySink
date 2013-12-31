@@ -1,0 +1,15 @@
+// layout for signup/signin pages
+
+doctype html
+html
+	include ../includes/head
+
+	body.signup-signin
+		div.navbar.navbar-inverse.navbar-fixed-top
+			div.container
+				div.navbar-header
+					a(href='/').navbar-brand #{appName}
+				div.collapse.navbar-collapse
+					
+		block content
+	include ../includes/foot

@@ -51,7 +51,8 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] Redirect authenticated users to dashboard
 - [ ] Facebook authentication using passport-facebook
 - [ ] Setup forgot password reset capability
-- [ ] Make sure all signup/sign in flash messages are shown
+- [ ] Remember me implementation
+- [x] Make sure all signup/sign in flash messages are shown
 
 ### Dashboard
 

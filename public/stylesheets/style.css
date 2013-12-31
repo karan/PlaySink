@@ -1,3 +1,91 @@
 body {
-  padding: 50px 0;
+	padding: 50px 0;
+}
+
+.form-group {
+	margin: 0px 1px;
+}
+
+/* Styling for Signup and Signin pages */
+body.signup-signin {
+	padding: 50px;
+	background-color: #eee;
+	height: 100%;
+}
+/* Styling for Signup and Signin pages */
+
+
+/* The page with dropdown signin modal */
+@media (min-width: 768px) {
+	.container {
+		max-width: 730px;
+	}
+}
+.jumbotron {
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 100px 30px 30px 30px!important;
+}
+.marketing,
+.footer {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.marketing {
+	margin: 40px 0;
+}
+.marketing p + h4 {
+	margin-top: 28px;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+	/* Remove the padding we set earlier */
+	.marketing,
+	.footer {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	/* Remove the bottom border on the jumbotron for visual effect */
+	.jumbotron {
+		padding: 30px!important;
+		border-bottom: 0;
+	}
+}
+/* The page with dropdown signin modal */
+
+
+
+.form-signup {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signup .form-signup-heading,
+.form-signup .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signup .checkbox {
+	font-weight: normal;
+}
+
+.form-signup .form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form-signup .form-control:focus {
+	z-index: 2;
+}
+
+.form-signup input {
+	margin-bottom: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }

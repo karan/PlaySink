@@ -1,2 +1,10 @@
-p (c) #{appName} 2014
 // all javascript files go here
+
+script.
+	<script type="text/javascript">
+		$(document).ready(function(){
+		//Handles menu drop down
+		$('.dropdown-menu').find('form').click(function (e) {
+			e.stopPropagation();
+		});
+	});	</script>
