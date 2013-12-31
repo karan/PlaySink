@@ -4,13 +4,10 @@
 	password comparing.
 */
 
-var mongoose = require('mongoose');
-// Each schema maps to a MongoDB collection
-var Schema = mongoose.Schema;
-// used to hash password // http://codahale.com/how-to-safely-store-a-password/
-var bcrypt = require('bcryptjs');
-// the file containing out app constants
-var Constants = require('./../config/constants');
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,		// Each schema maps to a MongoDB collection
+	bcrypt = require('bcryptjs'),	// used to hash password // http://codahale.com/how-to-safely-store-a-password/
+	Constants = require('./../config/constants'); // the file containing out app constants
 
 /*
 	Field validators
@@ -63,7 +60,7 @@ var passwordValidator = [
 	}
 ];
 
-
+// For local Strategy
 var userSchema = new Schema({
 	created_at: {
 		// auto added user registration timestamp
@@ -72,8 +69,8 @@ var userSchema = new Schema({
 	},
 	username: {
 		type: String, 
-		required: '{PATH} is required!', 
-		validate: nameValidator
+		//required: '{PATH} is required!', 
+		//validate: nameValidator
 	},
 	email: {
 		type: String, 
@@ -138,3 +135,20 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+// Need to integrate with user
+var FBUserSchema = new Schema({
+	created_at: {
+		// auto added user registration timestamp
+		type: Date, 
+		default: Date.now
+	},
+	fbId: String,
+	email: {
+		type: String, 
+		required: '{PATH} is required!', 
+		lowercase: true, // force email lowercase
+	},
+	name: String
+});
+
+module.exports = mongoose.model('FBS', FBUserSchema);

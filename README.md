@@ -49,12 +49,13 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] User sign-up input validation
 - [x] Simple user/pwd authentication using passport
 - [x] Redirect authenticated users to dashboard
-- [ ] Facebook authentication using passport-facebook
+- [x] Facebook authentication using passport-facebook
 - [ ] Twitter auth
 - [ ] Google auth
 - [ ] Setup forgot password reset capability
 - [ ] Remember me implementation
 - [x] Make sure all signup/sign in flash messages are shown
+- [ ] Single data type for all users regardless of login method
 
 ### Dashboard
 
@@ -66,6 +67,7 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 
 - [ ] Allow fields for favorite genre/artists
 - [ ] Allow user to modify profile
+
 
 ### Admin
 
@@ -88,6 +90,9 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - Upon registering, user is taken to the dashboard
 - An authenticated user accessing homepage, signup or signin page is redirected to dashboard.
 
+### Facebook Login
+
+To login using facebook you must go to the url http://localhost:8888/auth/facebook and it will ask you on your facebook profile to use just your email address. Once you hit accept it will redirect you to your dashboard.
 
 ### The server
 

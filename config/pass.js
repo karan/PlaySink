@@ -4,6 +4,8 @@
 
 // bring in the schema for user
 var User = require('mongoose').model('User');
+var FBUser = require('mongoose').model('FBS');	// Schema for FB users
+var constants = require('constants');
 
 module.exports = function (passport, LocalStrategy, FacebookStrategy,
 							TwitterStrategy, GoogleStrategy) {
@@ -24,8 +26,17 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 	*/
 	passport.deserializeUser(function(id, done) {
 		console.log('deserializing: ' + id);
-		User.findOne({ _id: id }, function (err, user) {
-			done(err, user);
+		// NOT GOOD checks fbusers first then regualar users.
+		FBUser.findById(id, function(err, user) {
+			if (err) done(err);
+			if (user) {
+				done(null, user);
+			} else {
+				User.findById(id, function (err, user) {
+					if (err) done(err);
+					done(null, user);
+				});
+			}
 		});
 	});
 
@@ -47,7 +58,7 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 				// user exists, check for password match
 				user.comparePassword(password, function(err, isMatch) {
 					if (err) return callback(err);
-
+					console.log(isMatch + ' ' + password);
 					if (isMatch) {
 						// correct password
 						return callback(null, user);
@@ -59,4 +70,39 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 			});
 		}
 	));
+
+	// Logic for facebook strategey
+	passport.use(new FacebookStrategy({
+		clientID: '496630153783922',
+		clientSecret: '777565cc0f54529a51ffd42ea999dd63',
+		callbackURL: 'http://localhost:8888/auth/facebook/callback'
+	}, function(accessToken, refreshToken, profile, done) {
+		FBUser.findOne({fbId : profile.id }, function(err, oldUser) {
+			console.log('facebook check');
+			if (oldUser) {
+				return done(null, oldUser);
+			} else {
+				if (err) return  done(err);
+				// makes a new entry in the DB with DIFFERNT schema
+				console.log(profile);
+				var newUser = new FBUser({
+					fbId: profile.id,
+					email: profile.emails[0].value,
+					name: profile.displayName
+				}).save(function(err, newUser) {
+					if (err) throw err;
+					done(null, newUser);
+				});
+			}
+		});
+	}));
+
+	// Logic for twitter strategy
+	passport.use(new TwitterStrategy({
+		consumerKey : 'Tb05eSsD5xeONZPgnqRkTA',
+		consumerSecret : 'YxbHMY9OYRXxC2kKq5xSHYm1quLaht3Bk1aAA9mDlcc',
+		callbackURL: 'http://localhost:8888/auth/twitter/callback'
+	}, function(token, tokenSecret, profile, done) {
+		console.log('twitter strategy');
+	}));
 }

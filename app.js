@@ -74,6 +74,25 @@ app.post('/signin', // signup page send a POST request here
 			failureFlash: 'Invalid username or password.'
 		})
 );
+
+app.get('/auth/facebook', passport.authenticate("facebook", {scope:'email'}));
+app.get('/auth/facebook/callback', 
+        passport.authenticate('facebook',{ 
+        	successRedirect: '/dashboard',
+        	failureRedirect: '/signin',
+        	failureFlash: 'Facebook error'
+        })
+);
+
+app.get("/auth/twitter", passport.authenticate("twitter"));
+app.get("/auth/twitter/callback", 
+        passport.authenticate("facebook",{ 
+        	successRedirect: '/dashboard',
+        	failureRedirect: '/signin',
+        	failureFlash: 'Twitter error'
+        })
+);
+
 app.get('/dashboard', auth.requiresLogin, routes.dashboard); // where all the fun happens
 app.get('/logout', routes.logout);
 
@@ -98,7 +117,7 @@ app.use(function(err, req, res, next){
 	load helper methods for passport.js
 	this is at the end to ensure everything has been loaded/required
 */
-require('./config/pass.js')(passport, LocalStrategy);
+require('./config/pass.js')(passport, LocalStrategy, FacebookStrategy, TwitterStrategy, GoogleStategy);
 
 // create and start the server
 app.listen(app.get('port'));
