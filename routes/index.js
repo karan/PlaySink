@@ -3,13 +3,13 @@
 */
 
 var mongoose = require('mongoose');
-var User = require('./../models/User');
-var Constants = require('./../config/Constants');
+var User = require('./../models/user');
+var Constants = require('./../config/constants');
 
 /*
 	Homepage router.
 	View: index
- */
+*/
 exports.index = function(req, res){
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
@@ -23,7 +23,11 @@ exports.index = function(req, res){
 */
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
-		res.render('users/userlist', {appName: Constants.APP_NAME, title: 'User List', 'userlist': docs});
+		res.render('users/userlist', {
+			appName: Constants.APP_NAME,
+			title: 'User List',
+			'userlist': docs
+		});
 	});
 }
 
@@ -35,7 +39,11 @@ exports.signup = function(req, res) {
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
-	res.render('users/signup', {appName: Constants.APP_NAME, title: 'Sign Up', messages: req.flash('error')});
+	res.render('users/signup', {
+		appName: Constants.APP_NAME,
+		title: 'Sign Up',
+		messages: req.flash('error')
+	});
 }
 
 /*
@@ -83,7 +91,11 @@ exports.signin = function(req, res) {
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
-	res.render('users/signin', {appName: Constants.APP_NAME, title: 'Sign In', messages: req.flash('error')});
+	res.render('users/signin', {
+		appName: Constants.APP_NAME,
+		title: 'Sign In',
+		messages: req.flash('error')
+	});
 }
 
 /*
@@ -99,5 +111,8 @@ exports.logout = function(req, res) {
 */
 exports.dashboard = function(req, res) {
 	user = req.user;
-	res.render('dashboard', {appName: Constants.APP_NAME, user: user});
+	res.render('dashboard', {
+		appName: Constants.APP_NAME,
+		user: user
+	});
 }

@@ -10,6 +10,9 @@
 		"mongoose" : "latest",
 		"passport" : "latest",
 		"passport-local" : "latest",
+		"passport-facebook" : "latest",
+		"passport-google" : "latest",
+		"passport-twitter" : "latest",
 		"bcryptjs" : "latest",
 		"connect-flash" : "latest"
 	},

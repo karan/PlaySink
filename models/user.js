@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
 // used to hash password // http://codahale.com/how-to-safely-store-a-password/
 var bcrypt = require('bcryptjs');
 // the file containing out app constants
-var Constants = require('./../config/Constants');
+var Constants = require('./../config/constants');
 
 /*
 	Field validators
@@ -35,7 +35,7 @@ var nameValidator = [
 	},
 	{
 		validator: function (username) {
-			return(/^[a-zA-Z0-9\_]+$/).test(username);
+			return (/^[a-zA-Z0-9\_]+$/).test(username);
 		},
 		msg: 'Username can only contain alphabets, numbers and underscore.'
 	}
