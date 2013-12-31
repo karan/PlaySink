@@ -66,7 +66,7 @@ app.get('/userlist', routes.userlist);
 app.get('/signup', routes.signup); // the signup page
 app.post('/signup', routes.adduser); // signup page send a POST request here
 
-app.get('/signin', routes.signin); // the signin page
+app.get('/signin', routes.signin); // just the homepage
 app.post('/signin', // signup page send a POST request here
 		passport.authenticate('local', {
 			successRedirect: '/dashboard', 

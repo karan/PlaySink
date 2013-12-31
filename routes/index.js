@@ -14,7 +14,7 @@ exports.index = function(req, res){
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
-	res.render('index', {appName: Constants.APP_NAME, title: 'Home'});
+	res.render('index', {appName: Constants.APP_NAME, title: 'Home', user: req.user});
 };
 
 /*
@@ -84,8 +84,7 @@ exports.adduser = function(req, res) {
 }
 
 /*
-	Displays the signin page
-	View: /users/signin
+	Signin form is on homepage.
 */
 exports.signin = function(req, res) {
 	// is a user is already logged in, take him to dashboard
