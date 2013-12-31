@@ -1,0 +1,9 @@
+extends layouts/default-dropdown
+
+block content
+	div.container
+		h1 User List
+		ul
+			each user, i in userlist
+				li
+					a(href="mailto:#{user.email}")= user.username

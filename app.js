@@ -61,7 +61,7 @@ if ('development' == app.get('env')) {
 */
 
 app.get('/', routes.index);
-app.get('/userlist', routes.userlist);
+app.get('/userlist', auth.requiresLogin, routes.userlist);
 
 app.get('/signup', routes.signup); // the signup page
 app.post('/signup', routes.adduser); // signup page send a POST request here
@@ -83,7 +83,11 @@ app.get('/logout', routes.logout);
 */
 
 app.use(function(req, res, next){
-	res.render('errors/404', {url: req.url});
+	res.render('errors/404', {
+		url: req.url, 
+		appName: require('./config/constants').APP_NAME,
+		title: '404 Not Found'
+	});
 });
 
 app.use(function(err, req, res, next){

@@ -19,14 +19,15 @@ exports.index = function(req, res){
 
 /*
 	Will show a list of all users
-	View: /users/userlist
+	View: userlist
 */
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
-		res.render('users/userlist', {
+		res.render('userlist', {
 			appName: Constants.APP_NAME,
 			title: 'User List',
-			'userlist': docs
+			'userlist': docs,
+			user: req.user
 		});
 	});
 }
@@ -113,6 +114,7 @@ exports.dashboard = function(req, res) {
 	user = req.user;
 	res.render('dashboard', {
 		appName: Constants.APP_NAME,
-		user: user
+		user: user,
+		title: 'Dashboard'
 	});
 }
