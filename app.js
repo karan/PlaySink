@@ -2,26 +2,18 @@
 	Module dependencies
 */
 
-// the main ssjs framework
-var express = require('express');
-// by default, brings in routes/index.js
-var routes = require('./routes');
-// for pathn manipulation
-var path = require('path');
-// to start the server
-var http = require('http');
-// to use re.flash()
-var flash = require('connect-flash');
-// database connection
-var db = require('./models/db');
-// for user authentication
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-// helper methods for authentication
-var auth = require('./config/middlewares/authorization');
-
-
-var app = express(); // create an express app
+var express = require('express'),		// the main ssjs framework
+	routes = require('./routes'),		// by default, brings in routes/index.js
+	path = require('path'),				// for pathn manipulation
+	flash = require('connect-flash'),	// to use re.flash()
+	db = require('./models/db'),		// database connection
+	passport = require('passport'),		// for user authentication
+	LocalStrategy = require('passport-local').Strategy,
+	TwitterStrategy = require('passport-twitter').Strategy,
+	FacebookStrategy = require('passport-facebook').Strategy,
+	GoogleStategy = require('passport-google').Strategy,
+	auth = require('./config/middlewares/authorization'), // helper methods for authentication
+	app = express(); 					// create an express app
 
 /*
 	Configure environments
@@ -76,16 +68,18 @@ app.post('/signup', routes.adduser); // signup page send a POST request here
 
 app.get('/signin', routes.signin); // just the homepage
 app.post('/signin', // signup page send a POST request here
-		passport.authenticate('local', {successRedirect: '/dashboard', 
-										failureRedirect: '/signin', 
-										failureFlash: 'Invalid username or password.'}));
-
+		passport.authenticate('local', {
+			successRedirect: '/dashboard', 
+			failureRedirect: '/signin', 
+			failureFlash: 'Invalid username or password.'
+		})
+);
 app.get('/dashboard', auth.requiresLogin, routes.dashboard); // where all the fun happens
 app.get('/logout', routes.logout);
 
 
 /*
-	Error handlers
+* Error handlers
 */
 
 app.use(function(req, res, next){
@@ -96,12 +90,12 @@ app.use(function(err, req, res, next){
   res.render('errors/500')
 });
 
-
-// load helper methods for passport.js
-// this is at the end to ensure everything has been loaded/required
+/*
+	load helper methods for passport.js
+	this is at the end to ensure everything has been loaded/required
+*/
 require('./config/pass.js')(passport, LocalStrategy);
 
 // create and start the server
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Express server listening on port ' + app.get('port'));
-});
+app.listen(app.get('port'));
+console.log('Express server listening on port ' + app.get('port'));

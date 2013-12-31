@@ -5,7 +5,8 @@
 // bring in the schema for user
 var User = require('mongoose').model('User');
 
-module.exports = function (passport, LocalStrategy) {
+module.exports = function (passport, LocalStrategy, FacebookStrategy,
+							TwitterStrategy, GoogleStrategy) {
 
 	/*
  		user ID is serialized to the session. When subsequent requests are 
