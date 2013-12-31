@@ -50,6 +50,8 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] Simple user/pwd authentication using passport
 - [x] Redirect authenticated users to dashboard
 - [ ] Facebook authentication using passport-facebook
+- [ ] Twitter auth
+- [ ] Google auth
 - [ ] Setup forgot password reset capability
 - [ ] Remember me implementation
 - [x] Make sure all signup/sign in flash messages are shown
@@ -74,8 +76,8 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 
 ### Frontend
 
-- [ ] Give some color to flash messages
-- [ ] Make the login/signup link into a modal window (jquery)
+- [x] Give some color to flash messages
+- [x] Make the login/signup link into a modal window (jquery)
 - [ ] User sign-up input validation
 
 ## Current workflow
