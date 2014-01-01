@@ -135,6 +135,7 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
 // Need to integrate with user
 var FBUserSchema = new Schema({
 	created_at: {
@@ -170,3 +171,20 @@ var TWUserSchema = new Schema({
 });
 
 module.exports = mongoose.model('TWS', TWUserSchema);
+
+var GOUserSchema = new Schema({
+	created_at: {
+		// auto added user registration timestamp
+		type: Date, 
+		default: Date.now
+	},
+	openId: String,
+	email: {
+		type: String, 
+		//required: '{PATH} is required!', 
+		lowercase: true, // force email lowercase
+	},
+	name: String
+});
+
+module.exports = mongoose.model('GOS', GOUserSchema);

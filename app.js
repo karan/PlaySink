@@ -8,10 +8,6 @@ var express = require('express'),		// the main ssjs framework
 	flash = require('connect-flash'),	// to use re.flash()
 	db = require('./models/db'),		// database connection
 	passport = require('passport'),		// for user authentication
-	LocalStrategy = require('passport-local').Strategy,
-	TwitterStrategy = require('passport-twitter').Strategy,
-	FacebookStrategy = require('passport-facebook').Strategy,
-	GoogleStategy = require('passport-google').Strategy,
 	auth = require('./config/middlewares/authorization'), // helper methods for authentication
 	app = express(); 					// create an express app
 
@@ -84,12 +80,21 @@ app.get('/auth/facebook/callback',
         })
 );
 
-app.get('/auth/twitter', passport.authenticate('twitter', {scope:'email'}));
+app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', 
         passport.authenticate('twitter',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
         	failureFlash: 'Twitter error'
+        })
+);
+
+app.get('/auth/google', passport.authenticate('google'));
+app.get('/auth/google/callback', 
+        passport.authenticate('google',{ 
+        	successRedirect: '/dashboard',
+        	failureRedirect: '/signin',
+        	failureFlash: 'Google error'
         })
 );
 
@@ -117,7 +122,7 @@ app.use(function(err, req, res, next){
 	load helper methods for passport.js
 	this is at the end to ensure everything has been loaded/required
 */
-require('./config/pass.js')(passport, LocalStrategy, FacebookStrategy, TwitterStrategy, GoogleStategy);
+require('./config/pass.js')(passport);
 
 // create and start the server
 app.listen(app.get('port'));

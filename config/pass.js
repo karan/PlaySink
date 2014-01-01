@@ -2,13 +2,18 @@
 	This is a wrapper for all code used for user authentication.
 */
 
-// bring in the schema for user
-var User = require('mongoose').model('User');
-var FBUser = require('mongoose').model('FBS');	// Facebook Users
-var TWUser = require('mongoose').model('TWS');	// Twitter Users
+var LocalStrategy = require('passport-local').Strategy,
+	TwitterStrategy = require('passport-twitter').Strategy,
+	GoogleStategy = require('passport-google').Strategy,
+	FacebookStrategy = require('passport-facebook').Strategy;
 
-module.exports = function (passport, LocalStrategy, FacebookStrategy,
-							TwitterStrategy, GoogleStrategy) {
+// bring in the schema for user
+var User = require('mongoose').model('User'),
+	FBUser = require('mongoose').model('FBS'),	// Facebook Users
+	TWUser = require('mongoose').model('TWS'),	// Twitter Users
+	GOUser = require('mongoose').model('GOS');
+
+module.exports = function (passport) {
 
 	/*
  		user ID is serialized to the session. When subsequent requests are 
@@ -28,34 +33,39 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 		console.log('deserializing: ' + id);
 		// NOT GOOD checks fbusers first then regualar users.
 		// REALLY REALLY BAD
-		TWUser.findById(id, function(err, user) {
+		// THIS IS SO BAD I FEEL BAD FOR DOING IT
+		GOUser.findById(id, function(err, user) {
 			if (err) done(err);
 			if (user) {
-				done(null, user)
+				done(null, user);
 			} else {
-				FBUser.findById(id, function(err, user) {
+				TWUser.findById(id, function(err, user) {
 					if (err) done(err);
 					if (user) {
-						done(null, user);
+						done(null, user)
 					} else {
-						User.findById(id, function (err, user) {
+						FBUser.findById(id, function(err, user) {
 							if (err) done(err);
-							done(null, user);
+							if (user) {
+								done(null, user);
+							} else {
+								User.findById(id, function (err, user) {
+									if (err) done(err);
+									done(null, user);
+								});
+							}
 						});
 					}
 				});
 			}
 		});
-		
 	});
-
-
 	// logic for local username/password login
 	passport.use(new LocalStrategy({
 		usernameField: 'username',
 		passwordField: 'userpassword'
 	}, function(username, password, callback) {
-			console.log('authenticating.. : ' + username)
+			console.log('authenticating.. LocalStrategy: ' + username)
 			User.findOne({username: username}, function(err, user) {
 				if (err) return callback(err);
 
@@ -86,8 +96,9 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 		clientSecret: '777565cc0f54529a51ffd42ea999dd63',
 		callbackURL: 'http://localhost:8888/auth/facebook/callback'
 	}, function(accessToken, refreshToken, profile, done) {
+		console.log('facebook authentication for ')
+		console.log(profile);
 		FBUser.findOne({fbId : profile.id }, function(err, oldUser) {
-			console.log('facebook check');
 			if (oldUser) {
 				return done(null, oldUser);
 			} else {
@@ -112,6 +123,8 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 		consumerSecret : 'YxbHMY9OYRXxC2kKq5xSHYm1quLaht3Bk1aAA9mDlcc',
 		callbackURL: 'http://localhost:8888/auth/twitter/callback'
 	}, function(token, tokenSecret, profile, done) {
+		console.log('twitter authentication for ');
+		console.log(profile);
 		TWUser.findOne({twId : profile.id}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
@@ -122,7 +135,29 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 				handle: profile.username
 			}).save(function(err, newUser) {
 				if (err) throw err;
-				return done(null, newUser)
+				return done(null, newUser);
+			});
+		});
+	}));
+
+	// Logic for google strategy
+	passport.use(new GoogleStategy({
+		returnURL: 'http://localhost:8888/auth/google/callback',
+		realm: 'http://localhost:8888'
+	}, function(identifier, profile, done) {
+		console.log('google authentication for ');
+		console.log(profile);
+		identifier = identifier.split('?id=')[1]
+		GOUser.findOne({ openId: identifier}, function(err, oldUser) {
+			if (oldUser) return done(null, oldUser);
+			if (err) return done(err);
+			var newUser = new GOUser({
+				openId: identifier,
+				email: profile.emails[0].value,
+				name: profile.displayName
+			}).save(function(err, newUser) {
+				if (err) throw err;
+				return done(null, newUser);
 			});
 		});
 	}));
