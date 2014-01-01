@@ -58,6 +58,8 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] Single data type for all users regardless of login method
 - [ ] Make login process easier...
 - [ ] Properly get necessary information username and what not
+- [ ] Manage multiple login methods with similar emails
+- [ ] Find better data stucture to be stored in DB
 
 ### Dashboard
 
@@ -91,6 +93,8 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - If they try to access dashboard without signing in, they are redirected to signin page
 - Upon registering, user is taken to the dashboard
 - An authenticated user accessing homepage, signup or signin page is redirected to dashboard.
+- Users who choose to sign in with Google, Facebook, or Twitter, will be redirected to the respective page and users have to allow us to access their information (email/name)
+- Validation is checked amoung username and password, users with same Facebook and Google emails with get an error thrown since there can't be duplicates.
 
 ### Facebook Login
 

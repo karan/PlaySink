@@ -60,7 +60,7 @@ var passwordValidator = [
 	}
 ];
 
-// For local Strategy
+// For any user
 var userSchema = new Schema({
 	created_at: {
 		// auto added user registration timestamp
@@ -69,22 +69,21 @@ var userSchema = new Schema({
 	},
 	username: {
 		type: String, 
-		//required: '{PATH} is required!', 
+		//required: '{PATH} is required!', not mandetory yet
 		validate: nameValidator
 	},
 	email: {
 		type: String, 
-		//required: '{PATH} is required!', 
+		//required: '{PATH} is required!', twitter doesn't allow this
 		lowercase: true, // force email lowercase
 		validate: emailValidator
 	},
 	password: {
 		type: String, 
-		//required: '{PATH} is required!',
+		//required: '{PATH} is required!', only required for local
 		validate: passwordValidator
 	},
 	twId: String,
-	handle: String,
 	openId: String,
 	fbId: String,
 	strategy: String
@@ -131,7 +130,7 @@ userSchema.pre('save', function(next) {
 	});
 });
 
-// compare two passwords for a match
+// compare two passwords for a match only for local strategy
 userSchema.methods.comparePassword = function(candidatePassword, callback) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if (err) return callback(err);

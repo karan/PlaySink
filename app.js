@@ -71,8 +71,9 @@ app.post('/signin', // signup page send a POST request here
 		})
 );
 
+// Passport redirects to a facebook login and we ask only for email
 app.get('/auth/facebook', passport.authenticate("facebook", {scope:'email'}));
-app.get('/auth/facebook/callback', 
+app.get('/auth/facebook/callback', // Authenticates it and sends to dashboard
         passport.authenticate('facebook',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
@@ -80,8 +81,9 @@ app.get('/auth/facebook/callback',
         })
 );
 
+// Passport redirects to twitter login
 app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', 
+app.get('/auth/twitter/callback', // If it works, will send to dashboard
         passport.authenticate('twitter',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
@@ -89,8 +91,9 @@ app.get('/auth/twitter/callback',
         })
 );
 
+// Same thing as other two just with google
 app.get('/auth/google', passport.authenticate('google'));
-app.get('/auth/google/callback', 
+app.get('/auth/google/callback', // Goes to dashboard if it works
         passport.authenticate('google',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
@@ -98,7 +101,8 @@ app.get('/auth/google/callback',
         })
 );
 
-app.get('/dashboard', auth.requiresLogin, routes.dashboard); // where all the fun happens
+// where all the fun happens
+app.get('/dashboard', auth.requiresLogin, routes.dashboard); 
 app.get('/logout', routes.logout);
 
 

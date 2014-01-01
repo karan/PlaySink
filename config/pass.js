@@ -2,13 +2,15 @@
 	This is a wrapper for all code used for user authentication.
 */
 
-var LocalStrategy = require('passport-local').Strategy;//,
+// All Passport stategies being used
+var LocalStrategy = require('passport-local').Strategy,
 	TwitterStrategy = require('passport-twitter').Strategy,
 	GoogleStategy = require('passport-google').Strategy,
 	FacebookStrategy = require('passport-facebook').Strategy;
 
 // bring in the schema for user
-var User = require('mongoose').model('User');
+var User = require('mongoose').model('User'),
+	Constants = require('./constants');
 
 module.exports = function (passport) {
 
@@ -66,9 +68,9 @@ module.exports = function (passport) {
 
 	// Logic for facebook strategy
 	passport.use(new FacebookStrategy({
-		clientID: '496630153783922',
-		clientSecret: '777565cc0f54529a51ffd42ea999dd63',
-		callbackURL: 'http://localhost:8888/auth/facebook/callback'
+		clientID: Constants.Facebook.APPID,
+		clientSecret: Constants.Facebook.SECRET,
+		callbackURL: Constants.Facebook.CALLBACK
 	}, function(accessToken, refreshToken, profile, done) {
 		console.log('facebook authentication for ')
 		console.log(profile);
@@ -80,7 +82,7 @@ module.exports = function (passport) {
 				var newUser = new User({
 					fbId: profile.id,
 					email: profile.emails[0].value,
-					username: profile.emails[0].value.split('@')[0],
+					username: profile.emails[0].value.split('@')[0], // Temp username
 					strategy: 'facebook'
 				}).save(function(err, newUser) {
 					if (err) return done(err);
@@ -92,19 +94,21 @@ module.exports = function (passport) {
 
 	// Logic for twitter strategy
 	passport.use(new TwitterStrategy({
-		consumerKey : 'Tb05eSsD5xeONZPgnqRkTA',
-		consumerSecret : 'YxbHMY9OYRXxC2kKq5xSHYm1quLaht3Bk1aAA9mDlcc',
-		callbackURL: 'http://localhost:8888/auth/twitter/callback'
+		consumerKey : Constants.Twitter.KEY,
+		consumerSecret : Constants.Twitter.SECRET,
+		callbackURL: Constants.Twitter.CALLBACK
 	}, function(token, tokenSecret, profile, done) {
 		console.log('twitter authentication for ');
 		console.log(profile);
 		User.findOne({twId : profile.id}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
+
+			// If user doesn't exist create a new one
 			var newUser = new User({
 				twId: profile.id,
-				//email: profile.emails[0].value,
-				username: profile.username,
+				//email: profile.emails[0].value, no email :(
+				username: profile.username, // Temporary username
 				strategy: 'twitter'
 			}).save(function(err, newUser) {
 				if (err) throw err;
@@ -115,20 +119,24 @@ module.exports = function (passport) {
 
 	// Logic for google strategy
 	passport.use(new GoogleStategy({
-		returnURL: 'http://localhost:8888/auth/google/callback',
-		realm: 'http://localhost:8888'
+		returnURL: Constants.Google.CALLBACK,
+		realm: Constants.Google.REALM
 	}, function(identifier, profile, done) {
 		console.log('google authentication for ');
 		console.log(profile);
+		// Extracts the openID from url
 		identifier = identifier.split('?id=')[1];
-		//var name = profile.displayName.split(' ');
 		User.findOne({ openId: identifier}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
+
+			// If there is no user found, create a new one
 			var newUser = new User({
 				openId: identifier,
 				email: profile.emails[0].value,
-				username: profile.name.familyName + '_' + profile.name.givenName
+				// Temporary username
+				username: profile.name.familyName + '_' + profile.name.givenName,
+				strategy: 'google'
 			}).save(function(err, newUser) {
 				if (err) throw err;
 				return done(null, newUser);
