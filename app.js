@@ -84,9 +84,9 @@ app.get('/auth/facebook/callback',
         })
 );
 
-app.get("/auth/twitter", passport.authenticate("twitter"));
-app.get("/auth/twitter/callback", 
-        passport.authenticate("facebook",{ 
+app.get('/auth/twitter', passport.authenticate('twitter', {scope:'email'}));
+app.get('/auth/twitter/callback', 
+        passport.authenticate('twitter',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
         	failureFlash: 'Twitter error'

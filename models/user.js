@@ -152,3 +152,21 @@ var FBUserSchema = new Schema({
 });
 
 module.exports = mongoose.model('FBS', FBUserSchema);
+
+var TWUserSchema = new Schema({
+	created_at: {
+		// auto added user registration timestamp
+		type: Date, 
+		default: Date.now
+	},
+	twId: String,
+	/*email: {
+		type: String, 
+		required: '{PATH} is required!', 
+		lowercase: true, // force email lowercase
+	},*/
+	name: String,
+	handle: String
+});
+
+module.exports = mongoose.model('TWS', TWUserSchema);

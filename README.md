@@ -50,7 +50,7 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] Simple user/pwd authentication using passport
 - [x] Redirect authenticated users to dashboard
 - [x] Facebook authentication using passport-facebook
-- [ ] Twitter auth
+- [x] Twitter auth
 - [ ] Google auth
 - [ ] Setup forgot password reset capability
 - [ ] Remember me implementation
@@ -93,6 +93,11 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 ### Facebook Login
 
 To login using facebook you must go to the url http://localhost:8888/auth/facebook and it will ask you on your facebook profile to use just your email address. Once you hit accept it will redirect you to your dashboard.
+
+### Twitter Login
+
+To login using Twitter you must go to the url
+http://localhost:8888/auth/twitter and it will ask you to sign in or if you are logged in it will ask for permission to use. Once accespted it will take you to your dashboard. A porblem is that twitter doesn't give use acess to the email which I'm not sure if we need it or not.
 
 ### The server
 

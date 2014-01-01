@@ -4,8 +4,8 @@
 
 // bring in the schema for user
 var User = require('mongoose').model('User');
-var FBUser = require('mongoose').model('FBS');	// Schema for FB users
-var constants = require('constants');
+var FBUser = require('mongoose').model('FBS');	// Facebook Users
+var TWUser = require('mongoose').model('TWS');	// Twitter Users
 
 module.exports = function (passport, LocalStrategy, FacebookStrategy,
 							TwitterStrategy, GoogleStrategy) {
@@ -27,17 +27,26 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 	passport.deserializeUser(function(id, done) {
 		console.log('deserializing: ' + id);
 		// NOT GOOD checks fbusers first then regualar users.
-		FBUser.findById(id, function(err, user) {
+		// REALLY REALLY BAD
+		TWUser.findById(id, function(err, user) {
 			if (err) done(err);
 			if (user) {
-				done(null, user);
+				done(null, user)
 			} else {
-				User.findById(id, function (err, user) {
+				FBUser.findById(id, function(err, user) {
 					if (err) done(err);
-					done(null, user);
+					if (user) {
+						done(null, user);
+					} else {
+						User.findById(id, function (err, user) {
+							if (err) done(err);
+							done(null, user);
+						});
+					}
 				});
 			}
 		});
+		
 	});
 
 
@@ -91,7 +100,7 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 					name: profile.displayName
 				}).save(function(err, newUser) {
 					if (err) throw err;
-					done(null, newUser);
+					return done(null, newUser);
 				});
 			}
 		});
@@ -103,6 +112,18 @@ module.exports = function (passport, LocalStrategy, FacebookStrategy,
 		consumerSecret : 'YxbHMY9OYRXxC2kKq5xSHYm1quLaht3Bk1aAA9mDlcc',
 		callbackURL: 'http://localhost:8888/auth/twitter/callback'
 	}, function(token, tokenSecret, profile, done) {
-		console.log('twitter strategy');
+		TWUser.findOne({twId : profile.id}, function(err, oldUser) {
+			if (oldUser) return done(null, oldUser);
+			if (err) return done(err);
+			var newUser = new TWUser({
+				twId: profile.id,
+				//email: profile.emails[0].value,
+				name: profile.displayName,
+				handle: profile.username
+			}).save(function(err, newUser) {
+				if (err) throw err;
+				return done(null, newUser)
+			});
+		});
 	}));
 }
