@@ -2,16 +2,13 @@
 	This is a wrapper for all code used for user authentication.
 */
 
-var LocalStrategy = require('passport-local').Strategy,
+var LocalStrategy = require('passport-local').Strategy;//,
 	TwitterStrategy = require('passport-twitter').Strategy,
 	GoogleStategy = require('passport-google').Strategy,
 	FacebookStrategy = require('passport-facebook').Strategy;
 
 // bring in the schema for user
-var User = require('mongoose').model('User'),
-	FBUser = require('mongoose').model('FBS'),	// Facebook Users
-	TWUser = require('mongoose').model('TWS'),	// Twitter Users
-	GOUser = require('mongoose').model('GOS');
+var User = require('mongoose').model('User');
 
 module.exports = function (passport) {
 
@@ -31,35 +28,12 @@ module.exports = function (passport) {
 	*/
 	passport.deserializeUser(function(id, done) {
 		console.log('deserializing: ' + id);
-		// NOT GOOD checks fbusers first then regualar users.
-		// REALLY REALLY BAD
-		// THIS IS SO BAD I FEEL BAD FOR DOING IT
-		GOUser.findById(id, function(err, user) {
+		User.findById(id, function (err, user) {
 			if (err) done(err);
-			if (user) {
-				done(null, user);
-			} else {
-				TWUser.findById(id, function(err, user) {
-					if (err) done(err);
-					if (user) {
-						done(null, user)
-					} else {
-						FBUser.findById(id, function(err, user) {
-							if (err) done(err);
-							if (user) {
-								done(null, user);
-							} else {
-								User.findById(id, function (err, user) {
-									if (err) done(err);
-									done(null, user);
-								});
-							}
-						});
-					}
-				});
-			}
+			done(null, user);
 		});
 	});
+	
 	// logic for local username/password login
 	passport.use(new LocalStrategy({
 		usernameField: 'username',
@@ -90,7 +64,7 @@ module.exports = function (passport) {
 		}
 	));
 
-	// Logic for facebook strategey
+	// Logic for facebook strategy
 	passport.use(new FacebookStrategy({
 		clientID: '496630153783922',
 		clientSecret: '777565cc0f54529a51ffd42ea999dd63',
@@ -98,19 +72,18 @@ module.exports = function (passport) {
 	}, function(accessToken, refreshToken, profile, done) {
 		console.log('facebook authentication for ')
 		console.log(profile);
-		FBUser.findOne({fbId : profile.id }, function(err, oldUser) {
+		User.findOne({fbId : profile.id }, function(err, oldUser) {
 			if (oldUser) {
 				return done(null, oldUser);
 			} else {
-				if (err) return  done(err);
-				// makes a new entry in the DB with DIFFERNT schema
-				console.log(profile);
-				var newUser = new FBUser({
+				if (err) return done(err);
+				var newUser = new User({
 					fbId: profile.id,
 					email: profile.emails[0].value,
-					name: profile.displayName
+					username: profile.emails[0].value.split('@')[0],
+					strategy: 'facebook'
 				}).save(function(err, newUser) {
-					if (err) throw err;
+					if (err) return done(err);
 					return done(null, newUser);
 				});
 			}
@@ -125,14 +98,14 @@ module.exports = function (passport) {
 	}, function(token, tokenSecret, profile, done) {
 		console.log('twitter authentication for ');
 		console.log(profile);
-		TWUser.findOne({twId : profile.id}, function(err, oldUser) {
+		User.findOne({twId : profile.id}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
-			var newUser = new TWUser({
+			var newUser = new User({
 				twId: profile.id,
 				//email: profile.emails[0].value,
-				name: profile.displayName,
-				handle: profile.username
+				username: profile.username,
+				strategy: 'twitter'
 			}).save(function(err, newUser) {
 				if (err) throw err;
 				return done(null, newUser);
@@ -147,14 +120,15 @@ module.exports = function (passport) {
 	}, function(identifier, profile, done) {
 		console.log('google authentication for ');
 		console.log(profile);
-		identifier = identifier.split('?id=')[1]
-		GOUser.findOne({ openId: identifier}, function(err, oldUser) {
+		identifier = identifier.split('?id=')[1];
+		//var name = profile.displayName.split(' ');
+		User.findOne({ openId: identifier}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
-			var newUser = new GOUser({
+			var newUser = new User({
 				openId: identifier,
 				email: profile.emails[0].value,
-				name: profile.displayName
+				username: profile.name.familyName + '_' + profile.name.givenName
 			}).save(function(err, newUser) {
 				if (err) throw err;
 				return done(null, newUser);

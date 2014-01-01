@@ -59,7 +59,8 @@ exports.adduser = function(req, res) {
 	var user = new User({
 		'username': username,
 		'password': password,
-		'email': email
+		'email': email,
+		'strategy': 'local'
 	});
 
 	user.save(function(err) {

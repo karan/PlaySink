@@ -51,11 +51,13 @@ Maintain a macro TODO list on top of each file. Some major tasks to get us start
 - [x] Redirect authenticated users to dashboard
 - [x] Facebook authentication using passport-facebook
 - [x] Twitter auth
-- [ ] Google auth
+- [x] Google auth
 - [ ] Setup forgot password reset capability
 - [ ] Remember me implementation
 - [x] Make sure all signup/sign in flash messages are shown
-- [ ] Single data type for all users regardless of login method
+- [x] Single data type for all users regardless of login method
+- [ ] Make login process easier...
+- [ ] Properly get necessary information username and what not
 
 ### Dashboard
 
@@ -98,6 +100,11 @@ To login using facebook you must go to the url http://localhost:8888/auth/facebo
 
 To login using Twitter you must go to the url
 http://localhost:8888/auth/twitter and it will ask you to sign in or if you are logged in it will ask for permission to use. Once accespted it will take you to your dashboard. A porblem is that twitter doesn't give use acess to the email which I'm not sure if we need it or not.
+
+### Google Login
+
+To login using Google you must go to the url
+http://localhost:888/auth/google and it will show you all your google accounts. Selct the one that you want to use.
 
 ### The server
 

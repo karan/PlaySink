@@ -70,19 +70,24 @@ var userSchema = new Schema({
 	username: {
 		type: String, 
 		//required: '{PATH} is required!', 
-		//validate: nameValidator
+		validate: nameValidator
 	},
 	email: {
 		type: String, 
-		required: '{PATH} is required!', 
+		//required: '{PATH} is required!', 
 		lowercase: true, // force email lowercase
 		validate: emailValidator
 	},
 	password: {
 		type: String, 
-		required: '{PATH} is required!',
+		//required: '{PATH} is required!',
 		validate: passwordValidator
-	}
+	},
+	twId: String,
+	handle: String,
+	openId: String,
+	fbId: String,
+	strategy: String
 });
 
 // the below 2 validations only apply if you are signing up traditionally
@@ -135,56 +140,3 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
 };
 
 module.exports = mongoose.model('User', userSchema);
-
-// Need to integrate with user
-var FBUserSchema = new Schema({
-	created_at: {
-		// auto added user registration timestamp
-		type: Date, 
-		default: Date.now
-	},
-	fbId: String,
-	email: {
-		type: String, 
-		required: '{PATH} is required!', 
-		lowercase: true, // force email lowercase
-	},
-	name: String
-});
-
-module.exports = mongoose.model('FBS', FBUserSchema);
-
-var TWUserSchema = new Schema({
-	created_at: {
-		// auto added user registration timestamp
-		type: Date, 
-		default: Date.now
-	},
-	twId: String,
-	/*email: {
-		type: String, 
-		required: '{PATH} is required!', 
-		lowercase: true, // force email lowercase
-	},*/
-	name: String,
-	handle: String
-});
-
-module.exports = mongoose.model('TWS', TWUserSchema);
-
-var GOUserSchema = new Schema({
-	created_at: {
-		// auto added user registration timestamp
-		type: Date, 
-		default: Date.now
-	},
-	openId: String,
-	email: {
-		type: String, 
-		//required: '{PATH} is required!', 
-		lowercase: true, // force email lowercase
-	},
-	name: String
-});
-
-module.exports = mongoose.model('GOS', GOUserSchema);
