@@ -102,4 +102,39 @@ body.signup-signin {
 
 .signin-option {
 	margin: 5px 0px;
-}	
+}
+
+
+input.ng-dirty.ng-invalid {
+	border: 1px solid red;
+}
+
+input.ng-dirty.ng-valid {
+	border: 1px solid green;
+}
+
+.error small.error {
+	display: block;
+	padding: 0.375em 0.25em;
+	margin-top: -1.3125em;
+	margin-bottom: 1em;
+	font-size: 0.75em;
+	font-weight: bold;
+	background: #c60f13;
+	color: white;
+}
+
+span.error, small.error {
+display: block;
+padding: 0.375em 0.25em;
+margin-top: -1.3125em;
+margin-bottom: 1em;
+font-size: 0.75em;
+font-weight: bold;
+background: #c60f13;
+color: white;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+display: none !important;
+}
