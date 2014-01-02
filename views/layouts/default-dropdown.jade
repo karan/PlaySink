@@ -28,7 +28,7 @@ html
 								li
 									a(href="/signup") Sign up
 								li.dropdown
-									a.dropdown-toggle(href="/", data-toggle="dropdown") Sign in
+									a.dropdown-toggle(href="/signin", data-toggle="dropdown") Sign in
 										b.caret
 									ul.dropdown-menu(style="padding: 15px;min-width: 250px;")
 										li
@@ -46,7 +46,11 @@ html
 															button.btn.btn-success.btn-block(type="submit") Sign in
 										li.divider
 										li
-											input.btn.btn-primary.btn-block#sign-in-facebook(type="button", value="Sign In with Facebook")
-											input.btn.btn-primary.btn-block#sign-in-google(type="button", value="Sign In with Google")
+											form.signin-option(method="get", action="/auth/facebook")
+												input.btn.btn-primary.btn-block#sign-in-facebook(type="submit", value="Sign In with Facebook")
+											form.signin-option(method="get", action="/auth/twitter")
+												input.btn.btn-primary.btn-block#sign-in-twitter(type="button", value="Sign In with Twitter")
+											form.signin-option(method="get", action="/auth/google")
+												input.btn.btn-primary.btn-block#sign-in-google(type="button", value="Sign In with Google")
 			block content
 	include ../includes/foot

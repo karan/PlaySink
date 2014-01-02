@@ -17,3 +17,10 @@ block content
 			input.form-control(type="password", placeholder="Enter password", name="userpassword", required=true)
 			input.form-control(type="text", placeholder="An email address", name="useremail", required=true)
 			button.btn.btn-lg.btn-success.btn-block(type="submit") Sign Up
+		hr.custom
+		form.signin-option(method="get", action="/auth/facebook")
+			input.btn.btn-primary.btn-block#sign-in-facebook(type="submit", value="Sign Up with Facebook")
+		form.signin-option(method="get", action="/auth/twitter")
+			input.btn.btn-primary.btn-block#sign-in-twitter(type="button", value="Sign Up with Twitter")
+		form.signin-option(method="get", action="/auth/google")
+			input.btn.btn-primary.btn-block#sign-in-google(type="button", value="Sign Up with Google")
