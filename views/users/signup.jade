@@ -13,21 +13,22 @@ block content
 							button.close(data-dismiss="alert", aria-hidden="true") &times;
 							span #{message}
 
-			input.form-control(type="text", placeholder="Enter username", name="username", required, autofocus, ng-model="username", ng-minlength=4, ng-maxlength=30)
+			input.form-control(type="text", placeholder="Enter username", name="username", required, autofocus, ng-model="username", ng-minlength=4, ng-maxlength=30, ng-pattern="/^[a-zA-Z0-9\_]+$/", ng-class="{error: adduser.username.$dirty && adduser.username.$invalid}")
 			div.error(ng-show="adduser.username.$dirty && adduser.username.$invalid")
-				//small.error(adduser.username.$error.required) Username is required.
-				small.error(adduser.username.$error.minlength) Username should be at least 4 characters.
-				small.error(adduser.username.$error.maxlength) Username should be at most 30 characters.
+				small.error(ng-show="adduser.username.$error.required") Username is required.
+				small.error(ng-show="adduser.username.$error.minlength") Username should be at least 4 characters.
+				small.error(ng-show="adduser.username.$error.maxlength") Username should be at most 30 characters.
+				small.error(ng-show="adduser.username.$error.pattern") Username can only contain alphabets, numbers and underscore.
 
-			input.form-control(type="password", placeholder="Enter password", name="userpassword", required=true, name="password", ng-minlength=8, ng-model="password")
+			input.form-control(type="password", placeholder="Enter password", name="userpassword", required=true, ng-minlength=8, ng-model="password")
 			div.error(ng-show="adduser.userpassword.$dirty && adduser.userpassword.$invalid")
-				//small.error(adduser.userpassword.$error.required) Password is required
-				small.error(adduser.userpassword.$error.minlength) Password should be at least 8 characters.
+				small.error(ng-show="adduser.userpassword.$error.required") Password is required
+				small.error(ng-show="adduser.userpassword.$error.minlength") Password should be at least 8 characters.
 			
-			input.form-control(type="email", placeholder="An email address", name="useremail", required=true, name="email", ng-model="email")
+			input.form-control(type="email", placeholder="An email address", name="useremail", required=true, ng-model="email")
 			div.error(ng-show="adduser.email.$dirty && adduser.email.$invalid")
-				//small.error(adduser.email.$error.required) Email is required.
-				small.error(adduser.email.$error.email) Not a valid email.
+				small.error(ng-show="adduser.email.$useremail.required") Email is required.
+				small.error(ng-show="adduser.email.$useremail.email") Not a valid email.
 			
 			button.btn.btn-lg.btn-success.btn-block(type="submit", ng-disabled="adduser.$invalid") Sign Up
 		hr.custom

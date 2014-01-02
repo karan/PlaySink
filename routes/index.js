@@ -52,16 +52,14 @@ exports.signup = function(req, res) {
 */
 exports.adduser = function(req, res) {
 	// get the form values from "name" attribute
-	var username = req.body.username;
-	var email = req.body.useremail;
-	var password = req.body.userpassword;
-
 	var user = new User({
-		'username': username,
-		'password': password,
-		'email': email,
+		'username': req.body.username,
+		'password': req.body.userpassword,
+		'email': req.body.useremail,
 		'strategy': 'local'
 	});
+
+	console.log(user);
 
 	user.save(function(err) {
 		if (err) {
