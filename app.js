@@ -62,8 +62,8 @@ app.get('/userlist', auth.requiresLogin, routes.userlist);
 app.get('/signup', routes.signup); // the signup page
 app.post('/signup', routes.adduser); // signup page send a POST request here
 
-app.get('/signin', routes.signin); // just the homepage
-app.post('/signin', // signup page send a POST request here
+app.get('/signin', routes.signin); // the signin page
+app.post('/signin', // signin page send a POST request here
 		passport.authenticate('local', {
 			successRedirect: '/dashboard', 
 			failureRedirect: '/signin', 
@@ -77,7 +77,7 @@ app.get('/auth/facebook/callback', // Authenticates it and sends to dashboard
         passport.authenticate('facebook',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
-        	failureFlash: 'Facebook error'
+        	failureFlash: 'This account seems to be in use.'
         })
 );
 
@@ -87,7 +87,7 @@ app.get('/auth/twitter/callback', // If it works, will send to dashboard
         passport.authenticate('twitter',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
-        	failureFlash: 'Twitter error'
+        	failureFlash: 'This account seems to be in use.'
         })
 );
 
@@ -97,7 +97,7 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
         passport.authenticate('google',{ 
         	successRedirect: '/dashboard',
         	failureRedirect: '/signin',
-        	failureFlash: 'Google error'
+        	failureFlash: 'This account seems to be in use.'
         })
 );
 

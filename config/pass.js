@@ -74,7 +74,7 @@ module.exports = function (passport) {
 	}, function(accessToken, refreshToken, profile, done) {
 		console.log('facebook authentication for ')
 		console.log(profile);
-		User.findOne({fbId : profile.id }, function(err, oldUser) {
+		User.findOne({$or: [{fbId : profile.id }, {email: profile.emails[0].value}]}, function(err, oldUser) {
 			if (oldUser) {
 				return done(null, oldUser);
 			} else {
@@ -126,7 +126,7 @@ module.exports = function (passport) {
 		console.log(profile);
 		// Extracts the openID from url
 		identifier = identifier.split('?id=')[1];
-		User.findOne({ openId: identifier}, function(err, oldUser) {
+		User.findOne({$or: [{openId: identifier}, {email: profile.emails[0].value}]}, function(err, oldUser) {
 			if (oldUser) return done(null, oldUser);
 			if (err) return done(err);
 

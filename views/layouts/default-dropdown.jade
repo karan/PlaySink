@@ -46,11 +46,6 @@ html
 															button.btn.btn-success.btn-block(type="submit") Sign in
 										li.divider
 										li
-											form.signin-option(method="get", action="/auth/facebook")
-												input.btn.btn-primary.btn-block#sign-in-facebook(type="submit", value="Sign In with Facebook")
-											form.signin-option(method="get", action="/auth/twitter")
-												input.btn.btn-primary.btn-block#sign-in-twitter(type="button", value="Sign In with Twitter")
-											form.signin-option(method="get", action="/auth/google")
-												input.btn.btn-primary.btn-block#sign-in-google(type="button", value="Sign In with Google")
+											include ../users/oauth
 			block content
 	include ../includes/foot

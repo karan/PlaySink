@@ -48,6 +48,7 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
 - An authenticated user accessing homepage, signup or signin page is redirected to dashboard.
 - Users who choose to sign in with Google, Facebook, or Twitter, will be redirected to the respective page and users have to allow us to access their information (email/name)
 - Validation is checked amoung username and password, users with same Facebook and Google emails with get an error thrown since there can't be duplicates.
+- If a user signs in with FB and Google with same email, the first strategy is used and second one is not added to the DB.
 
 ### Facebook Login
 
