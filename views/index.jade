@@ -1,24 +1,23 @@
 // Homepage template
 
-extends layouts/default-dropdown
+extends layouts/homepage
 
 block content
 	div.jumbotron
-		h1= title
-		p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+		h1 Humanize Music Discovery.
+		p.lead Tired of computers chosing your music? Get music recommendations from humans based on what you like, anonymously. Try PlaySink. 
+		button.btn.btn-success.btn-lg(type="button") Sign up for free
 
 	div.row.marketing
-		div.col-lg-6
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-		div.col-lg-6
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-			h4 Subheading
-			p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+		div.col-lg-4
+			h2 Tell us what you like
+			//img.img-responsive(src="/images/place1.png")
+			p Select as many artists/genres as you like. Others will be able to see this, and recommend you music.
+		div.col-lg-4
+			h2 Discover tasteful music
+			//img.img-responsive(src="/images/place1.png")
+			p Based on your likes, others recommend you music, and build your playlist. You do the same for them.
+		div.col-lg-4
+			h2 Earn Karma for recommendations
+			//img.img-responsive(src="/images/place1.png")
+			p High quality recommendations with higher ratings earn higher karma. Compete to be in our top users list.
