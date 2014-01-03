@@ -42,11 +42,21 @@ module.exports = function (passport) {
 		passwordField: 'userpassword'
 	}, function(username, password, callback) {
 			console.log('authenticating.. LocalStrategy: ' + username)
-			User.findOne({username: username}, function(err, user) {
+
+			// user can also login using email/password
+			var conditions = {}
+			if (username.indexOf('@') == -1) {
+				// it's not an email
+				conditions.username = username;
+			} else {
+				conditions.email = username;
+			}
+
+			User.findOne(conditions, function(err, user) {
 				if (err) return callback(err);
 
 				if (!user) {
-					// the username doesn't exist
+					// the user doesn't exist
 					return callback(null, false, {message: 'Username not found'});
 				}
 
