@@ -43,10 +43,8 @@ exports.signup = function(req, res) {
 	res.render('users/signup', {
 		appName: Constants.APP_NAME,
 		title: 'Sign Up',
-		messages: req.flash('error'), 
-		failed_user: req.session.failed_user
+		messages: req.flash('error')
 	});
-	req.session.failed_user = undefined;
 }
 
 /*
@@ -70,7 +68,6 @@ exports.adduser = function(req, res) {
 				var error = err.errors[field].message;
 				req.flash('error', error);
 			}
-			req.session.failed_user = user;
 			res.redirect('/signup');
 		} else {
 			req.logIn(user, function (err) {

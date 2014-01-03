@@ -4,6 +4,7 @@
 
 var express = require('express'),		// the main ssjs framework
 	routes = require('./routes'),		// by default, brings in routes/index.js
+	admin = require('./routes/admin'),  // all login for admin panel
 	path = require('path'),				// for pathn manipulation
 	flash = require('connect-flash'),	// to use re.flash()
 	db = require('./models/db'),		// database connection
@@ -56,12 +57,15 @@ if ('development' == app.get('env')) {
 	URL routes
 */
 
+// homepage
 app.get('/', routes.index);
 app.get('/userlist', auth.requiresLogin, routes.userlist);
 
+// signup
 app.get('/signup', routes.signup); // the signup page
 app.post('/signup', routes.adduser); // signup page send a POST request here
 
+// signin/out
 app.get('/signin', routes.signin); // the signin page
 app.post('/signin', // signin page send a POST request here
 		passport.authenticate('local', {
@@ -70,7 +74,9 @@ app.post('/signin', // signin page send a POST request here
 			failureFlash: 'Invalid username or password.'
 		})
 );
+app.get('/logout', routes.logout);
 
+// social signin
 // Passport redirects to a facebook login and we ask only for email
 app.get('/auth/facebook', passport.authenticate("facebook", {scope:'email'}));
 app.get('/auth/facebook/callback', // Authenticates it and sends to dashboard
@@ -101,10 +107,14 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
         })
 );
 
+// user areas
 // where all the fun happens
 app.get('/dashboard', auth.requiresLogin, routes.dashboard); 
-app.get('/logout', routes.logout);
 
+
+
+// admin panel
+app.get('/admin', admin.index);
 
 /*
 * Error handlers
