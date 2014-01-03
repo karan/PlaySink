@@ -14,7 +14,8 @@
 		"passport-google" : "latest",
 		"passport-twitter" : "latest",
 		"bcryptjs" : "latest",
-		"connect-flash" : "latest"
+		"connect-flash" : "latest",
+		"async" : "latest"
 	},
 	"contributors": [
 	{

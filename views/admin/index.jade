@@ -4,34 +4,50 @@ extends layout
 
 block content
 	div.container
-		h1 Welcome to Admin
+		h1 Admin Panel
 	
 		h2 Users
+
+		h3 Signups
 		table.table.table-striped
 			thead
 				tr
-					th Today
-					th This week
-					th This month
+					th 24 hour
+					th 7 days
+					th 30 days
 					th All time
 			tbody
 				tr
-					td Today
-					td This week
-					td This month
-					td total_users
+					td= yesterday
+					td= week
+					td= month
+					td= total_users
+		h3 Strategy
+		table.table.table-striped
+			thead
+				tr
+					th Local
+					th Google
+					th Facebook
+					th Twitter
+			tbody
+				tr
+					td= local
+					td= google
+					td= facebook
+					td= twitter
 
 		h2 Recommendations
 		table.table.table-striped
 			thead
 				tr
-					th Today
-					th This week
-					th This month
+					th 24 hour
+					th 7 days
+					th 30 days
 					th All time
 			tbody
 				tr
-					td Today
-					td This week
-					td This month
-					td total_users
+					td= yesterday
+					td= week
+					td= month
+					td= total_users
