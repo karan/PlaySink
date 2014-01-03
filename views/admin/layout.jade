@@ -12,7 +12,8 @@ html(ng-app)
 						a(href='/').navbar-brand #{appName}
 					div.navbar-collapse
 						ul.nav.navbar-nav.navbar-right
-							// logged in users see this
+							li
+								a(href="/admin/") Admin Home
 							li
 								a(href="/admin/users") Users
 							li

@@ -105,15 +105,3 @@ exports.logout = function(req, res) {
 	if (req.isAuthenticated()) req.logout();
 	res.redirect('/');
 }
-
-/*
-	The dashboard aka main app.
-*/
-exports.dashboard = function(req, res) {
-	user = req.user;
-	res.render('dashboard', {
-		appName: Constants.APP_NAME,
-		user: user,
-		title: 'Dashboard'
-	});
-}

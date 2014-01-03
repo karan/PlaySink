@@ -5,6 +5,7 @@
 var express = require('express'),		// the main ssjs framework
 	routes = require('./routes'),		// by default, brings in routes/index.js
 	admin = require('./routes/admin'),  // all login for admin panel
+	dashboard = require('./routes/dashboard'), // the main app's page
 	path = require('path'),				// for pathn manipulation
 	flash = require('connect-flash'),	// to use re.flash()
 	db = require('./models/db'),		// database connection
@@ -109,12 +110,13 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
 
 // user areas
 // where all the fun happens
-app.get('/dashboard', auth.requiresLogin, routes.dashboard); 
+app.get('/dashboard', auth.requiresLogin, dashboard.index); 
 
 
 
 // admin panel
 app.get('/admin', admin.index);
+app.get('/admin/users', admin.users);
 
 /*
 * Error handlers

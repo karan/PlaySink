@@ -22,67 +22,70 @@ var today = new Date(), // returns ISODate
 	View: admin/index
 */
 exports.index = function(req, res){
-	async.parallel({ // https://github.com/caolan/async#parallel
+	async.parallel({ 
+			// https://github.com/caolan/async#parallel
+			// http://www.sebastianseilund.com/nodejs-async-in-practice
 			// counts number of users in date ranges
 			all_time: function(next) {
+				console.log('querying');
 				User.count({}, function (err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			past_day: function(next) {
+				console.log('querying');
 				User.count({'created_at': {$gte: yesterday}}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			week: function(next) {
+				console.log('querying');
 				User.count({'created_at': {$gte: week}}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			month: function(next) {
+				console.log('querying');
 				User.count({'created_at': {$gte: month}}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			// Counts number of user signups for each strategy
 			local: function(next) {
+				console.log('querying');
 				User.count({'strategy': 'local'}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			google: function(next) {
+				console.log('querying');
 				User.count({'strategy': 'google'}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			facebook: function(next) {
+				console.log('querying');
 				User.count({'strategy': 'facebook'}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			},
 			twitter: function(next) {
+				console.log('querying');
 				User.count({'strategy': 'twitter'}, function(err, count) {
-					if (!err) {
-						next(null, count);
-					}
+					if (err) return next(err);
+					next(null, count);
 				});
 			}
 		}, 
 		function(err, r) {
+			if (err) throw err;
 			res.render('admin/index', {
 				appName: Constants.APP_NAME, 
 				title: 'Admin',
@@ -97,4 +100,16 @@ exports.index = function(req, res){
 			})
 		}
 	);
+}
+
+
+/*
+	User management in admin panel.
+	View: admin/user_admin
+*/
+exports.users = function(req, res){
+	res.render('admin/user_admin', {
+		appName: Constants.APP_NAME,
+		title: 'User management'
+	});
 }

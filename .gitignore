@@ -13,7 +13,7 @@ results
 build
 
 data/
-data/*
+data/mongod.lock
 .DS_Store
 
 node_modules
