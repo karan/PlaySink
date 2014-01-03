@@ -26,9 +26,9 @@ block content
 				small.error(ng-show="adduser.userpassword.$error.minlength") Password should be at least 8 characters.
 			
 			input.form-control(type="email", placeholder="An email address", name="useremail", required=true, ng-model="email", value= user ? user.email : undefined)
-			div.error(ng-show="adduser.email.$dirty && adduser.email.$invalid")
-				small.error(ng-show="adduser.email.$useremail.required") Email is required.
-				small.error(ng-show="adduser.email.$useremail.email") Not a valid email.
+			div.error(ng-show="adduser.useremail.$dirty && adduser.useremail.$invalid")
+				small.error(ng-show="adduser.useremail.$error.required") Email is required.
+				small.error(ng-show="adduser.useremail.$error.email") Not a valid email.
 			
 			button.btn.btn-lg.btn-success.btn-block(type="submit", ng-disabled="adduser.$invalid") Sign Up
 		hr.custom
