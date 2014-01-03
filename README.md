@@ -19,6 +19,10 @@ Required downloads are NodeJS and MongoDB. Do an `sudo npm install` downloads th
     - Then `node app.js` start the app.
 
 - Passport for user authentication.
+- smog used for mongo ui (kinda like admin)
+    
+        $ npm install smog -g
+        $ smog
 
 ### Code structure
 
