@@ -1,7 +1,9 @@
 
 $(document).ready(function() {  	
 	$('#user-likes').tooltip({placement: 'top'});
+	$('#edit-profile').tooltip({placement: 'top'});
 	$("[data-toggle=tooltip]").tooltip()
+	$("[rel=tooltip]").tooltip()
 });
 
 

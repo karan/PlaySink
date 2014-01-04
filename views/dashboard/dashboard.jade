@@ -1,0 +1,87 @@
+extends ../layouts/dash-layout
+
+block content
+	div.jumbotron.dash
+		div.container
+			div.row
+				.col-md-4
+					// search and recommend part takes 1/3 screen
+					h4.pull-left Recommend something for 
+						a#user-likes(data-toggle="tooltip", title="Foo, Bar, Baz") someone
+					form.form-search.song-search
+						input.form-control.song-search(type="text", placeholder="Type in a song or artist...")
+					div.list-group.search-results
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found
+						a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
+								
+				.col-md-8
+					// main screen with user's playlist takes 2/3 screen
+					// will be using YT API
+					// https://developers.google.com/youtube/player_parameters#Selecting_Content_to_Play
+
+					h4.pull-left Current playing song title
+					
+					div.video
+						iframe(width='700', height='394', src='http://www.youtube.com/v/Ay8AMiG10_s?start=0&version=3&autoplay=0&border=0&cc_load_policy=0&controls=1&disablekb=0&enablejsapi=1&hd=1&iv_load_policy=3&modestbranding=1&playerapiid=ytp&rel=0&showinfo=0&showsearch=0', frameborder='0')
+					div.btn-toolbar
+						div.btn-group.pull-left.btn-group-lg
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+
+
+	div.container#footer
+		div.navbar.navbar-inverse.navbar-fixed-bottom
+			div.container
+				ul.nav.navbar-nav.navbar-right
+					// logged in users see this
+					li
+						a(href="/dashboard") Dashboard
+					li
+						a(href="/userlist") User List
+					li
+						a#edit-profile(rel="tooltip", title="Edit your profile", href="#", data-toggle="modal", data-target="#edit-profile-modal") #{user.username}
+					li
+						a(href="/logout") Logout
+
+		div.modal.fade#edit-profile-modal(tabindex="-1", role="dialog", aria-labelledby="edit-title", aria-hidden="true")
+			div.modal-dialog.edit-profile
+				div.modal-content
+					div.modal-header
+						button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+						h4.modal-title#edit-title Edit your profile
+					div.modal-body
+						form.form-horizontal(name="updateuser", method="post", action="/dashboard/update", novalidate)
+
+							div.form-group
+								label.col-sm-3.control-label Password
+								div.col-sm-9
+									input.form-control.dash(type="password", name="newuserpassword", ng-minlength=8, ng-model="password", value="__USE_EXISTING__")
+									div.error(ng-show="adduser.newuserpassword.$dirty && adduser.newuserpassword.$invalid")
+										small.error(ng-show="adduser.newuserpassword.$error.minlength") Password should be at least 8 characters.
+							
+							div.form-group
+								label.col-sm-3.control-label Email
+								div.col-sm-9
+									input.form-control.dash(type="email", name="newuseremail", required=true, ng-model="email", value=user.email)
+									div.error(ng-show="adduser.newuseremail.$dirty && adduser.newuseremail.$invalid")
+										small.error(ng-show="adduser.newuseremail.$error.required") Email is required.
+										small.error(ng-show="adduser.newuseremail.$error.email") Not a valid email.
+							
+							div.form-group
+								div.col-sm-9.div.col-sm-offset-3
+									div.btn-group.pull-right
+										button.btn.btn-default.dash(type="button", data-dismiss="modal") Cancel
+										button.btn.btn-success(type="submit", ng-disabled="adduser.$invalid") Save

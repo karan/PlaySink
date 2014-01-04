@@ -1,9 +1,10 @@
 .jumbotron.dash {
-	background-color: transparent!important;
+	background-color: #282c35!important;
 	text-align: center;
 	border-bottom: 1px solid #e5e5e5;
-	color: #000!important;
-	margin: 20px 30px 30px 30px!important;
+	color: #eee!important;
+	margin: 0px!important;
+	padding-top: 40px!important;
 	font-size: 14px;
 	text-align: left;
 }
@@ -12,12 +13,50 @@ form.form-search.song-search {
 	margin-bottom: 10px;
 }
 
+input.form-control.song-search {
+	background: #282c35;
+	color: #eee;
+}
+
 .list-group-item.search-result {
 	padding: 5px 15px;
 	font-weight: 400;
 	line-height: 1.5;
+	background: #0a0a0a;
+	color: #eee;
+	border: 0px;
 }
 
-img.img-rounded.dash {
-	margin: 5px 15px;
+a.list-group-item.search-result:hover,
+a.list-group-item.search-result:focus {
+	background: #0a0a0a;
+	color: #eee;
+}
+
+div.modal-dialog.edit-profile {
+	width: 350px;
+}
+
+.form-group {
+	margin: 10px 1px;
+}
+
+.modal-dialog {
+	-moz-box-shadow: 0 0 5px #eee;
+	-webkit-box-shadow: 0 0 5px #eee;
+	box-shadow: 0 0 5px #eee;
+}
+
+.modal-content {
+	background-color: #282c35;
+	color: #eee;
+}
+
+.modal-body {
+	background-color: #0a0a0a;
+}
+
+input.form-control.dash {
+	background-color: #282c35;
+	color: #eee;
 }

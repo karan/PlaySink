@@ -1,0 +1,1038 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"week",
+				"week_ms"
+			],
+			[
+				"pa",
+				"past_day"
+			],
+			[
+				"as",
+				"async"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"yes",
+				"yesterday_ms"
+			],
+			[
+				"today",
+				"today_ms"
+			],
+			[
+				"t",
+				"total_users"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"sign",
+				"signup-signin"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"red",
+				"redirect"
+			],
+			[
+				"Loc",
+				"LocalStrategy"
+			],
+			[
+				"rea",
+				"reason"
+			],
+			[
+				"mes",
+				"messages"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"passw",
+				"passwordValidator"
+			],
+			[
+				"error",
+				"errors"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"cl",
+				"callback"
+			],
+			[
+				"re",
+				"returns"
+			],
+			[
+				"com",
+				"comparePassword"
+			],
+			[
+				"MA",
+				"MAX_ATTEMPTS"
+			],
+			[
+				"inc",
+				"incLoginAttemps"
+			],
+			[
+				"Is",
+				"isLocked"
+			],
+			[
+				"upd",
+				"update"
+			],
+			[
+				"n",
+				"now"
+			],
+			[
+				"MAX",
+				"MAX_LOGIN_ATTEMPTS"
+			],
+			[
+				"log",
+				"loginAttemps"
+			],
+			[
+				"lock",
+				"lockUntil"
+			],
+			[
+				"bcr",
+				"bcrypt"
+			],
+			[
+				"conn",
+				"connection"
+			],
+			[
+				"pass",
+				"passport"
+			],
+			[
+				"ana",
+				"anagram"
+			],
+			[
+				"all",
+				"all_anagrams"
+			],
+			[
+				"prin",
+				"print_words"
+			],
+			[
+				"wor",
+				"user_word"
+			],
+			[
+				"e",
+				"empty"
+			],
+			[
+				"oth",
+				"other_dict"
+			],
+			[
+				"other",
+				"other"
+			],
+			[
+				"__",
+				"__contains__"
+			],
+			[
+				"in",
+				"inventory"
+			],
+			[
+				"an",
+				"another_key"
+			],
+			[
+				"us",
+				"user_word"
+			],
+			[
+				"c",
+				"counter"
+			],
+			[
+				"get",
+				"get_last_lines"
+			],
+			[
+				"last",
+				"last_lines"
+			],
+			[
+				"file",
+				"file_size"
+			],
+			[
+				"requ",
+				"requestHandlers"
+			],
+			[
+				"tup",
+				"tuple"
+			],
+			[
+				"ele",
+				"elem_b"
+			],
+			[
+				"tw",
+				"two_grams"
+			],
+			[
+				"one",
+				"one_grams"
+			],
+			[
+				"two",
+				"two_word_pat"
+			],
+			[
+				"one_",
+				"one_word_pat"
+			],
+			[
+				"TA",
+				"TAG_USED"
+			],
+			[
+				"block",
+				"blockInfo"
+			],
+			[
+				"UNS",
+				"UNSCALED_POINTER_ADD"
+			],
+			[
+				"UNSC",
+				"UNSCALED_POINTER_SUB"
+			],
+			[
+				"print",
+				"printf	printf …"
+			],
+			[
+				"TAG",
+				"TAG_PRECEDING_USED"
+			],
+			[
+				"free",
+				"freeBlock"
+			],
+			[
+				"ptr",
+				"ptrFreeBlock"
+			],
+			[
+				"si",
+				"sizeAndTags"
+			],
+			[
+				"payL",
+				"payloadSize"
+			],
+			[
+				"pay",
+				"payloadSize"
+			],
+			[
+				"follow",
+				"followingBlock"
+			],
+			[
+				"pt",
+				"ptr"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"W",
+				"WORD_SIZE"
+			],
+			[
+				"U",
+				"UNSCALED_POINTER_ADD"
+			],
+			[
+				"next",
+				"nextBlock"
+			],
+			[
+				"Size",
+				"sizeAndTags"
+			],
+			[
+				"Siz",
+				"sizeAndTags"
+			],
+			[
+				"fre",
+				"freeBlock"
+			],
+			[
+				"sea",
+				"searchFreeList"
+			],
+			[
+				"new",
+				"newBlock"
+			],
+			[
+				"remo",
+				"removeFreeBlock"
+			],
+			[
+				"prece",
+				"precedingBlockUseTag"
+			],
+			[
+				"request",
+				"requestMoreSpace"
+			],
+			[
+				"sa",
+				"say_bye"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 4511,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/dashboard.js",
+			"settings":
+			{
+				"buffer_size": 368,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/index.js",
+			"settings":
+			{
+				"buffer_size": 2432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/user.js",
+			"settings":
+			{
+				"buffer_size": 3922,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/dashboard.css",
+			"settings":
+			{
+				"buffer_size": 413,
+				"line_ending": "Unix",
+				"name": ".container.dash {"
+			}
+		},
+		{
+			"file": "views/index.jade",
+			"settings":
+			{
+				"buffer_size": 975,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/layouts/dash-layout.jade",
+			"settings":
+			{
+				"buffer_size": 1623,
+				"line_ending": "Unix",
+				"name": "// base layout"
+			}
+		},
+		{
+			"file": "views/dashboard.jade",
+			"settings":
+			{
+				"buffer_size": 2461,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/javascripts/custom.js",
+			"settings":
+			{
+				"buffer_size": 1042,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/includes/head.jade",
+			"settings":
+			{
+				"buffer_size": 1490,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/karan/Desktop/Dropbox/Codebase/General/goel.im/index.html",
+		"/Users/karan/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/foot.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/head.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/javascripts/controllers/signup.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/javascripts/custom.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/default-dropdown.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/stylesheets/style.css",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/index.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/user_admin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/layout.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/package.json",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/errors/404.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/dependencies.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/admin.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/pass.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/middlewares/authorization.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/dashboard.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/index.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/index.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/oauth.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/default.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/userlist.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/errors/500.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signup.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/userlist.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/signup-signin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/constants.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/models/db.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/db.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/app.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/sign.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/signin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/signup.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/models/user.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/newuser.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/README.md",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/db.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/404.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layout.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/errors.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/500.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/user.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/index.css",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/hnify/HNify/.env",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/hnify/bin/preactivate",
+		"/Volumes/Reality Bytes/Videos/Movies/The Lord of the Rings The Fellowship of the Ring  EXTENDED (2001)/The.Lord.of.the.Rings.the.Fellowship.of.the.Ring.EXTENDED.2001.720p.BrRip.x264.BOKUTOX.YIFY.srt",
+		"/Users/karan/Desktop/Dropbox/UW/1. Freshman/2. Winter 2013/CSE 143/Homework/6/Anagrams.java",
+		"/Users/karan/Desktop/anagrams.py",
+		"/Users/karan/Desktop/RideCell/anagrams.py",
+		"/Users/karan/Desktop/an.py",
+		"/Users/karan/Desktop/RideCell/words",
+		"/Users/karan/Desktop/try.txt",
+		"/Users/karan/Desktop/RideCell/tail.py",
+		"/Users/karan/Desktop/RideCell/less_text.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/nodebeginner/index.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/nodebeginner/server.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/nodebeginner/router.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/nodebeginner/requestHandlers.js",
+		"/Users/karan/Desktop/combinations.py",
+		"/Users/karan/Desktop/Dropbox/minerd.txt",
+		"/Users/karan/Desktop/m/run.bat",
+		"/Users/karan/Desktop/hn_trends.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/lkd-test/py-lkd.to/setup.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/lkd-test/py-lkd.to/lkd/lkd.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/lkd-test/py-lkd.to/lkd/__init__.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/Python/NobodyDoesThis/ndt.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/hn-py3/HackerNewsAPI/hn/hn.py",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/hn-py3/HackerNewsAPI/tests/test_stories_dict_structure.py",
+		"/Users/karan/Desktop/py.py",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/options.html",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/style.js",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/default.js",
+		"/Users/karan/Desktop/sys.txt",
+		"/Users/karan/Desktop/data.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/flask_gae/appengine-python-flask-skeleton/app.yaml",
+		"/Users/karan/Desktop/untitled.py",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/options.js",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/background.js",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/tabs.js",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/js/main.js",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/background.html",
+		"/Users/karan/Library/Application Support/Google/Chrome/Default/Extensions/ehhkfhegcenpfoanmgfpfhnmdmflkbgk/0.8.14_0/css/style.css",
+		"/Users/karan/Desktop/Dropbox/UW/2. Sophomore/1. Autumn 2013/CSE 351/lab/lab5/mm.c",
+		"/Users/karan/Desktop/lab5/mm.c",
+		"/Users/karan/Desktop/lab5-prev/mm.c",
+		"/Users/karan/Desktop/Dropbox/UW/2. Sophomore/1. Autumn 2013/CSE 390A/hw9/homework9.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/Ruby/Learning/1-MegaGreeter.rb",
+		"/Users/karan/Desktop/Pathify/Scripts/metro.css",
+		"/Users/karan/Desktop/Pathify/index.html",
+		"/Users/karan/Desktop/resultarray.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/flask_tutorial/tutorial/tmp/log.log",
+		"/Users/karan/Desktop/majors.js",
+		"/Users/karan/majors.js",
+		"/Users/karan/Desktop/postgresql-9.3.1/INSTALL",
+		"/Users/karan/Desktop/postgresql-9.3.1/README",
+		"/Users/karan/Desktop/blurbs.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/pathify/scrape_majors/cse.json",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/flask_tutorial/tutorial/db_repository/README",
+		"/Users/karan/Desktop/Arch EC/links.txt",
+		"/Users/karan/Desktop/ndt.py",
+		"/*.py[cod]",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/kivy_test/pygame-1.9.1release/Setup",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/whattweet/What-Would-I-Tweet/tokens.cgf",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/whattweet/What-Would-I-Tweet/oauth.cfg",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/whattweet/What-Would-I-Tweet/settings.cfg",
+		"/Users/karan/Desktop/histogram_demo_features.py",
+		"/Users/karan/Desktop/Dropbox/UW/2. Sophomore/1. Autumn 2013/CSE 390A/hw7/homework7.txt",
+		"/Users/karan/Desktop/Dropbox/UW/2. Sophomore/1. Autumn 2013/CSE 390A/hw6/gradeit.sh",
+		"/Users/karan/Desktop/input.txt",
+		"/Users/karan/Desktop/Dropbox/Stuff/Admin/goel.im/index.html",
+		"/Users/karan/Desktop/gradeit.sh",
+		"/Users/karan/Desktop/daterange.txt",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/envs/Alienfeed/AlienFeed/alienfeed/alien.py",
+		"/Users/karan/Desktop/Dropbox/UW/2. Sophomore/1. Autumn 2013/CSE 390A/hw4/l04.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"/Users/karan/Desktop",
+			"/Users/karan/Desktop,/Applications,/Library,/System,/Users",
+			"/Users/karan/Desktop",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bg3",
+			"rgba(0, 0, 0, 0.3)",
+			"rgba(0, 0, 0, 0.7)",
+			"the-image.png",
+			"rgba(0, 0, 0, 0.1)",
+			"/img/fondo-home.jpg",
+			"Sign In with",
+			"signin",
+			"/signin",
+			"if (req.user)",
+			"mongoose",
+			"appName: appName",
+			"db",
+			"    ",
+			"failedLogin",
+			"    ",
+			"redirect",
+			"/users/",
+			"print",
+			"HackerNewsAPI",
+			"| Build Status | Test Coverage | Version | Downloads (30 days) |\n| ------------ | ------------- | ------- | ------------------- |\n| [![Build Status](https://travis-ci.org/karan/TPBAPI.png?branch=master)](https://travis-ci.org/karan/TPBAPI) | [![Coverage Status](https://coveralls.io/repos/karan/TPBAPI/badge.png)](https://coveralls.io/r/karan/TPBAPI) | [![Latest Version](https://pypip.in/v/TPB/badge.png)](https://pypi.python.org/pypi/TPB/) | [![Downloads](https://pypip.in/d/TPB/badge.png)](https://pypi.python.org/pypi/TPB/) |",
+			"HackerNews",
+			"hello",
+			"    ",
+			" ",
+			",",
+			"'])",
+			"story['",
+			" in [unicode, str]",
+			"background_image",
+			"default_se",
+			"background_ima",
+			"\n  ",
+			"POINTER_ADD",
+			"_ADD",
+			"allign",
+			"tag_pre",
+			"arrow",
+			"\"\\n",
+			"\\n",
+			"nursin",
+			"github.com/thekarangoel",
+			", ",
+			"]",
+			"[",
+			"quora"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"bg2",
+			"rgba(0, 0, 0, 0.2)",
+			"rgba(0, 0, 0, 0.3)",
+			"rgba(255, 255, 255, 0.7)",
+			"images/bg3.jpg",
+			"rgba(0, 0, 0, 0.7)",
+			"/images/lifestyle-social.jpg",
+			"Sign Up with",
+			"if (req.isAuthenticated())",
+			"appName: Constants.APP_NAME",
+			"	",
+			"users/",
+			"ThePirateBay",
+			"TPB",
+			"	",
+			"		",
+			"	",
+			" ",
+			"\",\"",
+			")",
+			"])",
+			"story.",
+			" in text_type",
+			"\", \\n",
+			"\": \\n",
+			"\"\\n: ",
+			"\\n\"",
+			"\"\\n",
+			"github.com/karan",
+			"github.com/karan\n",
+			"\n",
+			"/n",
+			""
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 4511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								295,
+								295
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/dashboard.js",
+					"settings":
+					{
+						"buffer_size": 368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "routes/index.js",
+					"settings":
+					{
+						"buffer_size": 2432,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "models/user.js",
+					"settings":
+					{
+						"buffer_size": 3922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/stylesheets/dashboard.css",
+					"settings":
+					{
+						"buffer_size": 413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								410,
+								410
+							]
+						],
+						"settings":
+						{
+							"auto_name": ".container.dash {",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "views/index.jade",
+					"settings":
+					{
+						"buffer_size": 975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "views/layouts/dash-layout.jade",
+					"settings":
+					{
+						"buffer_size": 1623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1584,
+								1584
+							]
+						],
+						"settings":
+						{
+							"auto_name": "// base layout",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 174.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "views/dashboard.jade",
+					"settings":
+					{
+						"buffer_size": 2461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1555,
+								1555
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/javascripts/custom.js",
+					"settings":
+					{
+						"buffer_size": 1042,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								553,
+								553
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "views/includes/head.jade",
+					"settings":
+					{
+						"buffer_size": 1490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								916,
+								916
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.355530815667,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				".gitignore"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 127.0,
+	"status_bar_visible": true
+}
