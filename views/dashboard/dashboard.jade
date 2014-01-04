@@ -69,19 +69,19 @@ block content
 								label.col-sm-3.control-label Password
 								div.col-sm-9
 									input.form-control.dash(type="password", name="newuserpassword", ng-minlength=8, ng-model="password", value="__USE_EXISTING__")
-									div.error(ng-show="adduser.newuserpassword.$dirty && adduser.newuserpassword.$invalid")
-										small.error(ng-show="adduser.newuserpassword.$error.minlength") Password should be at least 8 characters.
+									div.error(ng-show="updateuser.newuserpassword.$dirty && updateuser.newuserpassword.$invalid")
+										small.error(ng-show="updateuser.newuserpassword.$error.minlength") Password should be at least 8 characters.
 							
 							div.form-group
 								label.col-sm-3.control-label Email
 								div.col-sm-9
 									input.form-control.dash(type="email", name="newuseremail", required=true, ng-model="email", value=user.email)
-									div.error(ng-show="adduser.newuseremail.$dirty && adduser.newuseremail.$invalid")
-										small.error(ng-show="adduser.newuseremail.$error.required") Email is required.
-										small.error(ng-show="adduser.newuseremail.$error.email") Not a valid email.
+									div.error(ng-show="updateuser.newuseremail.$dirty && updateuser.newuseremail.$invalid")
+										small.error(ng-show="updateuser.newuseremail.$error.required") Email is required.
+										small.error(ng-show="updateuser.newuseremail.$error.email") Not a valid email.
 							
 							div.form-group
 								div.col-sm-9.div.col-sm-offset-3
 									div.btn-group.pull-right
-										button.btn.btn-default.dash(type="button", data-dismiss="modal") Cancel
-										button.btn.btn-success(type="submit", ng-disabled="adduser.$invalid") Save
+										button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+										button.btn.btn-success(type="submit", ng-disabled="updateuser.$invalid") Save
