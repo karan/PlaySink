@@ -3,19 +3,20 @@
 	"version": "0.0.0",
 	"description": "Omegele for music listeners",
 	"dependencies": {
-		"express" : "latest",
-		"mongodb" : "latest",
-		"angular" : "latest",
-		"jade" : "latest",
-		"mongoose" : "latest",
-		"passport" : "latest",
-		"passport-local" : "latest",
-		"passport-facebook" : "latest",
-		"passport-google" : "latest",
-		"passport-twitter" : "latest",
-		"bcryptjs" : "latest",
-		"connect-flash" : "latest",
-		"async" : "latest"
+		"express": "3.4.7",
+		"mongodb": "1.3.23",
+		"angular" : "1.2.2",
+		"jade": "1.0.2",
+		"mongoose": "3.8.3",
+		"passport": "0.1.17",
+		"passport-facebook": "1.0.2",
+		"passport-google": "0.3.0",
+		"passport-local": "0.1.6",
+		"passport-twitter": "1.0.2",
+		"bcryptjs": "0.7.10",
+		"connect-flash": "0.1.1",
+		"async": "0.2.9",
+		"socket.io" : "0.9.16"
 	},
 	"contributors": [
 	{

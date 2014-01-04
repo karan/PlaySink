@@ -1,6 +1,53 @@
-extends layouts/default-dropdown
+extends layouts/dash-layout
 
 block content
-	div.container
-		h1 Welcome to Dashboard, #{user.username}
-	
+	div.jumbotron.dash
+		div.container
+			div.row
+				.col-md-4
+					// search and recommend part takes 1/3 screen
+					h4.pull-left Recommend something for 
+						a#user-likes(data-toggle="tooltip", title="Foo, Bar, Baz") someone
+					form.form-search.song-search
+						input.form-control(type="text", placeholder="Type in a song or artist...")
+					div.list-group
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found with a really, really long name that breaks out of the list
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found with a really, really long name that breaks out of the list
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found
+						a.list-group-item.search-result a song search found with a really, really long name that breaks out of the list
+								
+				.col-md-8
+					// main screen with user's playlist takes 2/3 screen
+					// will be using YT API
+					// https://developers.google.com/youtube/player_parameters#Selecting_Content_to_Play
+
+					h4.pull-left Current playing song title
+					
+					div.video
+						iframe(width='700', height='394', src='http://www.youtube.com/v/Ay8AMiG10_s?start=0&version=3&autoplay=0&border=0&cc_load_policy=0&controls=1&disablekb=0&enablejsapi=1&hd=1&iv_load_policy=3&modestbranding=1&playerapiid=ytp&rel=0&showinfo=0&showsearch=0', frameborder='0')
+					div.btn-toolbar
+						div.btn-group.pull-left.btn-group-lg
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+							span.glyphicon.glyphicon-star-empty
+
+					div.panel.panel-default
+						div.panel-heading
+							h4 Recently played
+						div.panel-body
+							img.img-rounded.dash(src="http://placehold.it/140x140")
+							img.img-rounded.dash(src="http://placehold.it/140x140")
+							img.img-rounded.dash(src="http://placehold.it/140x140")
+							img.img-rounded.dash(src="http://placehold.it/140x140")
+
+
