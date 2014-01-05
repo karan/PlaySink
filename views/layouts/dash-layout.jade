@@ -2,15 +2,8 @@
 
 doctype html
 html(ng-app)
-	include ../includes/head
+	include ../includes/head-dash
 
-	div.container
-		body.dropdown-index
-			div.navbar.navbar-inverse.navbar-fixed-top
-				div.container
-					div.navbar-header
-						a(href='/').navbar-brand #{appName}
-					div.navbar-collapse
-						// show music player here
-	block content
+	body.dash
+		block content
 	include ../includes/foot

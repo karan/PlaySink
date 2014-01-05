@@ -2,8 +2,18 @@
 $(document).ready(function() {  	
 	$('#user-likes').tooltip({placement: 'top'});
 	$('#edit-profile').tooltip({placement: 'top'});
-	$("[data-toggle=tooltip]").tooltip()
-	$("[rel=tooltip]").tooltip()
+	$("[data-toggle=tooltip]").tooltip();
+	$("[rel=tooltip]").tooltip();
+});
+
+$(document).ready(function(){
+	var vidh = $('.video').height();
+	var h4h = $('.rec-prompt').height();
+	var footerh = $('.bottom-bar').height();
+
+    $('.search-results').height($(window).height() - vidh - 2*h4h - footerh - 10);
+    $('.chat').height($(window).height() - footerh);
+    $('.chat-messages').height($('.chat').height() - footerh - 2*$('.chat-type').height());
 });
 
 
