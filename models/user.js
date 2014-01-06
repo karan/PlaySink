@@ -6,7 +6,7 @@
 
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,		// Each schema maps to a MongoDB collection
-	bcrypt = require('bcryptjs'),	// used to hash password // http://codahale.com/how-to-safely-store-a-password/
+	bcrypt = require('bcryptjs')	// used to hash password // http://codahale.com/how-to-safely-store-a-password/
 
 /*
 	Field validators
