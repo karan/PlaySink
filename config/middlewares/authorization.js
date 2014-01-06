@@ -4,6 +4,6 @@
 exports.requiresLogin = function (req, res, next) {
 	if (req.isAuthenticated()) {return next();}
 	
-	req.flash('error', "Sign in before you have fun.");
+	req.flash('error', "Sign in before access that.");
 	res.redirect('/signin');
 }

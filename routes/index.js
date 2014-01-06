@@ -4,7 +4,6 @@
 
 var mongoose = require('mongoose');
 var User = require('./../models/user');
-var Constants = require('./../config/constants');
 
 /*
 	Homepage router.

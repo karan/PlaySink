@@ -87,7 +87,6 @@ exports.index = function(req, res){
 		function(err, r) {
 			if (err) throw err;
 			res.render('admin/index', {
-				appName: Constants.APP_NAME, 
 				title: 'Admin',
 				total_users: r.all_time,
 				yesterday: r.past_day,
@@ -109,7 +108,6 @@ exports.index = function(req, res){
 */
 exports.users = function(req, res){
 	res.render('admin/user_admin', {
-		appName: Constants.APP_NAME,
 		title: 'User management'
 	});
 }
