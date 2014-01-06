@@ -14,7 +14,7 @@ exports.index = function(req, res){
 	// is a user is already logged in, take him to dashboard
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
-	res.render('index', {appName: Constants.APP_NAME, title: 'Home', user: req.user});
+	res.render('index', {title: 'Home'});
 };
 
 /*
@@ -24,10 +24,8 @@ exports.index = function(req, res){
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
 		res.render('userlist', {
-			appName: Constants.APP_NAME,
 			title: 'User List',
-			'userlist': docs,
-			user: req.user
+			'userlist': docs
 		});
 	});
 }
@@ -41,7 +39,6 @@ exports.signup = function(req, res) {
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
 	res.render('users/signup', {
-		appName: Constants.APP_NAME,
 		title: 'Sign Up',
 		messages: req.flash('error')
 	});
@@ -92,7 +89,6 @@ exports.signin = function(req, res) {
 	if (req.isAuthenticated()) res.redirect('dashboard');
 	// otherwise, render the page
 	res.render('users/signin', {
-		appName: Constants.APP_NAME,
 		title: 'Sign In',
 		messages: req.flash('error')
 	});

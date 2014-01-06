@@ -4,7 +4,12 @@ block content
 	div.jumbotron.dash
 		div.container-fluid
 			div.row
-				.col-sm-6.col-sm-offset-1
+				.col-sm-1
+					// thumbs down rating
+					button.btn.btn-default.rate.down(type="button")
+						i.glyphicon.glyphicon-thumbs-down
+						
+				.col-sm-6
 					// main screen with current song
 					// will be using YT API
 					// https://developers.google.com/youtube/player_parameters#Selecting_Content_to_Play
@@ -27,29 +32,33 @@ block content
 							a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
 							a.list-group-item.search-result(href="#") a song search found
 
+				.col-sm-1
+					// thumbs up rating
+					button.btn.btn-default.rate.up(type="button")
+						i.glyphicon.glyphicon-thumbs-up
+
 				.col-sm-4.pull-right.chat
 					// chat box
 					div.list-group.chat-messages
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found with a really, really long name that breaks out of the list
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found with a really, really long name that breaks out of the list
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found with a really, really long name that breaks out of the list
-						a.list-group-item.message(href="#") a song search found
-						a.list-group-item.message(href="#") a song search found
-					form.form-search.chat-type
-						input.form-control.song-search(type="text", placeholder="Start typing...")
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+					form.form-chat.chat-type
+						input.form-control.song-search(type="text", placeholder="Start typing to join the converation...")
 
 
 	div.container#footer
@@ -76,7 +85,7 @@ block content
 						button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
 						h4.modal-title#edit-title Edit your profile
 					div.modal-body
-						form.form-horizontal(name="updateuser", method="post", action="/dashboard/update", novalidate)
+						form.form-horizontal(name="updateuser", method="put", action="/dashboard/update", novalidate)
 
 							div.form-group
 								label.col-sm-3.control-label Password

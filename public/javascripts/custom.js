@@ -12,8 +12,18 @@ $(document).ready(function(){
 	var footerh = $('.bottom-bar').height();
 
     $('.search-results').height($(window).height() - vidh - 2*h4h - footerh - 10);
-    $('.chat').height($(window).height() - footerh);
+    $('.chat').height($(window).height() - footerh + 30);
     $('.chat-messages').height($('.chat').height() - footerh - 2*$('.chat-type').height());
+
+    // aliging the rating buttons so they are next to the video
+    var vid_left = parseInt($(".col-sm-6").css("paddingLeft").replace('px', ''));
+    var down_right = parseInt($(".col-sm-1").css("paddingRight").replace('px', ''));
+    var thumb_height = $(".rate.up").height();
+    var vidh = $('iframe.player').height();
+    $(".rate.down").css("marginLeft", vid_left + down_right);
+    $(".rate.up").css("marginLeft", -vid_left - down_right + 10);
+    $(".rate.down").css("marginTop", (vidh - thumb_height) / 2);
+    $(".rate.up").css("marginTop", (vidh - thumb_height) / 2);
 });
 
 

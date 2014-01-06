@@ -11,6 +11,7 @@ var express = require('express'),		// the main ssjs framework
 	db = require('./models/db'),		// database connection
 	passport = require('passport'),		// for user authentication
 	auth = require('./config/middlewares/authorization'), // helper methods for authentication
+	constants = require('./config/constants'),
 	app = express(); 					// create an express app
 
 /*
@@ -44,6 +45,12 @@ app.configure(function(){
 	app.use(passport.initialize());
 	// for persistent session logins otherwise each request would need credentials
 	app.use(passport.session());
+	// make variables available in all templates, provided that req.user is populated.
+	app.use(function(req, res, next) {
+		res.locals.user = req.user;
+		res.locals.appName = constants.APP_NAME;
+		next();
+	});
 	// invokes the routes' callbacks
 	app.use(app.router);
 });
