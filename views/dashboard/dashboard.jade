@@ -38,27 +38,11 @@ block content
 						i.glyphicon.glyphicon-thumbs-up
 
 				.col-sm-4.pull-right.chat
-					// chat box
-					div.list-group.chat-messages
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink with a really, really long name that breaks out of the list
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
-						div.list-group-item.message hello, how are you? check this out yo :) wink wink
+					// chat div
+					box#chat-box.list-group.chat-messages
 					form.form-chat.chat-type
-						input.form-control.song-search(type="text", placeholder="Start typing to join the converation...")
+						input#message-field.form-control.song-search(type="text", placeholder="Start typing to join the converation...")
+						button#submit-message Send
 
 
 	div.container#footer
@@ -107,3 +91,5 @@ block content
 									div.btn-group.pull-right
 										button.btn.btn-default(type="button", data-dismiss="modal") Cancel
 										button.btn.btn-success(type="submit", ng-disabled="updateuser.$invalid") Save
+	script(src='/socket.io/socket.io.js', type="text/javascript")
+	script(src='/javascripts/socketManager.js', type="text/javascript")

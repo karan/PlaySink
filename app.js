@@ -148,6 +148,32 @@ app.use(function(err, req, res, next){
 */
 require('./config/pass.js')(passport);
 
-// create and start the server
-app.listen(app.get('port'));
+
+// Creates the server and has socets listen to it
+var io = require('socket.io').listen(app.listen(app.get('port')), { log: false});
+
+/*
+	Start of sockets
+*/
+
+io.sockets.on('connection', function(socket) {
+	console.log('Starting socket connection');
+
+	// Need to figure out if we can put the name on the socket
+	socket.on('setUser', function() {
+		console.log('Connected with client');
+	});
+
+	// Can get the username through the user field
+	// probably not the best method
+	socket.on('send message', function(data) {
+		socket.user = data.user;
+		io.sockets.emit('update message', data);
+	});
+
+	socket.on('disconnect', function() {
+		console.log(socket.user + ' disconnected');
+	});
+});
+
 console.log('Express server listening on port ' + app.get('port'));
