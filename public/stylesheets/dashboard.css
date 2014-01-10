@@ -7,6 +7,11 @@ body.dash {
 	background-color: #282c35!important;
 } 
 
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
 .jumbotron.dash {
 	background-color: #282c35!important;
 	text-align: center;
@@ -45,6 +50,7 @@ input.form-control.song-search {
 
 .list-group-item.search-result {
 	padding: 5px 15px;
+	margin-bottom: 0px;
 	font-weight: 400;
 	line-height: 1.5;
 	background: #0a0a0a;
@@ -71,6 +77,7 @@ a.list-group-item.search-result:focus {
 
 .list-group.chat-messages {
 	overflow-y: scroll;
+	max-height: 600px;
 }
 
 .list-group-item.message {
@@ -85,6 +92,11 @@ a.list-group-item.search-result:focus {
 
 form.form-chat.chat-type {
 	margin: 5px 20px 0px 0px;
+}
+
+.chat-type-field {
+	background: #282c35;
+	color: #eee;
 }
 
 div.modal-dialog.edit-profile {

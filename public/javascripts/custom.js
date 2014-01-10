@@ -12,8 +12,9 @@ $(document).ready(function(){
 	var footerh = $('.bottom-bar').height();
 
     $('.search-results').height($(window).height() - vidh - 2*h4h - footerh - 10);
-    $('.chat').height($(window).height() - footerh + 30);
-    $('.chat-messages').height($('.chat').height() - footerh - 2*$('.chat-type').height());
+    $('.chat').height($(window).height() - footerh + 30); // all of chat sidebar
+    //$('.chat-type').css("marginTop", $(window).height() - 100);
+    //$('.chat-messages').height($('.chat').height() - footerh - 2*$('.chat-type').height());
 
     // aliging the rating buttons so they are next to the video
     var vid_left = parseInt($(".col-sm-6").css("paddingLeft").replace('px', ''));
