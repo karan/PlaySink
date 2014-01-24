@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"req",
+				"requiresLogin"
+			],
+			[
+				"local",
+				"locals"
+			],
+			[
+				"dow",
+				"down_right"
+			],
+			[
+				"vid",
+				"vid_left"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mod",
+				"modal-dialog"
+			],
+			[
+				"re",
+				"req"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
 				"week",
 				"week_ms"
 			],
@@ -14,10 +58,6 @@
 			[
 				"as",
 				"async"
-			],
-			[
-				"req",
-				"require"
 			],
 			[
 				"yes",
@@ -38,14 +78,6 @@
 			[
 				"back",
 				"background-color"
-			],
-			[
-				"font",
-				"font-family"
-			],
-			[
-				"bac",
-				"background"
 			],
 			[
 				"sign",
@@ -94,10 +126,6 @@
 			[
 				"cl",
 				"callback"
-			],
-			[
-				"re",
-				"returns"
 			],
 			[
 				"com",
@@ -347,15 +375,7 @@
 			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 4511,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "routes/dashboard.js",
-			"settings":
-			{
-				"buffer_size": 368,
+				"buffer_size": 5485,
 				"line_ending": "Unix"
 			}
 		},
@@ -363,7 +383,15 @@
 			"file": "routes/index.js",
 			"settings":
 			{
-				"buffer_size": 2432,
+				"buffer_size": 2224,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/dashboard.js",
+			"settings":
+			{
+				"buffer_size": 968,
 				"line_ending": "Unix"
 			}
 		},
@@ -371,7 +399,7 @@
 			"file": "models/user.js",
 			"settings":
 			{
-				"buffer_size": 3922,
+				"buffer_size": 3878,
 				"line_ending": "Unix"
 			}
 		},
@@ -379,9 +407,17 @@
 			"file": "public/stylesheets/dashboard.css",
 			"settings":
 			{
-				"buffer_size": 413,
+				"buffer_size": 2288,
 				"line_ending": "Unix",
 				"name": ".container.dash {"
+			}
+		},
+		{
+			"file": "config/constants.js",
+			"settings":
+			{
+				"buffer_size": 1011,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -393,35 +429,34 @@
 			}
 		},
 		{
-			"file": "views/layouts/dash-layout.jade",
-			"settings":
-			{
-				"buffer_size": 1623,
-				"line_ending": "Unix",
-				"name": "// base layout"
-			}
-		},
-		{
-			"file": "views/dashboard.jade",
-			"settings":
-			{
-				"buffer_size": 2461,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "public/javascripts/custom.js",
 			"settings":
 			{
-				"buffer_size": 1042,
+				"buffer_size": 2177,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "views/includes/head.jade",
+			"file": "views/dashboard/dashboard.jade",
 			"settings":
 			{
-				"buffer_size": 1490,
+				"buffer_size": 4450,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/style.css",
+			"settings":
+			{
+				"buffer_size": 4003,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/users/signup.jade",
+			"settings":
+			{
+				"buffer_size": 2127,
 				"line_ending": "Unix"
 			}
 		}
@@ -429,15 +464,35 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"snippe",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 392.0
+		"width": 349.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 125.0
 	},
 	"distraction_free":
 	{
@@ -450,44 +505,53 @@
 	},
 	"file_history":
 	[
-		"/Users/karan/Desktop/Dropbox/Codebase/General/goel.im/index.html",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/db.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/package.json",
 		"/Users/karan/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/foot.jade",
+		"/Users/karan/.bash_profile",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/README.md",
+		"/Users/karan/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/project.sublime-project",
+		"/Users/karan/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/dashboard/dash-layout.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/index.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/errors/404.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/dash-layout.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/userlist.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/oauth.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/admin.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/models/db.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/middlewares/authorization.js",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/pass.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/head.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/head-dash.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signup.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/dashboard/profile.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/signup-signin.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/dashboard.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/profile.jade",
+		"/Users/karan/Desktop/Dropbox/Codebase/General/goel.im/index.html",
+		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/includes/foot.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/javascripts/controllers/signup.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/javascripts/custom.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/default-dropdown.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/public/stylesheets/style.css",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/index.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/user_admin.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/admin/layout.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/package.json",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/errors/404.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/dependencies.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/admin.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/pass.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/middlewares/authorization.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/dashboard.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/index.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/routes/index.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/oauth.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/default.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/userlist.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/errors/500.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signup.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/signin.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/userlist.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layouts/signup-signin.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/constants.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/models/db.js",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/config/db.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/app.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/users/sign.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/signin.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/signup.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/models/user.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/newuser.jade",
-		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/README.md",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/db.js",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/404.jade",
 		"/Users/karan/Desktop/Dropbox/Codebase/JS/PlaySink/views/layout.jade",
@@ -588,6 +652,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"db",
+			"webkit",
+			"constants",
+			"story",
+			"self.",
+			"db",
+			"\n				",
+			"constants",
+			"Constants",
+			"		appName: Constants.APP_NAME,\n",
+			"			appName: Constants.APP_NAME,\n",
+			"appName: Constants.APP_NAME, ",
+			"		appName: Constants.APP_NAME,\n",
+			"req.user",
+			",\n			user: req.user",
+			"(href=\"#\")",
+			"a.",
+			"a",
+			"a song search found",
+			"thumbs",
+			"col-md",
+			"col-md-",
+			".navbar-inverse .navbar-nav",
+			"adduser",
+			"dashboard",
 			"bg3",
 			"rgba(0, 0, 0, 0.3)",
 			"rgba(0, 0, 0, 0.7)",
@@ -641,6 +730,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"updateuser",
 			"bg2",
 			"rgba(0, 0, 0, 0.2)",
 			"rgba(0, 0, 0, 0.3)",
@@ -684,7 +774,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -692,22 +782,23 @@
 					"file": "app.js",
 					"settings":
 					{
-						"buffer_size": 4511,
+						"buffer_size": 5485,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								295,
-								295
+								430,
+								432
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
+						"translation.x": 4.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -715,44 +806,149 @@
 				},
 				{
 					"buffer": 1,
-					"file": "routes/dashboard.js",
+					"file": "routes/index.js",
 					"settings":
 					{
-						"buffer_size": 368,
+						"buffer_size": 2224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								161,
-								161
+								1731,
+								1038
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 617.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "routes/index.js",
+					"file": "routes/dashboard.js",
 					"settings":
 					{
-						"buffer_size": 2432,
+						"buffer_size": 968,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								24
+								112,
+								112
 							]
 						],
 						"settings":
@@ -771,15 +967,15 @@
 					"file": "models/user.js",
 					"settings":
 					{
-						"buffer_size": 3922,
+						"buffer_size": 3878,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22,
-								22
+								164,
+								139
 							]
 						],
 						"settings":
@@ -788,7 +984,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1398.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -798,22 +994,154 @@
 					"file": "public/stylesheets/dashboard.css",
 					"settings":
 					{
-						"buffer_size": 413,
+						"buffer_size": 2288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								410,
-								410
+								1649,
+								1655
 							]
 						],
 						"settings":
 						{
 							"auto_name": ".container.dash {",
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
 							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "config/constants.js",
+					"settings":
+					{
+						"buffer_size": 1011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1001,
+								1010
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -828,7 +1156,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "views/index.jade",
 					"settings":
 					{
@@ -855,79 +1183,51 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "views/layouts/dash-layout.jade",
-					"settings":
-					{
-						"buffer_size": 1623,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1584,
-								1584
-							]
-						],
-						"settings":
-						{
-							"auto_name": "// base layout",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 174.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 7,
-					"file": "views/dashboard.jade",
+					"file": "public/javascripts/custom.js",
 					"settings":
 					{
-						"buffer_size": 2461,
+						"buffer_size": 2177,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1555,
-								1555
+								1603,
+								1603
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 79.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "public/javascripts/custom.js",
+					"file": "views/dashboard/dashboard.jade",
 					"settings":
 					{
-						"buffer_size": 1042,
+						"buffer_size": 4450,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								553,
-								553
+								456,
+								456
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -938,18 +1238,149 @@
 				},
 				{
 					"buffer": 9,
-					"file": "views/includes/head.jade",
+					"file": "public/stylesheets/style.css",
 					"settings":
 					{
-						"buffer_size": 1490,
+						"buffer_size": 4003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								916,
-								916
+								3485,
+								3485
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 7.0,
+						"translation.y": 1974.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "views/users/signup.jade",
+					"settings":
+					{
+						"buffer_size": 2127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								651,
+								651
 							]
 						],
 						"settings":
@@ -994,7 +1425,7 @@
 		"cols":
 		[
 			0.0,
-			0.355530815667,
+			0.565227927584,
 			1.0
 		],
 		"rows":
@@ -1023,11 +1454,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": false,
 	"show_open_files": false,

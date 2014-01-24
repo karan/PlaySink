@@ -18,10 +18,11 @@ body.homepage {
 hr.custom {
 	border: 0;
 	height: 1px;
-	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+	background-image: linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 }
 
 .form-group {
@@ -74,15 +75,14 @@ body.signup-signin {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 	/* Remove the padding we set earlier */
-	.marketing,
-	.footer {
-		padding-left: 0;
-		padding-right: 0;
+	.marketing,.footer {
+	padding-left: 0;
+	padding-right: 0;
 	}
 	/* Remove the bottom border on the jumbotron for visual effect */
 	.jumbotron {
-		padding: 30px!important;
-		border-bottom: 0;
+	padding: 30px !important;
+	border-bottom: 0;
 	}
 }
 /* The page with dropdown signin modal */
@@ -121,6 +121,7 @@ body.signup-signin {
 	padding: 10px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -171,7 +172,7 @@ span.error, small.error {
 	color: white;
 }
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], 
+[ng\:cloak], [ng-cloak], [data-ng-cloak],
 [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
 	display: none !important;
 }
