@@ -12,7 +12,7 @@ logs
 results
 build
 
-data/
+data
 data/mongod.lock
 .DS_Store
 

@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var User = require('./../models/user');
 
 /*
-	The main page of dashboard
+	Renders the main page of dashboard
 	View: dashboard/dashboard
 */
 exports.index = function(req, res) {
