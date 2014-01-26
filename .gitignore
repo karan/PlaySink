@@ -17,3 +17,5 @@ data/mongod.lock
 .DS_Store
 
 node_modules
+
+*.sublime*
