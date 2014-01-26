@@ -57,7 +57,8 @@ exports.signin = function(req, res) {
 
 /*
 	POST new user to db.
-	Returns {'response': 'OK'} is successful, {'response': 'FAIL'} if signup failed.
+	Returns {'response': 'OK', user: {...}} if successful,
+	{'response': 'FAIL'} if signup failed.
 */
 exports.adduser = function(req, res) {
 	// get the form values from "name" attribute of the form
@@ -73,15 +74,15 @@ exports.adduser = function(req, res) {
 	user.save(function(err) {
 		if (err) {
 			console.log(err);
+			var fail_msgs = [];
 			for (var field in err.errors) {
-				var error = err.errors[field].message;
-				req.flash('error', error);
+				fail_msgs.push(err.errors[field].message);
 			}
-			res.json({'response': 'FAIL'});
+			res.json({'response': 'FAIL', 'errors': fail_msgs});
 		} else {
 			req.logIn(user, function (err) {
 				// successful registration
-				res.json({'response': 'OK'});
+				res.json({'response': 'OK', 'user': user});
 			});
 		}
 	});

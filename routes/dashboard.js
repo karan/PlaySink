@@ -19,6 +19,8 @@ exports.index = function(req, res) {
 
 /*
 	PUT the updated user info in db.
+	Returns {'response': 'OK', user: {...}} if successful,
+	{'response': 'FAIL'} if signup failed.
 */
 exports.update_user = function(req, res) {
 	var user = new User({
@@ -32,18 +34,15 @@ exports.update_user = function(req, res) {
 	user.save(function(err) {
 		if (err) {
 			console.log(err);
+			var fail_msgs = [];
 			for (var field in err.errors) {
-				var error = err.errors[field].message;
-				req.flash('error', error);
+				fail_msgs.push(err.errors[field].message);
 			}
-			res.redirect('/dashboard');
+			res.json({'response': 'FAIL', 'errors': fail_msgs});
 		} else {
 			req.logIn(user, function (err) {
-				if (!err) {
-					req.flash('success', 'Done!');
-				} else {
-					req.flash('error', 'Something went wrong.');
-				}
+				// successful registration
+				res.json({'response': 'OK', 'user': user});
 			});
 		}
 	});
