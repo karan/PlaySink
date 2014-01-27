@@ -117,8 +117,7 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
 
 // user areas
 // where all the fun happens
-//app.get('/dashboard', auth.requiresLogin, dashboard.index);
-app.get('/dashboard', dashboard.index); 
+app.get('/dashboard', auth.requiresLogin, dashboard.index);
 app.put('/dashboard/update', dashboard.update_user); 
 
 
