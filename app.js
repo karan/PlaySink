@@ -75,13 +75,18 @@ app.post('/signup', routes.adduser); // signup page send a POST request here
 
 // signin/out
 app.get('/signin', routes.signin); // the signin page
-app.post('/signin', // signin page send a POST request here
+/*app.post('/signin', // signin page send a POST request here
 		passport.authenticate('local', {
 			successRedirect: '/dashboard', 
 			failureRedirect: '/signin', 
 			failureFlash: 'Invalid username or password.'
 		})
-);
+);*/
+app.post('/signin', passport.authenticate('local'), function (req, res) {
+	var tmp = req.session.redirect_to ? req.session.redirect_to : '/signin';
+	delete req.session.redirect_to;
+	res.redirect(tmp);
+})
 app.get('/logout', routes.logout);
 
 // social signin
