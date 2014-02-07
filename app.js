@@ -75,19 +75,13 @@ app.post('/signup', routes.adduser); // signup page send a POST request here
 
 // signin/out
 app.get('/signin', routes.signin); // the signin page
-/*app.post('/signin', // signin page send a POST request here
-		passport.authenticate('local', {
-			successRedirect: '/dashboard', 
-			failureRedirect: '/signin', 
-			failureFlash: 'Invalid username or password.'
-		})
-);*/
 app.post('/signin', passport.authenticate('local'), function (req, res) {
+	// responds with 401 if unauthorized
 	var tmp = req.session.redirect_to ? req.session.redirect_to : '/signin';
 	delete req.session.redirect_to;
 	res.redirect(tmp);
 })
-app.get('/logout', routes.logout);
+app.get('/logout', auth.requiresLogin, routes.logout);
 
 // social signin
 // Passport redirects to a facebook login and we ask only for email
@@ -123,7 +117,7 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
 // user areas
 // where all the fun happens
 app.get('/dashboard', auth.requiresLogin, dashboard.index);
-app.put('/dashboard/update', dashboard.update_user); 
+app.post('/dashboard/update', auth.requiresLogin, dashboard.update_user); 
 
 
 // admin panel

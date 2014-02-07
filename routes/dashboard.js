@@ -18,32 +18,37 @@ exports.index = function(req, res) {
 }
 
 /*
-	PUT the updated user info in db.
+	POST the updated user info in db.
 	Returns {'response': 'OK', user: {...}} if successful,
 	{'response': 'FAIL'} if signup failed.
 */
 exports.update_user = function(req, res) {
-	var user = new User({
-		'username' : req.user.username,
-		'password': req.body.newuserpassword || req.locals.user.password,
-		'email': req.body.newuseremail
-	});
+	console.log('called update method');
 
-	console.log(user);
-
-	user.save(function(err) {
-		if (err) {
-			console.log(err);
-			var fail_msgs = [];
-			for (var field in err.errors) {
-				fail_msgs.push(err.errors[field].message);
-			}
-			res.json({'response': 'FAIL', 'errors': fail_msgs});
-		} else {
-			req.logIn(user, function (err) {
-				// successful registration
-				res.json({'response': 'OK', 'user': user});
-			});
+	User.findById(req.user.id, function(error, doc) {
+		if (error) {
+			return res.json({'response': 'FAIL', 'errors': fail_msgs});
 		}
-	});
+
+		console.log(doc);
+		
+		doc.password = req.body.newuserpassword;
+		doc.email = req.body.newuseremail;
+
+		console.log(doc);
+
+		doc.save(function(err) {
+			if (err) {
+				console.log(err);
+				var fail_msgs = [];
+				for (var field in err.errors) {
+					fail_msgs.push(err.errors[field].message);
+				}
+				res.json({'response': 'FAIL', 'errors': fail_msgs});
+			} else {
+				res.json({'response': 'OK', 'user': user});
+			}
+		});
+	})
+
 }

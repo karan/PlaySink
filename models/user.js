@@ -68,18 +68,17 @@ var userSchema = new Schema({
 	},
 	username: {
 		type: String, 
-		//required: '{PATH} is required!', not mandetory yet
+		unique: true,
 		validate: nameValidator
 	},
 	email: {
 		type: String, 
-		//required: '{PATH} is required!', twitter doesn't allow this
+		unique: true,
 		lowercase: true, // force email lowercase
 		validate: emailValidator
 	},
 	password: {
 		type: String, 
-		//required: '{PATH} is required!', only required for local
 		validate: passwordValidator
 	},
 	twId: String,
@@ -87,24 +86,6 @@ var userSchema = new Schema({
 	fbId: String,
 	strategy: String
 });
-
-// the below 2 validations only apply if you are signing up traditionally
-userSchema.path('username').validate(function(value, respond) {
-	mongoose.model('User', userSchema).findOne({username: value}, function(err, user) {
-		if(err) throw err;
-		if(user) return respond(false);
-		respond(true);
-	});
-}, 'That username is taken.');
-
-userSchema.path('email').validate(function(value, respond) {
-	mongoose.model('User', userSchema).findOne({email: value}, function(err, user) {
-		if(err) throw err;
-		if(user) return respond(false);
-		respond(true);
-	});
-}, 'That email is associated with another account.');
-
 
 // Always hash a password before saving it to db
 // Mongoose middleware is not invoked on update() operations, 

@@ -70,12 +70,18 @@ exports.adduser = function(req, res) {
 
 	user.save(function(err) {
 		if (err) {
-			console.log(err);
-			var fail_msgs = [];
-			for (var field in err.errors) {
-				fail_msgs.push(err.errors[field].message);
+			console.log('got into error');
+			if (err.code == 11000) {
+				console.log('\n----' + err + '---');
+				res.json({'response': 'FAIL', 'errors': ["User already exists"]});
+			} else {
+				console.log(err);
+				var fail_msgs = [];
+				for (var field in err.errors) {
+					fail_msgs.push(err.errors[field].message);
+				}
+				res.json({'response': 'FAIL', 'errors': fail_msgs});
 			}
-			res.json({'response': 'FAIL', 'errors': fail_msgs});
 		} else {
 			req.logIn(user, function (err) {
 				// successful registration
