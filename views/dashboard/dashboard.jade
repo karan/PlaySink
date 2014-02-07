@@ -72,16 +72,15 @@ block content
 						form.form-horizontal(name="updateuser", method="post", action="/dashboard/update", novalidate)
 
 							div.form-group
-								label.col-sm-3.control-label Existing or new password
+								label.col-sm-3.control-label.update-profile Password *
 								div.col-sm-9
 									input.form-control.dash(type="password", name="newuserpassword", ng-minlength=8, ng-model="password", value="__USE_EXISTING__")
 									div.error(ng-show="updateuser.newuserpassword.$dirty && updateuser.newuserpassword.$invalid")
 										small.error(ng-show="updateuser.newuserpassword.$error.minlength") Password should be at least 8 characters.
 							
 							div.form-group
-								label.col-sm-3.control-label Email
+								label.col-sm-3.control-label.update-profile Email *
 								div.col-sm-9
-									p= user.email
 									input.form-control.dash(type="email", name="newuseremail", required=true, ng-model="email", value="#{user.email}")
 									div.error(ng-show="updateuser.newuseremail.$dirty && updateuser.newuseremail.$invalid")
 										small.error(ng-show="updateuser.newuseremail.$error.required") Email is required.

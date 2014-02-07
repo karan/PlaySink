@@ -23,32 +23,30 @@ exports.index = function(req, res) {
 	{'response': 'FAIL'} if signup failed.
 */
 exports.update_user = function(req, res) {
-	console.log('called update method');
-
 	User.findById(req.user.id, function(error, doc) {
 		if (error) {
-			return res.json({'response': 'FAIL', 'errors': fail_msgs});
-		}
+			res.json({'response': 'FAIL', 'errors': []});
+		} else {
+			console.log(doc);
 
-		console.log(doc);
-		
-		doc.password = req.body.newuserpassword;
-		doc.email = req.body.newuseremail;
+			doc.password = req.body.newuserpassword || '';
+			doc.email = req.body.newuseremail || '';
 
-		console.log(doc);
+			console.log(doc);
 
-		doc.save(function(err) {
-			if (err) {
-				console.log(err);
-				var fail_msgs = [];
-				for (var field in err.errors) {
-					fail_msgs.push(err.errors[field].message);
+			doc.save(function(err) {
+				if (err) {
+					console.log(err);
+					var fail_msgs = [];
+					for (var field in err.errors) {
+						fail_msgs.push(err.errors[field].message);
+					}
+					res.json({'response': 'FAIL', 'errors': fail_msgs});
+				} else {
+					res.json({'response': 'OK', 'user': doc});
 				}
-				res.json({'response': 'FAIL', 'errors': fail_msgs});
-			} else {
-				res.json({'response': 'OK', 'user': user});
-			}
-		});
+			});
+		}
 	})
 
 }

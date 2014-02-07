@@ -100,7 +100,15 @@ form.form-chat.chat-type {
 }
 
 div.modal-dialog.edit-profile {
-	width: 350px;
+	width: 380px;
+}
+
+.modal-body {
+	padding: 15px;
+}
+
+.control-label.update-profile {
+	padding-right: 0px;
 }
 
 .form-group {
