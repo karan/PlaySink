@@ -13,7 +13,8 @@ var express = require('express'),		// the main ssjs framework
 	passport = require('passport'),		// for user authentication
 	auth = require('./config/middlewares/authorization'), // helper methods for authentication
 	constants = require('./config/constants'),
-	app = express(); 					// create an express app
+	app = express(), 					// create an express app
+	RedisStore = require('connect-redis')(express); // for persistent sessions
 
 /*
 	Configure environments
@@ -39,7 +40,15 @@ app.configure(function(){
 	// sign the cookies, so we know if they have been changed
 	app.use(express.cookieParser('keyboard cat'));
 	// setup cookie session, cookie expires in 1 day (in ms)
-	app.use(express.session({ cookie: {maxAge: 1 * 24 * 60 * 60 * 1000}}));
+	app.use(express.session({ 
+		cookie: {maxAge: 1 * 24 * 60 * 60 * 1000},
+		store: new RedisStore({
+			host: 'localhost',
+			port: 6379,
+			db: 2
+		}),
+		secret: 'abcdefds'
+	}));
 	// so we can use req.flash() to flash messages
 	app.use(flash());
 	// initialize passport
