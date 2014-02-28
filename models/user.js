@@ -5,89 +5,87 @@
 */
 
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,		// Each schema maps to a MongoDB collection
-	bcrypt = require('bcryptjs'),	// used to hash password // http://codahale.com/how-to-safely-store-a-password/
+	Schema = mongoose.Schema, // Each schema maps to a MongoDB collection
+	bcrypt = require('bcryptjs'), // used to hash password // http://codahale.com/how-to-safely-store-a-password/
 	Constants = require('../config/constants');
 /*
 	Field validators
 */
 
 // Username validators
-var nameValidator = [
-	{
-		validator: function (username) {
-			username = username.toLowerCase();
-			return username && username.length > 3 && username.length < 31;
-		},
-		msg: 'Username should be between 4 and 30 characters.'
+var nameValidator = [{
+	validator: function(username) {
+		username = username.toLowerCase();
+		return username && username.length > 3 && username.length < 31;
 	},
-	{
-		validator: function (username) {
-			username = username.toLowerCase();
-			var reservedWords = ['login', 'logout', 'admin', 'signup'];
-			return reservedWords.indexOf(username) === -1;
-		},
-		msg: 'Username contains a reserved word.'
+	msg: 'Username should be between 4 and 30 characters.'
+}, {
+	validator: function(username) {
+		username = username.toLowerCase();
+		var reservedWords = ['login', 'logout', 'admin', 'signup'];
+		return reservedWords.indexOf(username) === -1;
 	},
-	{
-		validator: function (username) {
-			return (/^[a-zA-Z0-9\_]+$/).test(username);
-		},
-		msg: 'Username can only contain alphabets, numbers and underscore.'
-	}
-];
+	msg: 'Username contains a reserved word.'
+}, {
+	validator: function(username) {
+		return (/^[a-zA-Z0-9\_]+$/).test(username);
+	},
+	msg: 'Username can only contain alphabets, numbers and underscore.'
+}];
 
 // Email validators
-var emailValidator = [
-	{
-		validator: function (email) {
-			// http://stackoverflow.com/questions/46155/
-			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\ ".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA -Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			return re.test(email);
-		},
-		msg: 'Email is invalid.'
-	}
-];
+var emailValidator = [{
+	validator: function(email) {
+		// http://stackoverflow.com/questions/46155/
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\ ".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA -Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	},
+	msg: 'Email is invalid.'
+}];
 
 // Password validators
-var passwordValidator = [
-	{
-		validator: function (password) {
-			return password && password.length >= 8;
-		},
-		msg: 'Password should be at least 8 characters.'
-	}
-];
+var passwordValidator = [{
+	validator: function(password) {
+		return password && password.length >= 8;
+	},
+	msg: 'Password should be at least 8 characters.'
+}];
 
 // For any user
 var userSchema = new Schema({
 	created_at: {
 		// auto added user registration timestamp
-		type: Date, 
+		type: Date,
 		default: Date.now
 	},
 	username: {
-		type: String, 
+		type: String,
 		unique: true,
 		validate: nameValidator
 	},
 	email: {
-		type: String, 
+		type: String,
 		unique: true,
 		lowercase: true, // force email lowercase
 		validate: emailValidator
 	},
 	password: {
-		type: String, 
+		type: String,
 		validate: passwordValidator
 	},
 	likes_artists: {
-		type: [String],
-		lowercase: true
+		type: [{
+			type: String,
+			unique: true,
+			lowercase: true
+		}],
 	},
 	likes_genres: {
-		type: [String],
-		lowercase: true
+		type: [{
+			type: String,
+			unique: true,
+			lowercase: true
+		}],
 	},
 	twId: String,
 	openId: String,

@@ -136,6 +136,7 @@ exports.update_user = function(req, res) {
     {'response': 'FAIL'} if signup failed.
 */
 exports.put_likes = function(req, res) {
+    console.log(req.body);
     User.findById(req.user.id, function(error, doc) {
         if (error) {
             res.json({
@@ -158,9 +159,11 @@ exports.put_likes = function(req, res) {
                         'errors': fail_msgs
                     });
                 } else {
-                    res.json({
-                        'response': 'OK',
-                        'user': doc
+                    User.findById(req.user.id, function(error, doc) {
+                        res.json({
+                            'response': 'OK',
+                            'user': doc
+                        });
                     });
                 }
             });
