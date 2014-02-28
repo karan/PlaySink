@@ -81,6 +81,14 @@ var userSchema = new Schema({
 		type: String, 
 		validate: passwordValidator
 	},
+	likes_artists: {
+		type: [String],
+		lowercase: true
+	},
+	likes_genres: {
+		type: [String],
+		lowercase: true
+	},
 	twId: String,
 	openId: String,
 	fbId: String,

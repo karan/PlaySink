@@ -5,6 +5,7 @@
 var express = require('express'),		// the main ssjs framework
 	routes = require('./routes'),		// by default, brings in routes/index.js
 	admin = require('./routes/admin'),  // all login for admin panel
+	user = require('./routes/user'),  // all login for admin panel
 	dashboard = require('./routes/dashboard'), // the main app's page
 	path = require('path'),				// for pathn manipulation
 	flash = require('connect-flash'),	// to use re.flash()
@@ -70,18 +71,18 @@ app.get('/', routes.index);
 app.get('/userlist', auth.requiresLogin, routes.userlist);
 
 // signup
-app.get('/signup', routes.signup); // the signup page
-app.post('/signup', routes.adduser); // signup page send a POST request here
+app.get('/signup', user.signup); // the signup page
+app.post('/signup', user.adduser); // signup page send a POST request here
 
 // signin/out
-app.get('/signin', routes.signin); // the signin page
+app.get('/signin', user.signin); // the signin page
 app.post('/signin', passport.authenticate('local'), function (req, res) {
 	// responds with 401 if unauthorized
 	var tmp = req.session.redirect_to ? req.session.redirect_to : '/signin';
 	delete req.session.redirect_to;
 	res.redirect(tmp);
 })
-app.get('/logout', auth.requiresLogin, routes.logout);
+app.get('/logout', auth.requiresLogin, user.logout);
 
 // social signin
 // Passport redirects to a facebook login and we ask only for email
@@ -115,14 +116,20 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
 );
 
 // user areas
+
+// account management
+app.post('/dashboard/update', auth.requiresLogin, user.update_user); 
+app.post('/dashboard/put_likes', auth.requiresLogin, user.put_likes);
+
 // where all the fun happens
 app.get('/dashboard', auth.requiresLogin, dashboard.index);
-app.post('/dashboard/update', auth.requiresLogin, dashboard.update_user); 
+
 
 
 // admin panel
 app.get('/admin', admin.index);
 app.get('/admin/users', admin.users);
+
 
 /*
 * Error handlers
