@@ -164,11 +164,11 @@ require('./config/pass.js')(passport);
 
 
 // Creates the server and has socets listen to it
-var io = require('socket.io').listen(app.listen(app.get('port')), { log: false});
+// var io = require('socket.io').listen(app.listen(app.get('port')), { log: false});
 
 /*
     Start of sockets
-*/
+
 
 io.sockets.on('connection', function(socket) {
     console.log('Starting socket connection');
@@ -189,5 +189,5 @@ io.sockets.on('connection', function(socket) {
         console.log(socket.user + ' disconnected');
     });
 });
-
+*/
 console.log('Express server listening on port ' + app.get('port'));

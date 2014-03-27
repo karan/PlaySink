@@ -1,6 +1,6 @@
 /*
 	Start of sockets
-*/
+
 
 var socket = io.connect(location.protocol + '//' + location.host);
 socket.on('connect', function() {
@@ -31,3 +31,4 @@ $('#submit-message').click(function() {
 
 	socket.emit('send message', data);
 })
+*/
