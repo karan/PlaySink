@@ -164,7 +164,8 @@ require('./config/pass.js')(passport);
 
 
 // Creates the server and has socets listen to it
-// var io = require('socket.io').listen(app.listen(app.get('port')), { log: false});
+app.listen(app.get('port')), { log: false};
+//var io = require('socket.io').listen(app.listen(app.get('port')), { log: false});
 
 /*
     Start of sockets
