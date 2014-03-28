@@ -147,7 +147,7 @@ app.get('/admin/users', admin.users);
 app.use(function(req, res, next){
     res.render('errors/404', {
         url: req.url, 
-        appName: require('./config/constants').APP_NAME,
+        appName: constants.APP_NAME,
         title: '404 Not Found'
     });
 });

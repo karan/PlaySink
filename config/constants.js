@@ -26,6 +26,10 @@ var Constants = {
     Google: {
         CALLBACK : 'http://localhost:8888/auth/google/callback',
         REALM : 'http://localhost:8888'
+    },
+    SoundCloud: {
+        CLIENT_ID: 'edefe43facff0422cfa99623ffec3ab4',
+        SECRET: '6addbcd67ae57b6b89afd7f877126357'
     }
 };
 

@@ -37,11 +37,17 @@ body.dash {
 
 form.form-search.song-search {
 	margin-bottom: 10px;
+
 }
 
 input.form-control.song-search {
 	background: #282c35;
 	color: #eee;
+}
+
+#search_box {
+	display: inline;
+	width: 550px;
 }
 
 .list-group.search-results {

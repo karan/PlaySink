@@ -21,16 +21,10 @@ block content
 					h4.rec-prompt Recommend something for 
 						a#user-likes(data-toggle="tooltip", title="Foo, Bar, Baz") someone
 					form.form-search.song-search
-						input.form-control.song-search(type="text", placeholder="Type in a song or artist...")
-						div.list-group.search-results
-							a.list-group-item.search-result(href="#") a song search found
-							a.list-group-item.search-result(href="#") a song search found
-							a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
-							a.list-group-item.search-result(href="#") a song search found
-							a.list-group-item.search-result(href="#") a song search found
-							a.list-group-item.search-result(href="#") a song search found
-							a.list-group-item.search-result(href="#") a song search found with a really, really long name that breaks out of the list
-							a.list-group-item.search-result(href="#") a song search found
+						input.form-control.song-search#search_box(type="text", placeholder="Type in a song or artist...")
+						button#search Search
+						div.list-group.search-results#results
+							
 
 				.col-sm-1
 					// thumbs up rating
@@ -91,5 +85,5 @@ block content
 									div.btn-group.pull-right
 										button.btn.btn-default(type="button", data-dismiss="modal") Cancel
 										button.btn.btn-success(type="submit", ng-disabled="updateuser.$invalid") Save
-	script(src='/socket.io/socket.io.js', type="text/javascript")
-	script(src='/javascripts/socketManager.js', type="text/javascript")
+	script(src='http://connect.soundcloud.com/sdk.js', type="text/javascript")
+	script(src='/javascripts/sound-cloud.js', type="text/javascript")
