@@ -20,6 +20,7 @@ exports.index = function(req, res){
 */
 exports.userlist = function(req, res) {
 	User.find(function(err, docs) { // docs stores the result of find
+		console.log(docs);
 		res.json({ 'title': 'User List', 'userlist': docs });
 	});
 }

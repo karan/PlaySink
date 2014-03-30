@@ -35,8 +35,31 @@ $('#search').click(function() {
 			});
 		}
 
+		insertResults(Math.min(playable.length, 10), playable);
+
+		// All the tracks should be able to play song
+		$('.tracks').click(songClick);
+			
+	});
+});
+
+/*
+	I think this is where if we want to make a quue on the backend it could
+	send other user.id, song id.
+	This gives us the information of who the song is giong to and what song to stream.
+	It isn't the most elegant way to do it but i think if we want to make it work this could
+*/
+function songClick() { 
+	stream(this.id);
+}
+
+/*
+	Inserts the playble songs into the serach 
+	results becuase angular is hard
+*/
+function insertResults(showAmount, playable) {
 		// Because fuck angular
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < showAmount; i++) {
 			var title = playable[i].title;
 			var artist = playable[i].user.username;
 			var id = playable[i].id;
@@ -44,7 +67,4 @@ $('#search').click(function() {
 						title + ' - ' + artist + '</a>';
 			$('#results').append(track);
 		}
-
-		$('.tracks').click(function() { stream(this.id); });
-	});
-});
+}
