@@ -8,10 +8,12 @@ SC.initialize({
 
 // Given the stream id it will stream the song using the sdk
 function stream(id) {
-	SC.stream("/tracks/" + id, function(sound) {
+	/*SC.stream("/tracks/" + id, function(sound) {
 			sound.play();
 			console.log('Playing song: ' + sound);
-	});
+	});*/
+	SC.Widget('sc-widget').load("http://api.soundcloud.com/tracks/" + id, {show_artwork: true});
+	SC.Widget('sc-widget').setVolume(100);
 }
 
 // Shitty search funtionality
@@ -37,8 +39,11 @@ $('#search').click(function() {
 
 		insertResults(Math.min(playable.length, 10), playable);
 
+		console.log(playable);
+
 		// All the tracks should be able to play song
 		$('.tracks').click(songClick);
+
 			
 	});
 });
