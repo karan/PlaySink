@@ -58,13 +58,14 @@ function songClick() {
 	results becuase angular is hard
 */
 function insertResults(showAmount, playable) {
-		// Because fuck angular
-		for (var i = 0; i < showAmount; i++) {
-			var title = playable[i].title;
-			var artist = playable[i].user.username;
-			var id = playable[i].id;
-			var track = '<a class="list-group-item search-result tracks" id=' + id + '>' +
-						title + ' - ' + artist + '</a>';
-			$('#results').append(track);
-		}
+	$('#results').empty();
+	// Because fuck angular
+	for (var i = 0; i < showAmount; i++) {
+		var title = playable[i].title;
+		var artist = playable[i].user.username;
+		var id = playable[i].id;
+		var track = '<a class="list-group-item search-result tracks" id=' + id + '>' +
+					title + ' - ' + artist + '</a>';
+		$('#results').append(track);
+	}
 }
