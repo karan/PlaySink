@@ -6,7 +6,8 @@
 var LocalStrategy = require('passport-local').Strategy,
 	TwitterStrategy = require('passport-twitter').Strategy,
 	GoogleStategy = require('passport-google').Strategy,
-	FacebookStrategy = require('passport-facebook').Strategy;
+	FacebookStrategy = require('passport-facebook').Strategy,
+	SoundCloudStrategry = require('passport-soundcloud').Strategy;
 
 // bring in the schema for user
 var User = require('mongoose').model('User'),
@@ -147,6 +148,34 @@ module.exports = function (passport) {
 				// Temporary username
 				username: profile.name.familyName + '_' + profile.name.givenName,
 				strategy: 'google'
+			}).save(function(err, newUser) {
+				if (err) throw err;
+				return done(null, newUser);
+			});
+		});
+	}));
+
+	// Logic for Sound Cloud strategry
+	passport.use(new SoundCloudStrategry({
+		clientID: Constants.SoundCloud.CLIENT_ID,
+		clientSecret: Constants.SoundCloud.SECRET,
+		callbackURL: Constants.SoundCloud.CALLBACK
+	},
+	function(accessToken, refreshToken, profile, done) {
+		console.log('soundcloud auth for');
+		console.log('un ' + profile._json.username);
+
+		
+		User.findOne({scId : profile.id}, function(err, oldUser) {
+			if (oldUser) return done(null, oldUser);
+			if (err) return done(err);
+
+			// If user doesn't exist create a new one
+			var newUser = new User({
+				username: profile._json.username,
+				scId: profile.id,
+				email: profile._json.username + '@sc.com',
+				strategy: 'soundcloud'
 			}).save(function(err, newUser) {
 				if (err) throw err;
 				return done(null, newUser);

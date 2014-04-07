@@ -87,9 +87,11 @@ var userSchema = new Schema({
 			lowercase: true
 		}],
 	},
+	/** possible id's for the stategy user used **/
 	twId: String,
 	openId: String,
 	fbId: String,
+	scId: String,
 	strategy: String
 });
 

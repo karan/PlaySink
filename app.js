@@ -124,6 +124,16 @@ app.get('/auth/google/callback', // Goes to dashboard if it works
         })
 );
 
+// Soundcloud auth
+app.get('/auth/soundcloud', passport.authenticate('soundcloud'));
+app.get('/auth/soundcloud/callback', // Goes to dashboard if it works
+        passport.authenticate('soundcloud',{ 
+            successRedirect: '/dashboard',
+            failureRedirect: '/signin',
+            failureFlash: 'This account seems to be in use.'
+        })
+);
+
 // user areas
 
 // account management

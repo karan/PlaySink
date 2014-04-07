@@ -13,6 +13,7 @@
 		"passport-google": "0.3.0",
 		"passport-local": "0.1.6",
 		"passport-twitter": "1.0.2",
+		"passport-soundcloud": "*",
 		"bcryptjs": "0.7.10",
 		"connect-flash": "0.1.1",
 		"async": "0.2.9",

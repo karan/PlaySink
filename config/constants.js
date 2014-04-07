@@ -29,7 +29,9 @@ var Constants = {
     },
     SoundCloud: {
         CLIENT_ID: 'edefe43facff0422cfa99623ffec3ab4',
-        SECRET: '6addbcd67ae57b6b89afd7f877126357'
+        SECRET: '6addbcd67ae57b6b89afd7f877126357',
+        CALLBACK : 'http://localhost:8888/auth/soundcloud/callback'
+
     }
 };
 
